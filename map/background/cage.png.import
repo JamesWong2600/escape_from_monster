@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b80t2p8fpcija"
-path="res://.godot/imported/character.svg-d437bb04bb42b59f80e42f8c11b3faf3.ctex"
+uid="uid://bn2poxgx0grdk"
+path="res://.godot/imported/cage.png-72d652e95472f5fed84ba069ddd4ca8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character.svg"
-dest_files=["res://.godot/imported/character.svg-d437bb04bb42b59f80e42f8c11b3faf3.ctex"]
+source_file="res://map/background/cage.png"
+dest_files=["res://.godot/imported/cage.png-72d652e95472f5fed84ba069ddd4ca8f.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

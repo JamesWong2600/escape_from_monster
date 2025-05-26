@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://borp07a0tt2gh"
-path="res://.godot/imported/2313-game style squarrel-OfficialStableDiffusionsd_xl_base_10-711786174.png-52a595a2cdd7b51129314bb7f41307b6.ctex"
+uid="uid://dk6no6i74j8tr"
+path="res://.godot/imported/lava.png-48030a30fe56793ec8eb5917bb9df7ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/2313-game style squarrel-OfficialStableDiffusionsd_xl_base_10-711786174.png"
-dest_files=["res://.godot/imported/2313-game style squarrel-OfficialStableDiffusionsd_xl_base_10-711786174.png-52a595a2cdd7b51129314bb7f41307b6.ctex"]
+source_file="res://map/obstacle/lava.png"
+dest_files=["res://.godot/imported/lava.png-48030a30fe56793ec8eb5917bb9df7ee.ctex"]
 
 [params]
 
