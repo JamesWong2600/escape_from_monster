@@ -15,7 +15,7 @@ public partial class Key1 : StaticBody2D
 	public override void _Ready()
 	{
 		GD.Print("start");
-		Key = GetParent().GetNode<Sprite2D>("StaticBody2D-key-1/Sprite2D");
+		Key = GetNode<Sprite2D>("sprite2D");
 		if (Key == null)
 		{
 			GD.Print("Key sprite not found in the parent node.");
