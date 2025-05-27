@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bt77pgnq3bycj"]
+[gd_scene load_steps=76 format=3 uid="uid://bt77pgnq3bycj"]
 
 [ext_resource type="Texture2D" uid="uid://bn2poxgx0grdk" path="res://map/background/cage.png" id="2_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://cuuu3bel5n7ih" path="res://map/background/background.png" id="2_kdubu"]
@@ -26,7 +26,21 @@
 [ext_resource type="Script" uid="uid://dber1qtjiuho1" path="res://Key7.cs" id="16_gt76g"]
 [ext_resource type="Script" uid="uid://hs30lfuoqi4r" path="res://Monster4.cs" id="16_rjqkl"]
 [ext_resource type="Script" uid="uid://bt3ginumg8qeg" path="res://Monster5.cs" id="17_fs4d3"]
+[ext_resource type="Texture2D" uid="uid://c75n2hpr4pq7k" path="res://others/sword.png" id="20_2hxjc"]
+[ext_resource type="Script" uid="uid://bjklxsxvtg1r5" path="res://Sword1.cs" id="20_540hr"]
+[ext_resource type="Script" uid="uid://b7oqqifonpjja" path="res://Sword2.cs" id="22_6ip5v"]
 [ext_resource type="Script" uid="uid://dsx84la2tfo0l" path="res://Key8.cs" id="23_gt76g"]
+[ext_resource type="Script" uid="uid://cq727cnyvmh51" path="res://Sword3.cs" id="23_q5dlx"]
+[ext_resource type="Script" uid="uid://duxi6plc27wkm" path="res://Sword4.cs" id="24_c4wnb"]
+[ext_resource type="Script" uid="uid://cxlg5vjo3s4p1" path="res://Sword5.cs" id="25_7plk7"]
+[ext_resource type="Texture2D" uid="uid://d25udbgilst1v" path="res://others/freezer.png" id="26_6ip5v"]
+[ext_resource type="Script" uid="uid://dvuvym2fko83x" path="res://Freezer1.cs" id="26_7plk7"]
+[ext_resource type="Script" uid="uid://d0ia4t5xs038v" path="res://Freezer2.cs" id="28_fbwgr"]
+[ext_resource type="Script" uid="uid://clnuoy0lc6pdn" path="res://Freezer3.cs" id="29_7mj2a"]
+[ext_resource type="Texture2D" uid="uid://nu18s528m6ww" path="res://others/boss.png" id="29_ebxd8"]
+[ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="30_2u7jv"]
+[ext_resource type="Script" uid="uid://c4wsdw3qk3c4r" path="res://Monster_boss.cs" id="30_mryly"]
+[ext_resource type="Script" uid="uid://3m8clistxjwr" path="res://Monster2.cs" id="36_fbwgr"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdubu"]
 
@@ -99,11 +113,14 @@ size = Vector2(989.996, 990.004)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2u7jv"]
 size = Vector2(1643.78, 1513.12)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vxoj"]
-size = Vector2(1135, 1130)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cnnru"]
+size = Vector2(1081.87, 975.001)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8dv2"]
 size = Vector2(1075, 1052.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vxoj"]
+size = Vector2(1832.5, 1890)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ornx7"]
 size = Vector2(1700, 1495)
@@ -117,8 +134,14 @@ size = Vector2(608.75, 548.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
 size = Vector2(219.789, 404.13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_540hr"]
+size = Vector2(216.996, 224.692)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flf07"]
-size = Vector2(212.857, 220.91)
+size = Vector2(209.54, 209.523)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ip5v"]
+size = Vector2(285.122, 280.853)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0.045, 0)
@@ -565,14 +588,14 @@ position = Vector2(-0.085, 0)
 scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/map1/tree/StaticBody2D-tree-4"]
-position = Vector2(9810.2, 10860)
+position = Vector2(12685.2, 15300)
 scale = Vector2(1.02881, 0.987305)
 texture = ExtResource("5_d21ai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map1/tree/StaticBody2D-tree-4"]
-position = Vector2(9812.7, 10850)
+position = Vector2(12679.3, 15277.5)
 scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_7vxoj")
+shape = SubResource("RectangleShape2D_cnnru")
 
 [node name="StaticBody2D-tree-5" type="StaticBody2D" parent="Control/map1/tree"]
 position = Vector2(-0.085, 0)
@@ -596,12 +619,6 @@ rotation = -0.00360049
 scale = Vector2(1.61448, 1.60804)
 texture = ExtResource("8_1fr6y")
 
-[node name="cage" type="Sprite2D" parent="Control/map2"]
-modulate = Color(0.965926, 0.950379, 0.943938, 1)
-position = Vector2(478.955, 383)
-scale = Vector2(0.613892, 0.578369)
-texture = ExtResource("2_0h7mo")
-
 [node name="rock" type="Node2D" parent="Control/map2"]
 
 [node name="StaticBody2D-rock-1" type="StaticBody2D" parent="Control/map2/rock"]
@@ -610,28 +627,14 @@ scale = Vector2(0.2, 0.2)
 physics_material_override = SubResource("PhysicsMaterial_kdubu")
 
 [node name="Sprite2D-1" type="Sprite2D" parent="Control/map2/rock/StaticBody2D-rock-1"]
-position = Vector2(-30, 20)
+position = Vector2(-2430.23, -935)
 texture = ExtResource("3_kdubu")
 
 [node name="CollisionShape2D-1" type="CollisionShape2D" parent="Control/map2/rock/StaticBody2D-rock-1"]
-position = Vector2(-15, 45)
+position = Vector2(-2435.23, -910)
 rotation = -3.14159
 scale = Vector2(10.2827, 4.53003)
 shape = SubResource("RectangleShape2D_d21ai")
-
-[node name="StaticBody2D-rock-2" type="StaticBody2D" parent="Control/map2/rock"]
-position = Vector2(1055, 772)
-scale = Vector2(0.2, 0.2)
-physics_material_override = SubResource("PhysicsMaterial_kdubu")
-
-[node name="Sprite2D-2" type="Sprite2D" parent="Control/map2/rock/StaticBody2D-rock-2"]
-position = Vector2(-3045.61, 2188.25)
-scale = Vector2(1.38747, 1.33154)
-texture = ExtResource("3_kdubu")
-
-[node name="CollisionShape2D-2" type="CollisionShape2D" parent="Control/map2/rock/StaticBody2D-rock-2"]
-position = Vector2(-3038.86, 2163.75)
-shape = SubResource("RectangleShape2D_rj586")
 
 [node name="StaticBody2D-rock-3" type="StaticBody2D" parent="Control/map2/rock"]
 position = Vector2(1055, 772)
@@ -639,12 +642,12 @@ scale = Vector2(0.2, 0.2)
 physics_material_override = SubResource("PhysicsMaterial_kdubu")
 
 [node name="Sprite2D-2" type="Sprite2D" parent="Control/map2/rock/StaticBody2D-rock-3"]
-position = Vector2(4060, 3360)
+position = Vector2(8499.78, 3375)
 scale = Vector2(1.41894, 2.89722)
 texture = ExtResource("3_kdubu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/rock/StaticBody2D-rock-3"]
-position = Vector2(4061.25, 3352.5)
+position = Vector2(8509.77, 3340)
 shape = SubResource("RectangleShape2D_ta5nu")
 
 [node name="StaticBody2D-rock-4" type="StaticBody2D" parent="Control/map2/rock"]
@@ -758,21 +761,6 @@ texture = ExtResource("3_kdubu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/rock/StaticBody2D-rock-11"]
 position = Vector2(15257.3, 5812.5)
 shape = SubResource("RectangleShape2D_24dk6")
-
-[node name="StaticBody2D-rock-12" type="StaticBody2D" parent="Control/map2/rock"]
-position = Vector2(1055, 772)
-scale = Vector2(0.2, 0.2)
-physics_material_override = SubResource("PhysicsMaterial_kdubu")
-
-[node name="Sprite2D-2" type="Sprite2D" parent="Control/map2/rock/StaticBody2D-rock-12"]
-position = Vector2(20144.7, 1078.68)
-scale = Vector2(1.46465, 1.62368)
-texture = ExtResource("3_kdubu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/rock/StaticBody2D-rock-12"]
-position = Vector2(20117.3, 1102.5)
-scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_mryly")
 
 [node name="StaticBody2D2-rock-12" type="StaticBody2D" parent="Control/map2/rock"]
 position = Vector2(1406, 786)
@@ -935,19 +923,6 @@ texture = ExtResource("5_d21ai")
 position = Vector2(24611.6, 2393.2)
 shape = SubResource("RectangleShape2D_1fr6y")
 
-[node name="StaticBody2D-tree-7" type="StaticBody2D" parent="Control/map2/tree"]
-position = Vector2(-0.085, 0)
-scale = Vector2(0.2, 0.2)
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/map2/tree/StaticBody2D-tree-7"]
-position = Vector2(25735.2, 8495)
-scale = Vector2(2.82312, 2.6272)
-texture = ExtResource("5_d21ai")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/tree/StaticBody2D-tree-7"]
-position = Vector2(25747.6, 8501.25)
-shape = SubResource("RectangleShape2D_2hxjc")
-
 [node name="StaticBody2D-tree-8" type="StaticBody2D" parent="Control/map2/tree"]
 position = Vector2(-0.085, 0)
 scale = Vector2(0.2, 0.2)
@@ -967,12 +942,12 @@ position = Vector2(-0.085, 0)
 scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/map2/tree/StaticBody2D-tree-9"]
-position = Vector2(19030.8, 5395)
+position = Vector2(17770.2, 4440)
 scale = Vector2(1.59068, 1.42096)
 texture = ExtResource("5_d21ai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/tree/StaticBody2D-tree-9"]
-position = Vector2(19033.3, 5388.44)
+position = Vector2(17750.2, 4475)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_2u7jv")
 
@@ -994,12 +969,12 @@ position = Vector2(-0.085, 0)
 scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/map2/tree/StaticBody2D-tree-4"]
-position = Vector2(9810.2, 10860)
-scale = Vector2(1.02881, 0.987305)
+position = Vector2(8845.2, 6165)
+scale = Vector2(1.75952, 1.76318)
 texture = ExtResource("5_d21ai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/tree/StaticBody2D-tree-4"]
-position = Vector2(9812.7, 10850)
+position = Vector2(8863.95, 6205)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_7vxoj")
 
@@ -1015,6 +990,11 @@ texture = ExtResource("5_d21ai")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/tree/StaticBody2D-tree-5"]
 position = Vector2(11587.6, 3425)
 shape = SubResource("RectangleShape2D_e8dv2")
+
+[node name="respawn_point" type="Sprite2D" parent="Control/map2"]
+position = Vector2(5292.96, 1770)
+scale = Vector2(0.569336, 0.540039)
+texture = ExtResource("2_0h7mo")
 
 [node name="keyset" type="Node2D" parent="Control"]
 
@@ -1147,6 +1127,124 @@ position = Vector2(23080.2, 11265)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_kq1c5")
 
+[node name="swordset" type="Node2D" parent="Control"]
+
+[node name="StaticBody2D-sword-1" type="StaticBody2D" parent="Control/swordset"]
+position = Vector2(-0.085, 0)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("20_540hr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/swordset/StaticBody2D-sword-1"]
+position = Vector2(23195.2, 24460)
+scale = Vector2(0.582764, 0.532715)
+texture = ExtResource("20_2hxjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/swordset/StaticBody2D-sword-1"]
+position = Vector2(23180.2, 24470)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kq1c5")
+
+[node name="StaticBody2D-sword-2" type="StaticBody2D" parent="Control/swordset"]
+position = Vector2(-0.085, 0)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("22_6ip5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/swordset/StaticBody2D-sword-2"]
+position = Vector2(6710.2, 20400)
+scale = Vector2(0.582764, 0.532715)
+texture = ExtResource("20_2hxjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/swordset/StaticBody2D-sword-2"]
+position = Vector2(6720.2, 20405)
+shape = SubResource("RectangleShape2D_kq1c5")
+
+[node name="StaticBody2D-sword-3" type="StaticBody2D" parent="Control/swordset"]
+position = Vector2(-0.085, 0)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("23_q5dlx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/swordset/StaticBody2D-sword-3"]
+position = Vector2(6310.2, 32290)
+scale = Vector2(0.582764, 0.532715)
+texture = ExtResource("20_2hxjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/swordset/StaticBody2D-sword-3"]
+position = Vector2(6320.2, 32295)
+shape = SubResource("RectangleShape2D_kq1c5")
+
+[node name="StaticBody2D-sword-4" type="StaticBody2D" parent="Control/swordset"]
+position = Vector2(-0.085, 0)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("24_c4wnb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/swordset/StaticBody2D-sword-4"]
+position = Vector2(16880.2, 33870)
+scale = Vector2(0.582764, 0.532715)
+texture = ExtResource("20_2hxjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/swordset/StaticBody2D-sword-4"]
+position = Vector2(16885.2, 33880)
+shape = SubResource("RectangleShape2D_kq1c5")
+
+[node name="StaticBody2D-sword-5" type="StaticBody2D" parent="Control/swordset"]
+position = Vector2(-0.085, 0)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("25_7plk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/swordset/StaticBody2D-sword-5"]
+position = Vector2(24345.2, 31885)
+scale = Vector2(0.582764, 0.532715)
+texture = ExtResource("20_2hxjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/swordset/StaticBody2D-sword-5"]
+position = Vector2(24335.2, 31875)
+shape = SubResource("RectangleShape2D_kq1c5")
+
+[node name="freezerset" type="Node2D" parent="Control"]
+
+[node name="StaticBody2D-freezer-1" type="StaticBody2D" parent="Control/freezerset"]
+position = Vector2(-0.085, 0)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("26_7plk7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/freezerset/StaticBody2D-freezer-1"]
+position = Vector2(9110.2, 5270)
+scale = Vector2(0.582764, 0.532715)
+texture = ExtResource("26_6ip5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/freezerset/StaticBody2D-freezer-1"]
+position = Vector2(9125.2, 5270)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_kq1c5")
+
+[node name="StaticBody2D-freezer-2" type="StaticBody2D" parent="Control/freezerset"]
+position = Vector2(-0.085, 0)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("28_fbwgr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/freezerset/StaticBody2D-freezer-2"]
+position = Vector2(6585.2, 7925)
+scale = Vector2(0.582764, 0.532715)
+texture = ExtResource("26_6ip5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/freezerset/StaticBody2D-freezer-2"]
+position = Vector2(6575.2, 7930)
+shape = SubResource("RectangleShape2D_kq1c5")
+
+[node name="StaticBody2D-freezer-3" type="StaticBody2D" parent="Control/freezerset"]
+position = Vector2(-0.085, 0)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("29_7mj2a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/freezerset/StaticBody2D-freezer-3"]
+position = Vector2(6310.2, 32290)
+scale = Vector2(0.582764, 0.532715)
+texture = ExtResource("20_2hxjc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/freezerset/StaticBody2D-freezer-3"]
+position = Vector2(6320.2, 32295)
+shape = SubResource("RectangleShape2D_kq1c5")
+
 [node name="character" type="CharacterBody2D" parent="Control"]
 position = Vector2(682.955, 412)
 scale = Vector2(0.15, 0.15)
@@ -1181,14 +1279,24 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_ir8iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Monster/monster-1"]
-position = Vector2(296.53, 1717.42)
-shape = SubResource("RectangleShape2D_flf07")
+position = Vector2(297.11, 1719.54)
+scale = Vector2(0.934561, 0.928922)
+shape = SubResource("RectangleShape2D_540hr")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-1"]
 
+[node name="cooldown_bar" parent="Control/Monster/monster-1" instance=ExtResource("30_2u7jv")]
+visible = false
+offset_left = 185.884
+offset_top = 1588.27
+offset_right = 402.884
+offset_bottom = 1605.27
+max_value = 15.0
+value = 15.0
+
 [node name="monster-2" type="CharacterBody2D" parent="Control/Monster"]
 scale = Vector2(1.0488, 1.01431)
-script = ExtResource("15_k73cj")
+script = ExtResource("36_fbwgr")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Monster/monster-2"]
 position = Vector2(296.53, 1720.38)
@@ -1200,6 +1308,15 @@ position = Vector2(296.53, 1717.42)
 shape = SubResource("RectangleShape2D_flf07")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-2"]
+
+[node name="cooldown_bar" parent="Control/Monster/monster-2" instance=ExtResource("30_2u7jv")]
+visible = false
+offset_left = 185.884
+offset_top = 1588.27
+offset_right = 402.884
+offset_bottom = 1605.27
+max_value = 15.0
+value = 15.0
 
 [node name="monster-3" type="CharacterBody2D" parent="Control/Monster"]
 scale = Vector2(1.0488, 1.01431)
@@ -1216,6 +1333,15 @@ shape = SubResource("RectangleShape2D_flf07")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-3"]
 
+[node name="cooldown_bar" parent="Control/Monster/monster-3" instance=ExtResource("30_2u7jv")]
+visible = false
+offset_left = 185.884
+offset_top = 1588.27
+offset_right = 402.884
+offset_bottom = 1605.27
+max_value = 15.0
+value = 15.0
+
 [node name="monster-4" type="CharacterBody2D" parent="Control/Monster"]
 scale = Vector2(1.0488, 1.01431)
 script = ExtResource("16_rjqkl")
@@ -1231,6 +1357,15 @@ shape = SubResource("RectangleShape2D_flf07")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-4"]
 
+[node name="cooldown_bar" parent="Control/Monster/monster-4" instance=ExtResource("30_2u7jv")]
+visible = false
+offset_left = 185.884
+offset_top = 1588.27
+offset_right = 402.884
+offset_bottom = 1605.27
+max_value = 15.0
+value = 15.0
+
 [node name="monster-5" type="CharacterBody2D" parent="Control/Monster"]
 scale = Vector2(1.0488, 1.01431)
 script = ExtResource("17_fs4d3")
@@ -1241,7 +1376,40 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_ir8iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Monster/monster-5"]
-position = Vector2(296.53, 1717.42)
+position = Vector2(300.3, 1722.35)
 shape = SubResource("RectangleShape2D_flf07")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-5"]
+
+[node name="cooldown_bar" parent="Control/Monster/monster-5" instance=ExtResource("30_2u7jv")]
+visible = false
+offset_left = 185.884
+offset_top = 1588.27
+offset_right = 402.884
+offset_bottom = 1605.27
+max_value = 15.0
+value = 15.0
+
+[node name="monster-boss" type="CharacterBody2D" parent="Control/Monster"]
+scale = Vector2(1.0488, 1.01431)
+script = ExtResource("30_mryly")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Monster/monster-boss"]
+position = Vector2(587.871, 4687.91)
+scale = Vector2(0.274488, 0.27151)
+texture = ExtResource("29_ebxd8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Monster/monster-boss"]
+position = Vector2(585.848, 4686.5)
+shape = SubResource("RectangleShape2D_6ip5v")
+
+[node name="Area2D" type="Area2D" parent="Control/Monster/monster-boss"]
+
+[node name="HealthBar" parent="Control/Monster/monster-boss" instance=ExtResource("30_2u7jv")]
+offset_left = 471.925
+offset_top = 4501.58
+offset_right = 704.925
+offset_bottom = 4524.58
+max_value = 5.0
+step = 1.0
+value = 5.0
