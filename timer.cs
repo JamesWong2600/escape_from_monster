@@ -3,7 +3,7 @@ using System;
 
 public partial class timer : Node
 {
-	private float countdownTime = 120f; // 120 seconds
+	private float countdownTime = 240f; // 120 seconds
 	private Label timerLabel; // Reference to a Label node to display the timer
 	private Sprite2D Gameover;
 	public override void _Ready()

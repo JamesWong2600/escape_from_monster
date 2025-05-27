@@ -11,11 +11,15 @@ public partial class Key2 : StaticBody2D
 	public int Health = 100;
 
 	private Sprite2D Key;
+	private CollisionShape2D KeyCollisionShape;
 	private Node2D player = null;
 	public override void _Ready()
 	{
-		GD.Print("start");
-		Key = GetParent().GetNode<Sprite2D>("StaticBody2D-key-2/Sprite2D");
+		GD.Print("start 2");
+		Key = GetNode<Sprite2D>("Sprite2D");
+		KeyCollisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
+		Key.Visible = false; // Hide the key if it is not found
+		KeyCollisionShape.Disabled = true; // Disable the collision shape if the key is not found
 		if (Key == null)
 		{
 			GD.Print("Key sprite not found in the parent node.");
@@ -35,7 +39,7 @@ public partial class Key2 : StaticBody2D
 	{
 		if (player != null) 
 		{
-			Key.Visible = false; // Show the key when the player is in range
+			//Key.Visible = false; // Show the key when the player is in range
 			GD.Print("Player entered the monster's area.");
 		}
 	}

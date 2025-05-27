@@ -26,12 +26,14 @@ public partial class character : CharacterBody2D
 	private float currentdelay = 0f;
 	private float currentCooldown = 0f;
 	private StaticBody2D Key;
+	private Sprite2D Next_Key;
 	private StaticBody2D Sword;
 	private StaticBody2D TheGate;
 	private StaticBody2D Freezer;
 	private CharacterBody2D The_Boss;
 	private Sprite2D A_MONSTER;
 	private CollisionShape2D Key_Collision;
+	private CollisionShape2D Next_Key_Collision;
 	private CollisionShape2D Sword_Collision;
 
 	private CollisionShape2D Freezer_Collision;
@@ -303,10 +305,22 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					GD.Print("Collided with a Key");
+					GD.Print("Collided with a Key111");
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-1");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-1/CollisionShape2D");
 					Key_Collision.Disabled = true;
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-2/Sprite2D");
+					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-2/CollisionShape2D");
+					if(Next_Key == null)
+					{
+						GD.Print("Next_Key is null, check the node path.");
+					}
+					else
+					{
+						GD.Print("Next_Key found: ", Next_Key.Name);
+					}
+					Next_Key.Visible = true;
+					Next_Key_Collision.Disabled = false;
 					KeyAmount += 1; // Increment the key amount
 					GD.Print("Key Amount: ", KeyAmount);
 					Key.Visible = false;
@@ -323,10 +337,14 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					GD.Print("Collided with a Key");
+					GD.Print("Collided with a Key 222");
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-2");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-2/CollisionShape2D");
 					Key_Collision.Disabled = true;
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-3/Sprite2D");
+					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-3/CollisionShape2D");
+					Next_Key.Visible = true;
+					Next_Key_Collision.Disabled = false;
 					KeyAmount += 1; // Increment the key amount
 					Key.Visible = false;
 					GD.Print("Key Amount: ", KeyAmount);
@@ -343,11 +361,15 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					GD.Print("Collided with a Key");
+					GD.Print("Collided with a Key 333");
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-3");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-3/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-4/Sprite2D");
+					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-4/CollisionShape2D");
+					Next_Key.Visible = true;
+					Next_Key_Collision.Disabled = false;
 					KeyAmount += 1; // Increment the key amount
 					GD.Print("Key Amount: ", KeyAmount);
 					Key_amount_label = GetParent().GetNode<Label>("Touchcontrols/Key_amount");
@@ -363,11 +385,15 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					GD.Print("Collided with a Key");
+					GD.Print("Collided with a Key 444");
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-4");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-4/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-5/Sprite2D");
+					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-5/CollisionShape2D");
+					Next_Key.Visible = true;
+					Next_Key_Collision.Disabled = false;
 					KeyAmount += 1; // Increment the key amount
 					GD.Print("Key Amount: ", KeyAmount);
 					Key_amount_label = GetParent().GetNode<Label>("Touchcontrols/Key_amount");
@@ -383,11 +409,15 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					GD.Print("Collided with a Key");
+					GD.Print("Collided with a Key 555");
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-5");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-5/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-6/Sprite2D");
+					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-6/CollisionShape2D");
+					Next_Key.Visible = true;
+					Next_Key_Collision.Disabled = false;
 					KeyAmount += 1; // Increment the key amount
 					GD.Print("Key Amount: ", KeyAmount);
 					Key_amount_label = GetParent().GetNode<Label>("Touchcontrols/Key_amount");
@@ -403,11 +433,15 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					GD.Print("Collided with a Key");
+					GD.Print("Collided with a Key 666 ");
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-6");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-6/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-7/Sprite2D");
+					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-7/CollisionShape2D");
+					Next_Key.Visible = true;
+					Next_Key_Collision.Disabled = false;
 					KeyAmount += 1; // Increment the key amount
 					GD.Print("Key Amount: ", KeyAmount);
 					Key_amount_label = GetParent().GetNode<Label>("Touchcontrols/Key_amount");
@@ -423,9 +457,11 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					GD.Print("Collided with a Key");
+					GD.Print("Collided with a Key 777 ");
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-7");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-7/CollisionShape2D");
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-8/Sprite2D");
+					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-8/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
 					KeyAmount += 1; // Increment the key amount
@@ -443,7 +479,7 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					GD.Print("Collided with a Key");
+					GD.Print("Collided with a Key 888");
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-8");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-8/CollisionShape2D");
 					Key_Collision.Disabled = true;

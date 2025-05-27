@@ -11,19 +11,15 @@ public partial class Key1 : StaticBody2D
 	public int Health = 100;
 
 	private Sprite2D Key;
+	private CollisionShape2D KeyCollisionShape;
 	private Node2D player = null;
 	public override void _Ready()
 	{
-		GD.Print("start");
-		Key = GetNode<Sprite2D>("sprite2D");
-		if (Key == null)
-		{
-			GD.Print("Key sprite not found in the parent node.");
-		}
-		else
-		{
-			GD.Print("Key founded.");
-		}
+		GD.Print("start 1");
+		Key = GetNode<Sprite2D>("Sprite2D");
+		KeyCollisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
+		Key.Visible = true; // Hide the key if it is not found
+		KeyCollisionShape.Disabled = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,7 +31,7 @@ public partial class Key1 : StaticBody2D
 	{
 		if (player != null) 
 		{
-			Key.Visible = false; // Show the key when the player is in range
+			//Key.Visible = false; // Show the key when the player is in range
 			GD.Print("Player entered the monster's area.");
 		}
 	}
