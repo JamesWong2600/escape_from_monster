@@ -11,10 +11,15 @@ position = Vector2(1171, 536)
 scale = Vector2(1.15332, 1.06836)
 texture = ExtResource("1_w0p2i")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="TouchScreenButton" parent="."]
+position = Vector2(963, 709)
+texture_normal = ExtResource("1_tjn2e")
+script = ExtResource("3_7a4el")
+
+[node name="d" type="Button" parent="."]
+visible = false
 offset_left = 904.0
 offset_top = 706.0
 offset_right = 1412.0
 offset_bottom = 914.0
 icon = ExtResource("1_tjn2e")
-script = ExtResource("3_7a4el")

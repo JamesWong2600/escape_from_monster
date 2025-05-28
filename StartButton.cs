@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class StartButton : Button
+public partial class StartButton : TouchScreenButton
 {
 
 	private Sprite2D Key;
@@ -22,7 +22,6 @@ public partial class StartButton : Button
 		GD.Print("Button pressed!");
 		Key.Visible = false;
 		Visible = false;
-		Disabled = true;
 		character.gamestart = true; // Assuming character is a globally accessible object or singleton
 		
 		// Add your logic here (e.g., start the game, load a new scene, etc.)

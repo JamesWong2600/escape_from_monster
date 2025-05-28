@@ -35,7 +35,7 @@ public partial class Sword1 : StaticBody2D
 	{
 		if (player != null) 
 		{
-			The_Sword.Visible = false;
+			//The_Sword.Visible = false;
 			GD.Print("Player entered the sword area.");
 		}
 	}
