@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://bt77pgnq3bycj"]
+[gd_scene load_steps=81 format=3 uid="uid://bt77pgnq3bycj"]
 
 [ext_resource type="Texture2D" uid="uid://bn2poxgx0grdk" path="res://map/background/cage.png" id="2_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://cuuu3bel5n7ih" path="res://map/background/background.png" id="2_kdubu"]
@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="30_2u7jv"]
 [ext_resource type="Script" uid="uid://c4wsdw3qk3c4r" path="res://Monster_boss.cs" id="30_mryly"]
 [ext_resource type="Script" uid="uid://3m8clistxjwr" path="res://Monster2.cs" id="36_fbwgr"]
+[ext_resource type="PackedScene" uid="uid://i6rhrxu08yl4" path="res://addons/simple_health_bar/health_bar2.tscn" id="42_fshgd"]
 [ext_resource type="PackedScene" uid="uid://bj7v1qjdbg7y4" path="res://main_screen.tscn" id="42_lbrxf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdubu"]
@@ -708,7 +709,6 @@ texture = ExtResource("3_kdubu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/rock/StaticBody2D-rock-6"]
 position = Vector2(2205.39, 10899.7)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fshgd")
 
 [node name="StaticBody2D-rock-7" type="StaticBody2D" parent="Control/map2/rock"]
@@ -1380,7 +1380,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_ir8iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Monster/monster-5"]
-position = Vector2(300.3, 1722.35)
+position = Vector2(297.44, 1716.44)
 shape = SubResource("RectangleShape2D_flf07")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-5"]
@@ -1410,6 +1410,7 @@ shape = SubResource("RectangleShape2D_6ip5v")
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-boss"]
 
 [node name="HealthBar" parent="Control/Monster/monster-boss" instance=ExtResource("30_2u7jv")]
+visible = false
 offset_left = 471.925
 offset_top = 4501.58
 offset_right = 704.925
@@ -1417,5 +1418,11 @@ offset_bottom = 4524.58
 max_value = 5.0
 step = 1.0
 value = 5.0
+
+[node name="HealthBar2" parent="Control/Monster/monster-boss" instance=ExtResource("42_fshgd")]
+offset_left = 453.809
+offset_top = 4507.5
+offset_right = 717.809
+offset_bottom = 4533.5
 
 [node name="main_screen" parent="Control" instance=ExtResource("42_lbrxf")]

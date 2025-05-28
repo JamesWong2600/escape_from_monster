@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhxg5ffinr5vm"]
+[gd_scene load_steps=14 format=3 uid="uid://bhxg5ffinr5vm"]
 
 [ext_resource type="Script" uid="uid://2knyc0qi3bo8" path="res://Touchcontrols.cs" id="1_7eg2a"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_j1c16"]
@@ -6,12 +6,29 @@
 [ext_resource type="Script" uid="uid://cc4s6eqq1sijx" path="res://timer.cs" id="3_0css8"]
 [ext_resource type="Texture2D" uid="uid://x8nfrqvsyr0" path="res://others/gameover.png" id="3_0oms2"]
 [ext_resource type="Texture2D" uid="uid://bu6bde3j60aqi" path="res://others/key.png" id="6_fg4fl"]
+[ext_resource type="Texture2D" uid="uid://c75n2hpr4pq7k" path="res://others/sword.png" id="6_yomt8"]
 [ext_resource type="Script" uid="uid://tei8em3fddm3" path="res://KeyAmount.cs" id="7_7tspm"]
+[ext_resource type="Texture2D" uid="uid://d25udbgilst1v" path="res://others/freezer.png" id="7_62nos"]
 [ext_resource type="Texture2D" uid="uid://y43ph6ggyu65" path="res://others/RETRY.png" id="8_e0v2y"]
 [ext_resource type="Script" uid="uid://c212w45gk3uwj" path="res://RetryButton.cs" id="9_m8wb2"]
+[ext_resource type="Texture2D" uid="uid://b017ilawbsu1m" path="res://others/grey.png" id="9_y5717"]
+[ext_resource type="Texture2D" uid="uid://cfuk1trsmyq8a" path="res://others/win_screen.png" id="10_2orme"]
 
 [node name="Touchcontrols" type="CanvasLayer"]
 script = ExtResource("1_7eg2a")
+
+[node name="bar_background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.587)
+position = Vector2(1170.5, 74.5)
+scale = Vector2(9.16471, 0.782828)
+texture = ExtResource("9_y5717")
+
+[node name="subtitle_background" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.587)
+position = Vector2(1165, 921.5)
+scale = Vector2(9.16471, 0.409091)
+texture = ExtResource("9_y5717")
 
 [node name="heart1" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.486275)
@@ -65,6 +82,20 @@ position = Vector2(1785, 69)
 scale = Vector2(0.117187, 0.119629)
 texture = ExtResource("6_fg4fl")
 
+[node name="sword_icon" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.831373)
+position = Vector2(1500, 62)
+scale = Vector2(0.117187, 0.119629)
+texture = ExtResource("6_yomt8")
+
+[node name="freezer_icon" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.831373)
+position = Vector2(1341, 63)
+scale = Vector2(0.117187, 0.119629)
+texture = ExtResource("7_62nos")
+
 [node name="Key_amount" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.760784)
 offset_left = 1866.0
@@ -75,11 +106,70 @@ scale = Vector2(7.35, 7.35)
 text = "0"
 script = ExtResource("7_7tspm")
 
+[node name="subtitle" type="Label" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.760784)
+offset_left = -7.0
+offset_top = 866.0
+offset_right = 494.0
+offset_bottom = 889.0
+scale = Vector2(4.665, 4.665)
+text = "0"
+horizontal_alignment = 1
+
 [node name="gameover" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(1177.5, 570)
 scale = Vector2(2.32324, 1.12109)
 texture = ExtResource("3_0oms2")
+
+[node name="wingame_screen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1169, 537)
+scale = Vector2(1.1377, 1.19643)
+texture = ExtResource("10_2orme")
+
+[node name="Grey" type="Sprite2D" parent="wingame_screen"]
+position = Vector2(29.4326, -225.138)
+scale = Vector2(2.84381, 1.67469)
+texture = ExtResource("9_y5717")
+
+[node name="win_game_label" type="Label" parent="wingame_screen"]
+modulate = Color(0.945313, 1, 0, 1)
+offset_left = -300.608
+offset_top = -376.119
+offset_right = -145.608
+offset_bottom = -353.119
+scale = Vector2(3.935, 3.935)
+text = "YOU WIN THE GAME"
+
+[node name="time_spent" type="Label" parent="wingame_screen"]
+modulate = Color(0.945313, 1, 0, 1)
+offset_left = -302.366
+offset_top = -305.075
+offset_right = -159.366
+offset_bottom = -256.075
+scale = Vector2(3.935, 3.935)
+text = "time spent:
+"
+
+[node name="score" type="Label" parent="wingame_screen"]
+modulate = Color(0.945313, 1, 0, 1)
+offset_left = -300.608
+offset_top = -233.194
+offset_right = -145.608
+offset_bottom = -210.194
+scale = Vector2(3.935, 3.935)
+text = "score: "
+
+[node name="bossfight" type="Label" parent="wingame_screen"]
+modulate = Color(0.945313, 1, 0, 1)
+offset_left = -303.243
+offset_top = -160.477
+offset_right = -148.243
+offset_bottom = -137.477
+scale = Vector2(3.935, 3.935)
+text = "bossfight:"
 
 [node name="Button" type="Button" parent="."]
 visible = false

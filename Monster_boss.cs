@@ -4,7 +4,7 @@ using System;
 public partial class Monster_boss : CharacterBody2D
 {
 	// Called when the node enters the scene tree for the first time.
-	private Vector2 startPosition = new Vector2(500f, 1000f);
+	public static Vector2 startPosition = new Vector2(500f, 1000f);
 
 	public float Speed = 300;
 	private Vector2 direction = Vector2.Zero;

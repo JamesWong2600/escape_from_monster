@@ -6,7 +6,9 @@ public partial class timer : Node
 	public static float countdownTime = 300f; // 120 seconds
 	private Label timerLabel; // Reference to a Label node to display the timer
 	private Sprite2D Gameover;
+
 	private Button Retrybutton;
+	public static bool Wingame = false;
 	public override void _Ready()
 	{
 		// Assuming there is a Label node as a child of this node
@@ -25,7 +27,7 @@ public partial class timer : Node
 		{
 			return;
 		}
-		else if (character.gamestart == true)
+		else if (character.gamestart == true &&  Wingame == false)
 		{
 			countdownTime -= (float)delta;
 				if (countdownTime < 0)

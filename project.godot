@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.4", "C#", "Mobile")
 
 window/size/viewport_width=2340
 window/size/viewport_height=1080
+window/vsync/vsync_mode=0
 
 [dotnet]
 
