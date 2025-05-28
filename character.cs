@@ -45,6 +45,8 @@ public partial class character : CharacterBody2D
 
 	private Button RetryButton;
 	public float KeyAmount = 0;
+	private float scoreValue = 0;
+	public static bool bossfight = false;
 	private Label Key_amount_label; // Label to display key amount
 	public int Health = 3; // Example health variable
 	public override void _Ready()
@@ -319,7 +321,8 @@ public partial class character : CharacterBody2D
 					Key_Collision.Disabled = true;
 					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-2/Sprite2D");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-2/CollisionShape2D");
-					if(Next_Key == null)
+					
+					if (Next_Key == null)
 					{
 						GD.Print("Next_Key is null, check the node path.");
 					}
@@ -468,10 +471,12 @@ public partial class character : CharacterBody2D
 					GD.Print("Collided with a Key 777 ");
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-7");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-7/CollisionShape2D");
-					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-8/Sprite2D");
-					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-8/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-8/Sprite2D");
+					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-8/CollisionShape2D");
+					Next_Key.Visible = true;
+					Next_Key_Collision.Disabled = false;
 					KeyAmount += 1; // Increment the key amount
 					GD.Print("Key Amount: ", KeyAmount);
 					Key_amount_label = GetParent().GetNode<Label>("Touchcontrols/Key_amount");
@@ -509,14 +514,49 @@ public partial class character : CharacterBody2D
 				{
 					GD.Print("Collided with a Gate");
 					TheGate = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-Gate");
-					if (KeyAmount < 7)
+					if (KeyAmount < 8)
 					{
-						GD.Print("You need 7 keys to open the gate!");
+						GD.Print("You need 8 keys to open the gate!");
 						return; // Exit if not enough keys
 					}
-					TheGate.Visible = false;
-					Position = Level2Position; // Move the character to the target position
+					//TheGate.Visible = false;
+					//Position = Level2Position; // Move the character to the target position
 					GD.Print("Key Amount: ", KeyAmount);
+					timer.Wingame = true; // Set the timer to true to start the win game timer
+					Sprite2D wingamescreen = GetNode<Sprite2D>("../Touchcontrols/wingame_screen");
+					Label time_spent = GetNode<Label>("../Touchcontrols/wingame_screen/time_spent");
+					Label score = GetNode<Label>("../Touchcontrols/wingame_screen/score");
+					Label bossfight_label = GetNode<Label>("../Touchcontrols/wingame_screen/bossfight");
+					if (wingamescreen == null)
+					{
+						GD.Print("wingamescreen is null, check the node path.");
+					}
+					else
+					{
+						GD.Print("wingamescreen found: ", wingamescreen.Name);
+					}
+					float timeremaining = timer.countdownTime;
+					GD.Print("test 53"+ timeremaining);
+					float spentTime = 300f - timeremaining;
+					String spentTimeText = "Time spent: " + spentTime.ToString("F1") + " s";
+					time_spent.Text = spentTimeText;// Display the time spent
+					GD.Print("test 56");
+					if(bossfight)
+					{
+						bossfight_label .Text = "Boss Fight: Yes"; // Display boss fight status
+					}
+					else
+					{
+						bossfight_label .Text = "Boss Fight: No"; // Display boss fight status
+					}
+					scoreValue = scoreValue + timer.countdownTime * 10;
+					String scoreText = "Score: " + scoreValue.ToString("F1");
+					score.Text = scoreText;// Display the score based on key amount
+					GD.Print("test 59");
+					wingamescreen.Visible = true; // Show the win game screen
+					Button Button = GetNode<Button>("../Touchcontrols/Button");
+					Button.Visible = true; // Show the retry button
+					Button.Disabled = false; // Enable the retry button
 					if (currentCooldown <= 0f)
 					{
 						currentCooldown = cooldownTime;
@@ -528,7 +568,7 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					if (holdingFreezer)
+					if (holdingFreezer || holdingSword)
 					{
 						GD.Print("You already have a freezer!");
 
@@ -541,6 +581,8 @@ public partial class character : CharacterBody2D
 						Freezer_Collision.Disabled = true;
 						Freezer.Visible = false;
 						holdingFreezer = true;
+						Sprite2D Freezer_icon = GetNode<Sprite2D>("../Touchcontrols/freezer_icon");
+						Freezer_icon.Visible = true; // Show the freezer icon
 						GD.Print("You are now holding a freezer!");
 						//newTexture = (Texture2D)GD.Load("res://others/Squirrel_sword.png");
 						Freezersquarrel();
@@ -556,7 +598,7 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					if (holdingFreezer)
+					if (holdingFreezer || holdingSword)
 					{
 						GD.Print("You already have a freezer!");
 					}
@@ -567,6 +609,8 @@ public partial class character : CharacterBody2D
 						Freezer_Collision = GetParent().GetNode<CollisionShape2D>("freezerset/StaticBody2D-freezer-2/CollisionShape2D");
 						Freezer_Collision.Disabled = true;
 						Freezer.Visible = false;
+						Sprite2D Freezer_icon = GetNode<Sprite2D>("../Touchcontrols/freezer_icon");
+						Freezer_icon.Visible = true;
 						holdingFreezer = true;
 						GD.Print("You are now holding a freezer!");
 						//newTexture = (Texture2D)GD.Load("res://others/Squirrel_sword.png");
@@ -583,7 +627,7 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					if (holdingFreezer)
+					if (holdingFreezer || holdingSword)
 					{
 						GD.Print("You already have a freezer!");
 					}
@@ -595,6 +639,8 @@ public partial class character : CharacterBody2D
 						Freezer_Collision.Disabled = true;
 						Freezer.Visible = false;
 						holdingFreezer = true;
+						Sprite2D Freezer_icon = GetNode<Sprite2D>("../Touchcontrols/freezer_icon");
+						Freezer_icon.Visible = true;
 						GD.Print("You are now holding a freezer!");
 						//newTexture = (Texture2D)GD.Load("res://others/Squirrel_sword.png");
 						Freezersquarrel();
@@ -610,12 +656,14 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					if (holdingSword)
+					if (holdingFreezer || holdingSword)
 					{
 						GD.Print("You already have a sword!");
 						return; // Exit if already holding a sword
 					}
 					GD.Print("Collided with a sword");
+					Sprite2D Sword_icon = GetNode<Sprite2D>("../Touchcontrols/sword_icon");
+					Sword_icon.Visible = true; // Show the freezer icon
 					Sword = GetParent().GetNode<StaticBody2D>("swordset/StaticBody2D-sword-1");
 					Sword_Collision = GetParent().GetNode<CollisionShape2D>("swordset/StaticBody2D-sword-1/CollisionShape2D");
 					Sword_Collision.Disabled = true;
@@ -635,12 +683,14 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					if (holdingSword)
+					if (holdingFreezer || holdingSword)
 					{
 						GD.Print("You already have a sword!");
 						return; // Exit if already holding a sword
 					}
 					GD.Print("Collided with a sword");
+					Sprite2D Sword_icon = GetNode<Sprite2D>("../Touchcontrols/sword_icon");
+					Sword_icon.Visible = true;
 					Sword = GetParent().GetNode<StaticBody2D>("swordset/StaticBody2D-sword-2");
 					Sword_Collision = GetParent().GetNode<CollisionShape2D>("swordset/StaticBody2D-sword-2/CollisionShape2D");
 					Sword_Collision.Disabled = true;
@@ -660,13 +710,15 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					if (holdingSword)
+					if (holdingFreezer || holdingSword)
 					{
 						GD.Print("You already have a sword!");
 						return; // Exit if already holding a sword
 					}
 					GD.Print("Collided with a sword");
 					Sword = GetParent().GetNode<StaticBody2D>("swordset/StaticBody2D-sword-3");
+					Sprite2D Sword_icon = GetNode<Sprite2D>("../Touchcontrols/sword_icon");
+					Sword_icon.Visible = true;
 					Sword_Collision = GetParent().GetNode<CollisionShape2D>("swordset/StaticBody2D-sword-3/CollisionShape2D");
 					Sword_Collision.Disabled = true;
 					Sword.Visible = false;
@@ -685,13 +737,15 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					if (holdingSword)
+					if (holdingFreezer || holdingSword)
 					{
 						GD.Print("You already have a sword!");
 						return; // Exit if already holding a sword
 					}
 					GD.Print("Collided with a sword");
 					Sword = GetParent().GetNode<StaticBody2D>("swordset/StaticBody2D-sword-4");
+					Sprite2D Sword_icon = GetNode<Sprite2D>("../Touchcontrols/sword_icon");
+					Sword_icon.Visible = true;
 					Sword_Collision = GetParent().GetNode<CollisionShape2D>("swordset/StaticBody2D-sword-4/CollisionShape2D");
 					Sword_Collision.Disabled = true;
 					Sword.Visible = false;
@@ -710,7 +764,7 @@ public partial class character : CharacterBody2D
 			{
 				if (currentCooldown <= 0f)
 				{
-					if (holdingSword)
+					if (holdingFreezer || holdingSword)
 					{
 						GD.Print("You already have a sword!");
 						return; // Exit if already holding a sword
@@ -720,6 +774,8 @@ public partial class character : CharacterBody2D
 					Sword_Collision = GetParent().GetNode<CollisionShape2D>("swordset/StaticBody2D-sword-5/CollisionShape2D");
 					Sword_Collision.Disabled = true;
 					Sword.Visible = false;
+					Sprite2D Sword_icon = GetNode<Sprite2D>("../Touchcontrols/sword_icon");
+					Sword_icon.Visible = true;
 					holdingSword = true;
 					GD.Print("You are now holding a sword!");
 					//newTexture = (Texture2D)GD.Load("res://others/Squirrel_sword.png");
@@ -786,16 +842,19 @@ public partial class character : CharacterBody2D
 	{
 		GD.Print("You attacked the boss!");
 		GD.Print("Boss health: ", Boss_health);
-		The_Boss_health = GetParent().GetNode<ProgressBar>("Monster/monster-boss/HealthBar");
+		The_Boss_health = GetParent().GetNode<ProgressBar>("Monster/monster-boss/HealthBar2");
+		Sprite2D Sword_icon = GetNode<Sprite2D>("../Touchcontrols/sword_icon");
+		Sword_icon.Visible = false;
 		The_Boss_health.Value = Boss_health; // Update the health bar value
 		GD.Print("Boss health: ", Boss_health);
 		holdingSword = false;
 		RestoreCharacterTexture();
 		if (Boss_health == 0f)
 		{
+			bossfight = true;
+			scoreValue += 500;
 			GD.Print("You defeated the boss!");
 			The_Boss = GetParent().GetNode<CharacterBody2D>("Monster/monster-boss");
-			 
 			The_Boss.Visible = false;
 		}
 	}
@@ -803,7 +862,7 @@ public partial class character : CharacterBody2D
 	{
 
 		SetHeartInvisible();
-		Position = Boss_fight_recover_Position;
+		Position = startPosition;
 		GD.Print("You need a sword to attack the boss!");
 	}
 

@@ -97,6 +97,8 @@ public partial class Monster4 : CharacterBody2D
 									Monster_currentCooldown = Monster_cooldownTime;
 									The_Monster_Cooldown_bar.Visible = true;
 									The_Monster_Cooldown_bar.Value = Monster_cooldownTime;
+									Sprite2D Freezer_icon = GetParent().GetNode<Sprite2D>("../Touchcontrols/freezer_icon");
+									Freezer_icon.Visible = false;
 									GD.Print("Monster is freezing the character. " + Monster_currentCooldown);
 									return;
 								}
