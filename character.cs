@@ -26,7 +26,7 @@ public partial class character : CharacterBody2D
 	private float currentdelay = 0f;
 	private float currentCooldown = 0f;
 	private StaticBody2D Key;
-	private Sprite2D Next_Key;
+	private StaticBody2D Next_Key;
 	private StaticBody2D Sword;
 	private StaticBody2D TheGate;
 	private StaticBody2D Freezer;
@@ -37,18 +37,19 @@ public partial class character : CharacterBody2D
 	private CollisionShape2D Sword_Collision;
 
 	private CollisionShape2D Freezer_Collision;
-	public float Boss_health = 5f;
+	public static float Boss_health = 5f;
 	private ProgressBar The_Boss_health;
-	public bool holdingSword = false; // Flag to check if the character is holding a sword
+	public static bool holdingSword = false; // Flag to check if the character is holding a sword
 	public static bool holdingFreezer = false;
 	public static bool gamestart = false;
 
-	private Button RetryButton;
-	public float KeyAmount = 0;
-	private float scoreValue = 0;
+	private bool socre_released = false; // Flag to check if score has been released
+	private TouchScreenButton RetryButton;
+	public static float KeyAmount = 0;
+	public static float scoreValue = 0;
 	public static bool bossfight = false;
 	private Label Key_amount_label; // Label to display key amount
-	public int Health = 3; // Example health variable
+	public static int Health = 3; // Example health variable
 	public override void _Ready()
 	{
 		GD.Print("Hello, Godot!");
@@ -319,7 +320,7 @@ public partial class character : CharacterBody2D
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-1");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-1/CollisionShape2D");
 					Key_Collision.Disabled = true;
-					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-2/Sprite2D");
+					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-2");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-2/CollisionShape2D");
 					
 					if (Next_Key == null)
@@ -352,7 +353,7 @@ public partial class character : CharacterBody2D
 					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-2");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-2/CollisionShape2D");
 					Key_Collision.Disabled = true;
-					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-3/Sprite2D");
+					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-3");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-3/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -377,7 +378,7 @@ public partial class character : CharacterBody2D
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-3/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
-					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-4/Sprite2D");
+					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-4");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-4/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -401,7 +402,7 @@ public partial class character : CharacterBody2D
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-4/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
-					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-5/Sprite2D");
+					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-5");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-5/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -425,7 +426,7 @@ public partial class character : CharacterBody2D
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-5/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
-					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-6/Sprite2D");
+					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-6");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-6/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -449,7 +450,7 @@ public partial class character : CharacterBody2D
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-6/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
-					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-7/Sprite2D");
+					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-7");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-7/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -473,7 +474,7 @@ public partial class character : CharacterBody2D
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-7/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
-					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-8/Sprite2D");
+					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-8");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-8/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -513,16 +514,18 @@ public partial class character : CharacterBody2D
 				if (currentCooldown <= 0f)
 				{
 					GD.Print("Collided with a Gate");
-					TheGate = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-Gate");
-					if (KeyAmount < 8)
+					TheGate = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-Gate"); // Disable the collision shape of the gate
+					if (KeyAmount < 3)
 					{
 						GD.Print("You need 8 keys to open the gate!");
 						return; // Exit if not enough keys
 					}
+					CollisionShape2D TheGate_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-Gate/CollisionShape2D");
+					TheGate_Collision.Disabled = true;
 					//TheGate.Visible = false;
 					//Position = Level2Position; // Move the character to the target position
 					GD.Print("Key Amount: ", KeyAmount);
-					timer.Wingame = true; // Set the timer to true to start the win game timer
+					Timer.Wingame = true; // Set the timer to true to start the win game timer
 					Sprite2D wingamescreen = GetNode<Sprite2D>("../Touchcontrols/wingame_screen");
 					Label time_spent = GetNode<Label>("../Touchcontrols/wingame_screen/time_spent");
 					Label score = GetNode<Label>("../Touchcontrols/wingame_screen/score");
@@ -535,28 +538,29 @@ public partial class character : CharacterBody2D
 					{
 						GD.Print("wingamescreen found: ", wingamescreen.Name);
 					}
-					float timeremaining = timer.countdownTime;
+					float timeremaining = Timer.countdownTime;
 					GD.Print("test 53"+ timeremaining);
 					float spentTime = 300f - timeremaining;
 					String spentTimeText = "Time spent: " + spentTime.ToString("F1") + " s";
 					time_spent.Text = spentTimeText;// Display the time spent
 					GD.Print("test 56");
-					if(bossfight)
+					gamestart = false; // Set gamestart to false to stop the game
+					if (bossfight)
 					{
-						bossfight_label .Text = "Boss Fight: Yes"; // Display boss fight status
+						bossfight_label.Text = "Boss Fight: Yes"; // Display boss fight status
 					}
 					else
 					{
-						bossfight_label .Text = "Boss Fight: No"; // Display boss fight status
+						bossfight_label.Text = "Boss Fight: No"; // Display boss fight status
 					}
-					scoreValue = scoreValue + timer.countdownTime * 10;
+					scoreValue = scoreValue + Timer.countdownTime * 10;
 					String scoreText = "Score: " + scoreValue.ToString("F1");
 					score.Text = scoreText;// Display the score based on key amount
 					GD.Print("test 59");
 					wingamescreen.Visible = true; // Show the win game screen
-					Button Button = GetNode<Button>("../Touchcontrols/Button");
+					TouchScreenButton Button = GetNode<TouchScreenButton>("../Touchcontrols/Button");
 					Button.Visible = true; // Show the retry button
-					Button.Disabled = false; // Enable the retry button
+					//Button.Disabled = false; // Enable the retry button
 					if (currentCooldown <= 0f)
 					{
 						currentCooldown = cooldownTime;
@@ -666,7 +670,7 @@ public partial class character : CharacterBody2D
 					Sword_icon.Visible = true; // Show the freezer icon
 					Sword = GetParent().GetNode<StaticBody2D>("swordset/StaticBody2D-sword-1");
 					Sword_Collision = GetParent().GetNode<CollisionShape2D>("swordset/StaticBody2D-sword-1/CollisionShape2D");
-					Sword_Collision.Disabled = true;
+					Sword_Collision.Disabled = true;//
 					Sword.Visible = false;
 					holdingSword = true;
 					GD.Print("You are now holding a sword!");
@@ -855,6 +859,12 @@ public partial class character : CharacterBody2D
 			scoreValue += 500;
 			GD.Print("You defeated the boss!");
 			The_Boss = GetParent().GetNode<CharacterBody2D>("Monster/monster-boss");
+			CollisionShape2D The_Boss_Collision = GetParent().GetNode<CollisionShape2D>("Monster/monster-boss/CollisionShape2D");
+			if (The_Boss_Collision == null)
+			{
+				GD.Print("The_Boss_Collision is null, check the node path.");
+			}
+			The_Boss_Collision.Disabled = true; // Disable the collision shape of the boss
 			The_Boss.Visible = false;
 		}
 	}
@@ -901,7 +911,7 @@ public partial class character : CharacterBody2D
 		characterSprite.Texture = GD.Load<Texture2D>("res://character/Squirrel_sword.png"); // Set the new texture
 		GD.Print("Character texture changed successfully.");
 	}
-   	private void RestoreCharacterTexture()
+   	public void RestoreCharacterTexture()
    {
 		Sprite2D characterSprite = GetNodeOrNull<Sprite2D>("Sprite2D"); // Adjust the path to your character's Sprite2D node
 		if (characterSprite == null)
@@ -948,9 +958,8 @@ public partial class character : CharacterBody2D
 			heart3.Visible = false; // Ensure the sprite is visible
 			GD.Print("Heart3 is now invisible: ", heart3.Visible);
 			gameover.Visible = true; // Show the game over sprite
-			RetryButton = GetParent().GetNode<Button>("Touchcontrols/Button");
+			RetryButton = GetParent().GetNode<TouchScreenButton>("Touchcontrols/Button");
 			RetryButton.Visible = true; // Show the retry button
-			RetryButton.Disabled = false; // Enable the retry button
 			GD.Print("Game Over! You have no hearts left.");
 			return;
 

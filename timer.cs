@@ -1,20 +1,20 @@
 using Godot;
 using System;
 
-public partial class timer : Node
+public partial class Timer : Node
 {
 	public static float countdownTime = 300f; // 120 seconds
 	private Label timerLabel; // Reference to a Label node to display the timer
 	private Sprite2D Gameover;
 
-	private Button Retrybutton;
+	private TouchScreenButton Retrybutton;
 	public static bool Wingame = false;
 	public override void _Ready()
 	{
 		// Assuming there is a Label node as a child of this node
 		timerLabel = GetNode<Label>("Label");
 		Gameover = GetParent().GetNode<Sprite2D>("gameover");
-		Retrybutton = GetParent().GetNode<Button>("Button");
+		Retrybutton = GetParent().GetNode<TouchScreenButton>("Button");
 		GD.Print("Timer started with " + countdownTime + " seconds.");
 		UpdateTimerLabel();
 	}
@@ -35,7 +35,7 @@ public partial class timer : Node
 					countdownTime = 0;
 					GD.Print("Time's up! Game over.");
 					Gameover.Visible = true;
-					Retrybutton.Disabled = false; // Enable the retry button
+					//Retrybutton.Disabled = false; // Enable the retry button
 					Retrybutton.Visible = true;
 		 	}      // Show the game over sprite when time runs out
 		}
