@@ -3,7 +3,7 @@ using System;
 
 public partial class character : CharacterBody2D
 {
-	private Vector2 startPosition = new Vector2(1180, 510);
+	public static Vector2 startPosition = new Vector2(-5, 210);
 	private Vector2 targetPosition = new Vector2(1000, 0);
 	private Vector2 Boss_fight_recover_Position = new Vector2(5000f, 5000f);
 	private Vector2 Level2Position = new Vector2(4500, 3892);
@@ -41,7 +41,9 @@ public partial class character : CharacterBody2D
 	private ProgressBar The_Boss_health;
 	public bool holdingSword = false; // Flag to check if the character is holding a sword
 	public static bool holdingFreezer = false;
+	public static bool gamestart = false;
 
+	private Button RetryButton;
 	public float KeyAmount = 0;
 	private Label Key_amount_label; // Label to display key amount
 	public int Health = 3; // Example health variable
@@ -111,20 +113,26 @@ public partial class character : CharacterBody2D
 
 		Vector2 direction = Vector2.Zero;
 
-		if (Input.IsActionPressed("right"))
-			direction.X += 1;
-		if (Input.IsActionPressed("left"))
-			direction.X -= 1;
-		if (Input.IsActionPressed("down"))
-			direction.Y += 1;
-		if (Input.IsActionPressed("up"))
-			direction.Y -= 1;
+		if (gamestart == false)
+		{
+			return;
+		}
+		else if (gamestart == true)
+		{
+			if (Input.IsActionPressed("right"))
+				direction.X += 1;
+			if (Input.IsActionPressed("left"))
+				direction.X -= 1;
+			if (Input.IsActionPressed("down"))
+				direction.Y += 1;
+			if (Input.IsActionPressed("up"))
+				direction.Y -= 1;
 
-		direction = direction.Normalized();
-		Velocity = direction * Speed;
+			direction = direction.Normalized();
+			Velocity = direction * Speed;
 
-		MoveAndSlide();  // Moves and checks collisions internally
-
+			MoveAndSlide();  // Moves and checks collisions internally
+		}
 		int collisionCount = GetSlideCollisionCount();
 		for (int i = 0; i < collisionCount; i++)
 		{
@@ -881,6 +889,10 @@ public partial class character : CharacterBody2D
 			heart3.Visible = false; // Ensure the sprite is visible
 			GD.Print("Heart3 is now invisible: ", heart3.Visible);
 			gameover.Visible = true; // Show the game over sprite
+			RetryButton = GetParent().GetNode<Button>("Touchcontrols/Button");
+			RetryButton.Visible = true; // Show the retry button
+			RetryButton.Disabled = false; // Enable the retry button
+			GD.Print("Game Over! You have no hearts left.");
 			return;
 
 		}

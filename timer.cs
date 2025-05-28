@@ -3,14 +3,16 @@ using System;
 
 public partial class timer : Node
 {
-	private float countdownTime = 240f; // 120 seconds
+	public static float countdownTime = 300f; // 120 seconds
 	private Label timerLabel; // Reference to a Label node to display the timer
 	private Sprite2D Gameover;
+	private Button Retrybutton;
 	public override void _Ready()
 	{
 		// Assuming there is a Label node as a child of this node
 		timerLabel = GetNode<Label>("Label");
 		Gameover = GetParent().GetNode<Sprite2D>("gameover");
+		Retrybutton = GetParent().GetNode<Button>("Button");
 		GD.Print("Timer started with " + countdownTime + " seconds.");
 		UpdateTimerLabel();
 	}
@@ -19,13 +21,22 @@ public partial class timer : Node
 	{
 		if (countdownTime > 0)
 		{
+		if (character.gamestart == false)
+		{
+			return;
+		}
+		else if (character.gamestart == true)
+		{
 			countdownTime -= (float)delta;
-			if (countdownTime < 0) { 
-				countdownTime = 0;
-				GD.Print("Time's up! Game over.");
-				Gameover.Visible = true;
+				if (countdownTime < 0)
+				{
+					countdownTime = 0;
+					GD.Print("Time's up! Game over.");
+					Gameover.Visible = true;
+					Retrybutton.Disabled = false; // Enable the retry button
+					Retrybutton.Visible = true;
 		 	}      // Show the game over sprite when time runs out
-
+		}
 
 			UpdateTimerLabel();
 		}

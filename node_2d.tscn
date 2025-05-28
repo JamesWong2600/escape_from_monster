@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://bt77pgnq3bycj"]
+[gd_scene load_steps=80 format=3 uid="uid://bt77pgnq3bycj"]
 
 [ext_resource type="Texture2D" uid="uid://bn2poxgx0grdk" path="res://map/background/cage.png" id="2_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://cuuu3bel5n7ih" path="res://map/background/background.png" id="2_kdubu"]
@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="30_2u7jv"]
 [ext_resource type="Script" uid="uid://c4wsdw3qk3c4r" path="res://Monster_boss.cs" id="30_mryly"]
 [ext_resource type="Script" uid="uid://3m8clistxjwr" path="res://Monster2.cs" id="36_fbwgr"]
+[ext_resource type="PackedScene" uid="uid://bj7v1qjdbg7y4" path="res://main_screen.tscn" id="42_lbrxf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdubu"]
 
@@ -119,6 +120,9 @@ size = Vector2(1081.87, 975.001)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e8dv2"]
 size = Vector2(1075, 1052.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fshgd"]
+size = Vector2(1038.76, 1960.63)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbwgr"]
 size = Vector2(7832.56, 1981.25)
 
@@ -151,6 +155,12 @@ size = Vector2(285.122, 280.853)
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0.045, 0)
+
+[node name="main_menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -697,8 +707,9 @@ scale = Vector2(1.00076, 1.84377)
 texture = ExtResource("3_kdubu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/rock/StaticBody2D-rock-6"]
-position = Vector2(2209.83, 10867.5)
-shape = SubResource("RectangleShape2D_k73cj")
+position = Vector2(2205.39, 10899.7)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fshgd")
 
 [node name="StaticBody2D-rock-7" type="StaticBody2D" parent="Control/map2/rock"]
 position = Vector2(1055, 772)
@@ -1230,12 +1241,12 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("29_7mj2a")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/freezerset/StaticBody2D-freezer-3"]
-position = Vector2(6310.2, 32290)
+position = Vector2(9325.2, 30520)
 scale = Vector2(0.582764, 0.532715)
-texture = ExtResource("20_2hxjc")
+texture = ExtResource("26_6ip5v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/freezerset/StaticBody2D-freezer-3"]
-position = Vector2(6320.2, 32295)
+position = Vector2(9335.2, 30520)
 shape = SubResource("RectangleShape2D_kq1c5")
 
 [node name="character" type="CharacterBody2D" parent="Control"]
@@ -1406,3 +1417,5 @@ offset_bottom = 4524.58
 max_value = 5.0
 step = 1.0
 value = 5.0
+
+[node name="main_screen" parent="Control" instance=ExtResource("42_lbrxf")]
