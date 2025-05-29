@@ -22,7 +22,7 @@ public partial class StartButton : TouchScreenButton
 		GD.Print("Button pressed!");
 		Key.Visible = false;
 		Visible = false;
-		character.gamestart = true; // Assuming character is a globally accessible object or singleton
+		Character.gamestart = true; // Assuming character is a globally accessible object or singleton
 		
 		// Add your logic here (e.g., start the game, load a new scene, etc.)
 	}

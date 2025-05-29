@@ -23,11 +23,11 @@ public partial class Timer : Node
 	{
 		if (countdownTime > 0)
 		{
-		if (character.gamestart == false)
+		if (Character.gamestart == false)
 		{
 			return;
 		}
-		else if (character.gamestart == true &&  Wingame == false)
+		else if (Character.gamestart == true &&  Wingame == false)
 		{
 			countdownTime -= (float)delta;
 				if (countdownTime < 0)
