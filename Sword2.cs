@@ -14,16 +14,15 @@ public partial class Sword2 : StaticBody2D
 	private Node2D player = null;
 	public override void _Ready()
 	{
-		GD.Print("start");
-		The_Sword = GetNode<Sprite2D>("sprite2D");
-		if (The_Sword == null)
-		{
-			GD.Print("Sword sprite not found in the parent node.");
-		}
-		else
-		{
-			GD.Print("Sword founded.");
-		}
+		//The_Sword = GetNode<Sprite2D>("sprite2D");
+		//if (The_Sword == null)
+		//{
+		//	GD.Print("Sword sprite not found in the parent node.");
+		//}
+		//else
+		//{
+		//	GD.Print("Sword founded.");
+		//}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
