@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bn2poxgx0grdk" path="res://map/background/cage.png" id="2_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://cuuu3bel5n7ih" path="res://map/background/background.png" id="2_kdubu"]
-[ext_resource type="Script" uid="uid://bjenbak5by2uw" path="res://character.cs" id="3_epypp"]
 [ext_resource type="Texture2D" uid="uid://23mkukac2gtd" path="res://map/obstacle/rock.png" id="3_kdubu"]
 [ext_resource type="PackedScene" uid="uid://bhxg5ffinr5vm" path="res://touchcontrols.tscn" id="4_0hol4"]
 [ext_resource type="Texture2D" uid="uid://borp07a0tt2gh" path="res://character/squarrel.png" id="4_kdubu"]
@@ -39,6 +38,7 @@
 [ext_resource type="Script" uid="uid://clnuoy0lc6pdn" path="res://Freezer3.cs" id="29_7mj2a"]
 [ext_resource type="Texture2D" uid="uid://nu18s528m6ww" path="res://others/boss.png" id="29_ebxd8"]
 [ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="30_2u7jv"]
+[ext_resource type="Script" uid="uid://b4iec5i015psl" path="res://Character.cs" id="30_fshgd"]
 [ext_resource type="Script" uid="uid://c4wsdw3qk3c4r" path="res://Monster_boss.cs" id="30_mryly"]
 [ext_resource type="Script" uid="uid://3m8clistxjwr" path="res://Monster2.cs" id="36_fbwgr"]
 [ext_resource type="PackedScene" uid="uid://i6rhrxu08yl4" path="res://addons/simple_health_bar/health_bar2.tscn" id="42_fshgd"]
@@ -1252,7 +1252,7 @@ shape = SubResource("RectangleShape2D_kq1c5")
 [node name="character" type="CharacterBody2D" parent="Control"]
 position = Vector2(682.955, 412)
 scale = Vector2(0.15, 0.15)
-script = ExtResource("3_epypp")
+script = ExtResource("30_fshgd")
 
 [node name="Camera2D" type="Camera2D" parent="Control/character"]
 position = Vector2(3239.37, 813.333)

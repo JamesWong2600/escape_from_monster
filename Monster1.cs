@@ -14,7 +14,7 @@ public partial class Monster1 : CharacterBody2D
 	private Node2D player = null;
 	private bool IsFreeze = false;
 	private float Monster_cooldownTime = 15.0f; // Cooldown duration in seconds
-	private float Monster_currentCooldown = 0.0f; 
+	public static float Monster_currentCooldown = 0.0f; 
 	private float cooldownTime = 1.0f; // Cooldown duration in seconds
 	private float currentCooldown = 0.0f; 
 	private Sprite2D Monster_texture;
@@ -29,11 +29,11 @@ public partial class Monster1 : CharacterBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (character.gamestart == false)
+		if (Character.gamestart == false)
 		{
 			return;
 		}
-		else if (character.gamestart == true && alreadystarted == false)
+		else if (Character.gamestart == true && alreadystarted == false)
 		{ 
 			Position = startPosition;
 			rng.Randomize();
@@ -44,11 +44,11 @@ public partial class Monster1 : CharacterBody2D
 	}
 	public override void _PhysicsProcess(double delta)
 	{
-		if (character.gamestart == false)
+		if (Character.gamestart == false)
 		{
 			return;
 		}
-		else if (character.gamestart == true)
+		else if (Character.gamestart == true)
 		{
 			if (Monster_currentCooldown > 0f)
 			{
@@ -68,26 +68,26 @@ public partial class Monster1 : CharacterBody2D
 			}
 			if (Monster_currentCooldown <= 0f)
 			{
-				//character.holdingFreezer = false;
+				//Character.holdingFreezer = false;
 				//PickNewDirection(); // Change direction on collision
 				Monster_currentCooldown = 0;
 				Vector2 velocity = direction * Speed;
 				KinematicCollision2D collision = MoveAndCollide(velocity * (float)delta);
-				Node collider = (Node)collision.GetCollider();
 				if (collision != null)
 				{
+					Node collider = (Node)collision.GetCollider();
 					if (collider is CharacterBody2D collidcharacter) // Check if the collider is the character
 					{
-						//GD.Print("mymy " + collidcharacter.Name);
+						//GD.Print("mymy " + collidCharacter.Name);
 						if (collidcharacter.Name == "character")
 						{
 							GD.Print(collidcharacter.Name);
 							if (Monster_currentCooldown == 0f)
 							{
 
-								if (character.holdingFreezer)
+								if (Character.holdingFreezer)
 								{
-									character.holdingFreezer = false;
+									Character.holdingFreezer = false;
 									IsFreeze = true;
 									MonsterCharacterTexture();
 									RestoreCharacterTexture();

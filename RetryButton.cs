@@ -13,7 +13,7 @@ public partial class RetryButton : TouchScreenButton
 	private CharacterBody2D monster4;
 	private CharacterBody2D monster5;
 
-	private StaticBody2D key1;
+	private Sprite2D key1;
 	private Sprite2D key2;
 	private Sprite2D key3;
 	private Sprite2D key4;
@@ -53,10 +53,10 @@ public partial class RetryButton : TouchScreenButton
 		GD.Print("Button pressed!");
 		Background.Visible = false;
 		Visible = false;
-		character.gamestart = true; // Assuming character is a globally accessible object or singleton
+		Character.gamestart = true; // Assuming character is a globally accessible object or singleton
 		Timer.countdownTime = 300f;
 		thecharacter = GetParent().GetParent().GetNode<CharacterBody2D>("character");
-		thecharacter.Position = character.startPosition;
+		thecharacter.Position = Character.startPosition;
 		monster1 = GetParent().GetParent().GetNode<CharacterBody2D>("Monster/monster-1");
 		monster2 = GetParent().GetParent().GetNode<CharacterBody2D>("Monster/monster-2");
 		monster3 = GetParent().GetParent().GetNode<CharacterBody2D>("Monster/monster-3");
@@ -96,7 +96,7 @@ public partial class RetryButton : TouchScreenButton
 		}
 		GD.Print("Monsters found and reset.");
 		RestoreCharacterTexture();
-		key1 = GetParent().GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-1");
+		key1 = GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-1/Sprite2D");
 		key1_collisionShape = GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-1/CollisionShape2D");
 		/*key2 = GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-2/Sprite2D");
 		key2_collisionShape = GetParent().GetParent().GetNode<CollisionShapekeyset/StaticBody2D-key-2/CollisionShape2D");
@@ -139,7 +139,12 @@ public partial class RetryButton : TouchScreenButton
 		gate_collisionShape.Disabled = false; // Enable the gate collision shape
 		freezer_icon.Visible = false; // Show the freezer icon
 		sword_icon.Visible = false; // Show the sword icon
-		character.Health = 3; // Reset character health to 3
+		Character.Health = 3; // Reset character health to 3
+		Monster1.Monster_currentCooldown = 0f; // Reset monster cooldown
+		Monster2.Monster_currentCooldown = 0f; // Reset monster cooldown
+		Monster3.Monster_currentCooldown = 0f; // Reset monster cooldown
+		Monster4.Monster_currentCooldown = 0f; // Reset monster cooldown
+		Monster5.Monster_currentCooldown = 0f; // Reset monster cooldown
 		if (heart1 == null || heart2 == null || heart3 == null)
 		{
 			GD.Print("One or more hearts are not found in the parent node.");
@@ -150,8 +155,8 @@ public partial class RetryButton : TouchScreenButton
 		heart2.Visible = true; // Show the second heart
 		heart3.Visible = true; // Show the third heart
 		key_amount.Text = "0"; // Update the key amount label
-		character.Boss_health = 5f;
-		character.scoreValue = 0; // Reset the score value
+		Character.Boss_health = 5f;
+		Character.scoreValue = 0; // Reset the score value
 		if (freezer1 == null || freezer2 == null || freezer3 == null)
 		{
 			GD.Print("One or more freezers are not found in the parent node.");
@@ -166,7 +171,7 @@ public partial class RetryButton : TouchScreenButton
 		freezer3_collisionShape.Disabled = false;
 		Timer.Wingame = false; // Reset the game state
 		Sprite2D win_screen = GetParent().GetNode<Sprite2D>("wingame_screen");
-		character.KeyAmount = 0; // Reset the key count
+		Character.KeyAmount = 0; // Reset the key count
 		if (win_screen != null)
 		{
 			GD.Print("Win screen not found in the parent node.");
@@ -181,8 +186,8 @@ public partial class RetryButton : TouchScreenButton
 		monster3.Position = Monster3.startPosition;
 		monster4.Position = Monster4.startPosition;
 		monster5.Position = Monster5.startPosition;
-		character.holdingFreezer = false;
-		character.holdingSword = false; // Reset the holding freezer state
+		Character.holdingFreezer = false;
+		Character.holdingSword = false; // Reset the holding freezer state
 		StaticBody2D Sword_1 = GetParent().GetParent().GetNode<StaticBody2D>("swordset/StaticBody2D-sword-1");
 		CollisionShape2D Sword_1_Collision = GetParent().GetParent().GetNode<CollisionShape2D>("swordset/StaticBody2D-sword-1/CollisionShape2D");
 		Sword_1_Collision.Disabled = false;

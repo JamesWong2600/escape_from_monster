@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class character : CharacterBody2D
+public partial class Character : CharacterBody2D
 {
 	public static Vector2 startPosition = new Vector2(-5, 210);
 	private Vector2 targetPosition = new Vector2(1000, 0);
@@ -25,8 +25,8 @@ public partial class character : CharacterBody2D
 	private float delayTime = 1f; // seconds
 	private float currentdelay = 0f;
 	private float currentCooldown = 0f;
-	private StaticBody2D Key;
-	private StaticBody2D Next_Key;
+	private Sprite2D Key;
+	private Sprite2D Next_Key;
 	private StaticBody2D Sword;
 	private StaticBody2D TheGate;
 	private StaticBody2D Freezer;
@@ -317,10 +317,10 @@ public partial class character : CharacterBody2D
 				if (currentCooldown <= 0f)
 				{
 					GD.Print("Collided with a Key111");
-					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-1");
+					Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-1/Sprite2D");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-1/CollisionShape2D");
 					Key_Collision.Disabled = true;
-					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-2");
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-2/Sprite2D");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-2/CollisionShape2D");
 					
 					if (Next_Key == null)
@@ -350,10 +350,10 @@ public partial class character : CharacterBody2D
 				if (currentCooldown <= 0f)
 				{
 					GD.Print("Collided with a Key 222");
-					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-2");
+					Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-2/Sprite2D");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-2/CollisionShape2D");
 					Key_Collision.Disabled = true;
-					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-3");
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-3/Sprite2D");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-3/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -374,11 +374,11 @@ public partial class character : CharacterBody2D
 				if (currentCooldown <= 0f)
 				{
 					GD.Print("Collided with a Key 333");
-					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-3");
+					Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-3/Sprite2D");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-3/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
-					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-4");
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-4/Sprite2D");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-4/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -398,11 +398,11 @@ public partial class character : CharacterBody2D
 				if (currentCooldown <= 0f)
 				{
 					GD.Print("Collided with a Key 444");
-					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-4");
+					Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-4/Sprite2D");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-4/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
-					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-5");
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-5/Sprite2D");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-5/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -422,11 +422,11 @@ public partial class character : CharacterBody2D
 				if (currentCooldown <= 0f)
 				{
 					GD.Print("Collided with a Key 555");
-					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-5");
+					Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-5/Sprite2D");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-5/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
-					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-6");
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-6/Sprite2D");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-6/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -446,11 +446,11 @@ public partial class character : CharacterBody2D
 				if (currentCooldown <= 0f)
 				{
 					GD.Print("Collided with a Key 666 ");
-					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-6");
+					Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-6/Sprite2D");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-6/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
-					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-7");
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-7/Sprite2D");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-7/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -470,11 +470,11 @@ public partial class character : CharacterBody2D
 				if (currentCooldown <= 0f)
 				{
 					GD.Print("Collided with a Key 777 ");
-					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-7");
+					Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-7/Sprite2D");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-7/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
-					Next_Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-8");
+					Next_Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-8/Sprite2D");
 					Next_Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-8/CollisionShape2D");
 					Next_Key.Visible = true;
 					Next_Key_Collision.Disabled = false;
@@ -494,7 +494,7 @@ public partial class character : CharacterBody2D
 				if (currentCooldown <= 0f)
 				{
 					GD.Print("Collided with a Key 888");
-					Key = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-key-8");
+					Key = GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-8/Sprite2D");
 					Key_Collision = GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-8/CollisionShape2D");
 					Key_Collision.Disabled = true;
 					Key.Visible = false;
@@ -515,7 +515,7 @@ public partial class character : CharacterBody2D
 				{
 					GD.Print("Collided with a Gate");
 					TheGate = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-Gate"); // Disable the collision shape of the gate
-					if (KeyAmount < 3)
+					if (KeyAmount < 8)
 					{
 						GD.Print("You need 8 keys to open the gate!");
 						return; // Exit if not enough keys
