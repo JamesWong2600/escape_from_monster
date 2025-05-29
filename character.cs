@@ -59,7 +59,8 @@ public partial class Character : CharacterBody2D
 		var cam = GetNode<Camera2D>("Camera2D");
 		cam.MakeCurrent();
 		GD.Print("Camera is now current.");
-
+		//AnimationPlayer animationPlayer = GetNode<AnimationPlayer>("../Key_SubViewport/Node3D/AnimationPlayer");
+		//animationPlayer.Play("new_animation"); 
 		heart1 = GetNode<Sprite2D>("../Touchcontrols/heart1");
 		heart2 = GetNode<Sprite2D>("../Touchcontrols/heart2");
 		heart3 = GetNode<Sprite2D>("../Touchcontrols/heart3");
