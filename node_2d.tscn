@@ -1,9 +1,8 @@
-[gd_scene load_steps=197 format=3 uid="uid://bt77pgnq3bycj"]
+[gd_scene load_steps=196 format=3 uid="uid://bt77pgnq3bycj"]
 
 [ext_resource type="Texture2D" uid="uid://bn2poxgx0grdk" path="res://map/background/cage.png" id="2_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://cuuu3bel5n7ih" path="res://map/background/background.png" id="2_kdubu"]
 [ext_resource type="PackedScene" uid="uid://bhxg5ffinr5vm" path="res://touchcontrols.tscn" id="4_0hol4"]
-[ext_resource type="Texture2D" uid="uid://borp07a0tt2gh" path="res://character/squarrel.png" id="4_kdubu"]
 [ext_resource type="Script" uid="uid://bb3eqx355awob" path="res://Camera2d.cs" id="5_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://dk6no6i74j8tr" path="res://map/obstacle/lava.png" id="5_rj586"]
 [ext_resource type="Texture2D" uid="uid://cqrymfnac5bim" path="res://map/background/background_sand.png" id="8_1fr6y"]
@@ -34,7 +33,7 @@
 [ext_resource type="Script" uid="uid://clnuoy0lc6pdn" path="res://Freezer3.cs" id="29_7mj2a"]
 [ext_resource type="Texture2D" uid="uid://nu18s528m6ww" path="res://others/boss.png" id="29_ebxd8"]
 [ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="30_2u7jv"]
-[ext_resource type="Script" uid="uid://dvuy1g2y7nvd5" path="res://Character.cs" id="30_fshgd"]
+[ext_resource type="Script" uid="uid://cejfuc2u2va7j" path="res://Character.cs" id="30_fshgd"]
 [ext_resource type="Script" uid="uid://c4wsdw3qk3c4r" path="res://Monster_boss.cs" id="30_mryly"]
 [ext_resource type="Script" uid="uid://3m8clistxjwr" path="res://Monster2.cs" id="36_fbwgr"]
 [ext_resource type="PackedScene" uid="uid://i6rhrxu08yl4" path="res://addons/simple_health_bar/health_bar2.tscn" id="42_fshgd"]
@@ -162,7 +161,7 @@ size = Vector2(739.995, 1073.59)
 viewport_path = NodePath("Control/Tree_SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hxjc"]
-size = Vector2(1952.58, 2661.25)
+size = Vector2(1742.59, 2661.25)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ma08v"]
 viewport_path = NodePath("Control/Tree_SubViewport")
@@ -380,142 +379,6 @@ size = Vector2(590, 545.625)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kejda"]
 size = Vector2(599.998, 519.995)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
-size = Vector2(219.789, 404.13)
-
-[sub_resource type="Animation" id="Animation_lbrxf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer:active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_fshgd"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer:active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xjt7e"]
-_data = {
-&"RESET": SubResource("Animation_lbrxf"),
-&"new_animation": SubResource("Animation_fshgd")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_540hr"]
-size = Vector2(216.996, 224.692)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_flf07"]
-size = Vector2(209.54, 209.523)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ip5v"]
-size = Vector2(285.122, 280.853)
-
-[sub_resource type="Animation" id="Animation_0xo8l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("key:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_xjt7e"]
-resource_name = "new_animation"
-length = 4.0
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("key")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("key:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.99, 1.5, 1.99463, 2.0002, 2.50081, 3.00867, 3.49366, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0), Vector3(0, 4.71239, 0), Vector3(0, 6.28319, 0), Vector3(0, -6.28319, 0), Vector3(0, -4.71239, 0), Vector3(0, -3.14159, 0), Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0xo8l"]
-_data = {
-&"RESET": SubResource("Animation_0xo8l"),
-&"new_animation": SubResource("Animation_xjt7e")
-}
-
-[sub_resource type="Animation" id="Animation_ma08v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sword:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-8.74228e-08, -1.93732, 3.14159)]
-}
-
-[sub_resource type="Animation" id="Animation_b8fb0"]
-resource_name = "new_animation"
-length = 4.0
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("sword")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sword:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, -6.28319, 0), Vector3(0, -4.71239, 0), Vector3(0, -3.14159, 0), Vector3(0, -1.5708, 0), Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0), Vector3(0, 4.71239, 0), Vector3(0, 6.28319, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ma08v"]
-_data = {
-&"RESET": SubResource("Animation_ma08v"),
-&"new_animation": SubResource("Animation_b8fb0")
-}
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_akb8o"]
 atlas = ExtResource("53_2v765")
 region = Rect2(0, 0, 32, 32)
@@ -691,7 +554,143 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whnp6"]
-size = Vector2(20.5805, 21.4678)
+size = Vector2(89.1049, 101.378)
+
+[sub_resource type="Animation" id="Animation_lbrxf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer:active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fshgd"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer:active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xjt7e"]
+_data = {
+&"RESET": SubResource("Animation_lbrxf"),
+&"new_animation": SubResource("Animation_fshgd")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+size = Vector2(183.747, 380.362)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_540hr"]
+size = Vector2(216.996, 224.692)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flf07"]
+size = Vector2(209.54, 209.523)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ip5v"]
+size = Vector2(285.122, 280.853)
+
+[sub_resource type="Animation" id="Animation_0xo8l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("key:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xjt7e"]
+resource_name = "new_animation"
+length = 4.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("key")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("key:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.99, 1.5, 1.99463, 2.0002, 2.50081, 3.00867, 3.49366, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0), Vector3(0, 4.71239, 0), Vector3(0, 6.28319, 0), Vector3(0, -6.28319, 0), Vector3(0, -4.71239, 0), Vector3(0, -3.14159, 0), Vector3(0, -1.5708, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0xo8l"]
+_data = {
+&"RESET": SubResource("Animation_0xo8l"),
+&"new_animation": SubResource("Animation_xjt7e")
+}
+
+[sub_resource type="Animation" id="Animation_ma08v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-8.74228e-08, -1.93732, 3.14159)]
+}
+
+[sub_resource type="Animation" id="Animation_b8fb0"]
+resource_name = "new_animation"
+length = 4.0
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("sword")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -6.28319, 0), Vector3(0, -4.71239, 0), Vector3(0, -3.14159, 0), Vector3(0, -1.5708, 0), Vector3(0, 0, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0), Vector3(0, 4.71239, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ma08v"]
+_data = {
+&"RESET": SubResource("Animation_ma08v"),
+&"new_animation": SubResource("Animation_b8fb0")
+}
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(0.045, 0)
@@ -1092,7 +1091,8 @@ scale = Vector2(5.37109, 5.38086)
 texture = SubResource("ViewportTexture_b8fb0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map1/tree/StaticBody2D-tree-7"]
-position = Vector2(25706.5, 8545.62)
+position = Vector2(25811.5, 8545.62)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2hxjc")
 
 [node name="StaticBody2D-tree-8" type="StaticBody2D" parent="Control/map1/tree"]
@@ -1807,24 +1807,41 @@ scale = Vector2(0.15, 0.15)
 script = ExtResource("30_fshgd")
 
 [node name="Camera2D" type="Camera2D" parent="Control/character"]
-position = Vector2(3239.37, 813.333)
+position = Vector2(3238.84, 813.033)
 scale = Vector2(0.333333, 0.333333)
 script = ExtResource("5_q6r6c")
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/character"]
-position = Vector2(4020, 1100)
-texture = ExtResource("4_kdubu")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/character"]
+position = Vector2(-1353.33, -193.333)
+scale = Vector2(30.625, 32.0833)
+sprite_frames = SubResource("SpriteFrames_kfelt")
+animation = &"idie"
+frame_progress = 0.230017
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/character"]
-position = Vector2(4040, 1106.67)
-scale = Vector2(4.69403, 2.54257)
-shape = SubResource("RectangleShape2D_kdubu")
-one_way_collision_margin = 6.3
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Control/character"]
+visible = false
+position = Vector2(-1248.73, -160.13)
+scale = Vector2(7.5282, 9.34053)
+shape = SubResource("RectangleShape2D_whnp6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/character"]
 libraries = {
 &"": SubResource("AnimationLibrary_xjt7e")
 }
+
+[node name="handheld_item" type="Sprite2D" parent="Control/character"]
+position = Vector2(-4553.56, -2746.97)
+scale = Vector2(6.66667, 6.66667)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/character"]
+visible = false
+position = Vector2(4019.47, 1099.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/character"]
+position = Vector2(-1297.92, -163.118)
+scale = Vector2(4.69403, 2.54257)
+shape = SubResource("RectangleShape2D_kdubu")
+one_way_collision_margin = 6.3
 
 [node name="Touchcontrols" parent="Control" instance=ExtResource("4_0hol4")]
 
@@ -2055,15 +2072,3 @@ libraries = {
 }
 
 [node name="characters" type="CharacterBody2D" parent="Control"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/characters"]
-sprite_frames = SubResource("SpriteFrames_kfelt")
-animation = &"idie"
-frame_progress = 0.136199
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/characters"]
-position = Vector2(0.355386, -0.5)
-scale = Vector2(1.12923, 1.40108)
-shape = SubResource("RectangleShape2D_whnp6")
-
-[node name="handheld_item" type="Sprite2D" parent="Control/characters"]

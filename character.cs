@@ -50,6 +50,7 @@ public partial class Character : CharacterBody2D
 	public static bool bossfight = false;
 	private Label Key_amount_label; // Label to display key amount
 	public static int Health = 3; // Example health variable
+	private AnimatedSprite2D animatedSprite2D;
 	public override void _Ready()
 	{
 		GD.Print("Hello, Godot!");
@@ -65,6 +66,7 @@ public partial class Character : CharacterBody2D
 		heart2 = GetNode<Sprite2D>("../Touchcontrols/heart2");
 		heart3 = GetNode<Sprite2D>("../Touchcontrols/heart3");
 		gameover = GetNode<Sprite2D>("../Touchcontrols/gameover");
+		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
 
 		//var abcScene = GD.Load<PackedScene>("res://touchcontrols.tscn");
@@ -116,6 +118,7 @@ public partial class Character : CharacterBody2D
 			currentCooldown -= (float)delta;
 
 		Vector2 direction = Vector2.Zero;
+		
 
 		if (gamestart == false)
 		{
@@ -135,6 +138,20 @@ public partial class Character : CharacterBody2D
 			direction = direction.Normalized();
 			Velocity = direction * Speed;
 
+			if (Velocity.Length() > 0f)
+			{
+			animatedSprite2D.Play("run");
+			GD.Print("Character is moving");
+			}
+			else
+			{
+			animatedSprite2D.Play("idie");
+			GD.Print("Character is idle");
+			}
+			if (Velocity.X != 0)
+			{
+				animatedSprite2D.FlipH = Velocity.X < 0;
+			}
 			MoveAndSlide();  // Moves and checks collisions internally
 		}
 		int collisionCount = GetSlideCollisionCount();
