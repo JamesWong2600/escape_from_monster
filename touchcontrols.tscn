@@ -85,15 +85,15 @@ texture = ExtResource("6_fg4fl")
 [node name="sword_icon" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.831373)
-position = Vector2(1500, 62)
-scale = Vector2(0.117187, 0.119629)
+position = Vector2(1631.16, 66.5665)
+scale = Vector2(0.254845, 0.219631)
 texture = ExtResource("6_yomt8")
 
 [node name="freezer_icon" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(1, 1, 1, 0.831373)
-position = Vector2(1341, 63)
-scale = Vector2(0.117187, 0.119629)
+modulate = Color(1, 1, 1, 0.76)
+position = Vector2(1631, 66)
+scale = Vector2(0.242257, 0.22071)
 texture = ExtResource("7_62nos")
 
 [node name="Key_amount" type="Label" parent="."]

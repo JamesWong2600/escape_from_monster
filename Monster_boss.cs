@@ -13,8 +13,11 @@ public partial class Monster_boss : CharacterBody2D
 	private Node2D player = null;
 	public ProgressBar HealthBar;
 	private RandomNumberGenerator rng = new();
+	private AnimatedSprite2D animatedSprite;
 	public override void _Ready()
 	{
+		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		
 		HealthBar = GetNode<ProgressBar>("HealthBar");
 		if (HealthBar != null)
 		{
@@ -31,6 +34,7 @@ public partial class Monster_boss : CharacterBody2D
 	}
 	public override void _PhysicsProcess(double delta)
 	{
+		animatedSprite.Play("boss");
 		if (player != null)
 		{
 			Vector2 direction = (player.GlobalPosition - GlobalPosition).Normalized();

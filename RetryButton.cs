@@ -208,11 +208,23 @@ public partial class RetryButton : TouchScreenButton
 		CollisionShape2D Sword_5_Collision = GetParent().GetParent().GetNode<CollisionShape2D>("swordset/StaticBody2D-sword-5/CollisionShape2D");
 		Sword_5_Collision.Disabled = false;
 		Sword_5.Visible = true;
-		if (thecharacter == null)
+		AnimatedSprite2D Monster_1_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-1/AnimatedSprite2D");
+		AnimatedSprite2D Monster_2_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-2/AnimatedSprite2D");
+		AnimatedSprite2D Monster_3_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-3/AnimatedSprite2D");
+		AnimatedSprite2D Monster_4_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-4/AnimatedSprite2D");
+		AnimatedSprite2D Monster_5_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-5/AnimatedSprite2D");
+		AnimatedSprite2D Monster_boss_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-boss/AnimatedSprite2D");
+		if (Monster_1_animatedSprite2D == null)
 		{
-			GD.Print("that is not found in the parent node.");
+			GD.Print("Monster_1_animatedSprite2D is not found in the parent node.");
 			return;
 		}
+		Monster_1_animatedSprite2D.Play("run");
+		Monster_2_animatedSprite2D.Play("run");
+		Monster_3_animatedSprite2D.Play("run");
+		Monster_4_animatedSprite2D.Play("run");
+		Monster_5_animatedSprite2D.Play("run");
+		Monster_boss_animatedSprite2D.Play("boss");
 		// Reset character position to the start position
 		// Add your logic here (e.g., start the game, load a new scene, etc.)
 	}
