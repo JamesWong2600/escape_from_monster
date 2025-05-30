@@ -1,20 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://bj7v1qjdbg7y4"]
+[gd_scene load_steps=18 format=3 uid="uid://bj7v1qjdbg7y4"]
 
 [ext_resource type="Texture2D" uid="uid://bvubhdj1qtdp3" path="res://others/START.png" id="1_tjn2e"]
 [ext_resource type="Texture2D" uid="uid://hs64hdy7qu1d" path="res://others/the_main_screen.png" id="1_w0p2i"]
-[ext_resource type="Script" uid="uid://pnk3345jtgjr" path="res://StartButton.cs" id="3_7a4el"]
 [ext_resource type="Texture2D" uid="uid://ra5irgxomqc8" path="res://others/register.png" id="4_kwhh3"]
 [ext_resource type="Texture2D" uid="uid://criourlvmyvuu" path="res://others/LOGIN.png" id="5_4sclt"]
 [ext_resource type="Script" uid="uid://b10k3uceyb54k" path="res://To_Login_page.cs" id="5_62wn8"]
 [ext_resource type="Script" uid="uid://cg6wo54inx07q" path="res://To_Register_page.cs" id="6_sjiej"]
 [ext_resource type="Texture2D" uid="uid://bbwmhaw1bnld1" path="res://others/DEMO.png" id="6_ywh4s"]
 [ext_resource type="Texture2D" uid="uid://b017ilawbsu1m" path="res://others/grey.png" id="7_ue4rx"]
+[ext_resource type="Script" uid="uid://1nfsi4c53tfs" path="res://Demo.cs" id="8_cxp7d"]
 [ext_resource type="Script" uid="uid://6lwp3r1x5iku" path="res://Register_submit.cs" id="9_4sv2p"]
 [ext_resource type="Texture2D" uid="uid://bhu3sxgfrdhd5" path="res://others/RANKING.png" id="9_sj757"]
 [ext_resource type="Script" uid="uid://78ulxhc2werp" path="res://Login_submit.cs" id="10_0osx7"]
 [ext_resource type="Script" uid="uid://d2cisasprul0m" path="res://To_ranking_page.cs" id="10_7sxnj"]
+[ext_resource type="Script" uid="uid://b8tbgxx4tnek4" path="res://return_to_main_page_from_register.cs" id="13_p3r6q"]
 [ext_resource type="Script" uid="uid://cip2h4phrvbkq" path="res://return_to_main_page.cs" id="13_ups6l"]
 [ext_resource type="Texture2D" uid="uid://bnsfqm5som6fi" path="res://others/RETURN.png" id="14_cxp7d"]
+[ext_resource type="Script" uid="uid://dnjhks0dq6bed" path="res://return_to_main_page_from_login.cs" id="16_3qsiq"]
 
 [node name="main_screen" type="CanvasLayer"]
 
@@ -39,22 +41,26 @@ icon = ExtResource("1_tjn2e")
 [node name="main_screen" type="Node2D" parent="."]
 
 [node name="to_login_page" type="TouchScreenButton" parent="main_screen"]
-position = Vector2(933, 303)
+position = Vector2(1004, 364)
+scale = Vector2(0.856, 0.87)
 texture_normal = ExtResource("5_4sclt")
 script = ExtResource("5_62wn8")
 
+[node name="demo" type="TouchScreenButton" parent="main_screen"]
+position = Vector2(1006, 181)
+scale = Vector2(0.848, 0.83)
+texture_normal = ExtResource("6_ywh4s")
+script = ExtResource("8_cxp7d")
+
 [node name="to_register_page" type="TouchScreenButton" parent="main_screen"]
-position = Vector2(933, 529)
+position = Vector2(1000, 561)
+scale = Vector2(0.846, 0.925)
 texture_normal = ExtResource("4_kwhh3")
 script = ExtResource("6_sjiej")
 
-[node name="demo" type="TouchScreenButton" parent="main_screen"]
-position = Vector2(941, 80)
-texture_normal = ExtResource("6_ywh4s")
-script = ExtResource("3_7a4el")
-
 [node name="to_ranking" type="TouchScreenButton" parent="main_screen"]
-position = Vector2(938, 753)
+position = Vector2(990, 770)
+scale = Vector2(0.896, 0.915)
 texture_normal = ExtResource("9_sj757")
 script = ExtResource("10_7sxnj")
 
@@ -68,31 +74,37 @@ position = Vector2(1207.5, 672.5)
 scale = Vector2(3.07843, 3.40909)
 texture = ExtResource("7_ue4rx")
 
+[node name="return_from_register" type="TouchScreenButton" parent="register_page"]
+position = Vector2(1208, 862)
+scale = Vector2(0.628, 0.645)
+texture_normal = ExtResource("14_cxp7d")
+script = ExtResource("13_p3r6q")
+
 [node name="Register_submit" type="TouchScreenButton" parent="register_page"]
-position = Vector2(958, 800)
-scale = Vector2(0.916, 0.85)
+position = Vector2(879, 862)
+scale = Vector2(0.574, 0.635)
 texture_normal = ExtResource("4_kwhh3")
 script = ExtResource("9_4sv2p")
 
 [node name="httpRequest" type="HTTPRequest" parent="register_page/Register_submit"]
 
 [node name="username_input" type="LineEdit" parent="register_page/Register_submit"]
-offset_left = -88.4279
-offset_top = -442.353
-offset_right = 571.572
-offset_bottom = -370.353
+offset_left = -76.655
+offset_top = -672.442
+offset_right = 1200.34
+offset_bottom = -537.442
 
 [node name="password_input" type="LineEdit" parent="register_page/Register_submit"]
-offset_left = -87.3362
-offset_top = -278.824
-offset_right = 569.664
-offset_bottom = -202.824
+offset_left = -81.8816
+offset_top = -439.37
+offset_right = 1176.12
+offset_bottom = -284.37
 
 [node name="password_confirm_input" type="LineEdit" parent="register_page/Register_submit"]
-offset_left = -87.3362
-offset_top = -123.529
-offset_right = 578.664
-offset_bottom = -54.5295
+offset_left = -69.6864
+offset_top = -160.63
+offset_right = 1162.31
+offset_bottom = -32.6302
 
 [node name="AcceptDialog" type="AcceptDialog" parent="register_page/Register_submit"]
 position = Vector2i(685, 315)
@@ -109,19 +121,19 @@ text = "username:
 "
 
 [node name="password_label" type="Label" parent="register_page"]
-offset_left = 870.0
-offset_top = 487.0
-offset_right = 1114.0
-offset_bottom = 536.0
+offset_left = 840.0
+offset_top = 511.0
+offset_right = 1084.0
+offset_bottom = 560.0
 scale = Vector2(3, 3)
 text = "password:
 "
 
 [node name="password_confirm_label" type="Label" parent="register_page"]
-offset_left = 876.0
-offset_top = 631.0
-offset_right = 1120.0
-offset_bottom = 680.0
+offset_left = 832.0
+offset_top = 682.0
+offset_right = 1062.0
+offset_bottom = 731.0
 scale = Vector2(3, 3)
 text = "re_type_password:
 "
@@ -135,40 +147,47 @@ scale = Vector2(2.81961, 3.64646)
 texture = ExtResource("7_ue4rx")
 
 [node name="Login_submit" type="TouchScreenButton" parent="login_page"]
-position = Vector2(911, 825)
+position = Vector2(889, 911)
+scale = Vector2(0.558, 0.57)
 texture_normal = ExtResource("5_4sclt")
 script = ExtResource("10_0osx7")
 
 [node name="username_input" type="LineEdit" parent="login_page/Login_submit"]
-offset_left = 2.0
-offset_top = -356.0
-offset_right = 534.0
-offset_bottom = -269.0
+offset_left = -39.0
+offset_top = -732.0
+offset_right = 1099.0
+offset_bottom = -555.0
 
 [node name="password_input" type="LineEdit" parent="login_page/Login_submit"]
-offset_left = 4.0
-offset_top = -180.0
-offset_right = 534.0
-offset_bottom = -85.0
+offset_left = -30.0
+offset_top = -389.0
+offset_right = 1081.0
+offset_bottom = -201.0
 
 [node name="httpRequest" type="HTTPRequest" parent="login_page/Login_submit"]
 
 [node name="password_label" type="Label" parent="login_page"]
-offset_left = 918.0
-offset_top = 553.0
-offset_right = 1278.15
-offset_bottom = 602.0
+offset_left = 866.0
+offset_top = 581.0
+offset_right = 945.0
+offset_bottom = 630.0
 scale = Vector2(3.87, 3.87)
 text = "password:
 "
 
 [node name="username_label" type="Label" parent="login_page"]
-offset_left = 918.0
-offset_top = 390.0
-offset_right = 1001.0
-offset_bottom = 413.0
+offset_left = 871.0
+offset_top = 397.0
+offset_right = 954.0
+offset_bottom = 420.0
 scale = Vector2(3.745, 3.745)
 text = "username:"
+
+[node name="return_from_login" type="TouchScreenButton" parent="login_page"]
+position = Vector2(1208, 915)
+scale = Vector2(0.51, 0.56)
+texture_normal = ExtResource("14_cxp7d")
+script = ExtResource("16_3qsiq")
 
 [node name="ranking_page" type="Node2D" parent="."]
 visible = false

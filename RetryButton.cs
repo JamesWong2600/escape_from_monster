@@ -145,6 +145,8 @@ public partial class RetryButton : TouchScreenButton
 		Monster3.Monster_currentCooldown = 0f; // Reset monster cooldown
 		Monster4.Monster_currentCooldown = 0f; // Reset monster cooldown
 		Monster5.Monster_currentCooldown = 0f; // Reset monster cooldown
+		TouchScreenButton return_to_main_win_button = GetParent().GetParent().GetNode<TouchScreenButton>("Touchcontrols/return_to_main_win");
+		return_to_main_win_button.Visible = false; // Hide the return to main win button
 		if (heart1 == null || heart2 == null || heart3 == null)
 		{
 			GD.Print("One or more hearts are not found in the parent node.");
@@ -225,6 +227,10 @@ public partial class RetryButton : TouchScreenButton
 		Monster_4_animatedSprite2D.Play("run");
 		Monster_5_animatedSprite2D.Play("run");
 		Monster_boss_animatedSprite2D.Play("boss");
+		Label username = GetParent().GetParent().GetNode<Label>("Touchcontrols/username");
+		username.Visible = true; // Hide the username label
+		TouchScreenButton ReturnButton = GetParent().GetParent().GetNode<TouchScreenButton>("Touchcontrols/return_to_main_failed");
+		ReturnButton.Visible = false; // Show the retry button
 		// Reset character position to the start position
 		// Add your logic here (e.g., start the game, load a new scene, etc.)
 	}

@@ -55,6 +55,7 @@ public partial class To_ranking_page : TouchScreenButton
 	{
 		_rankingList = GetParent().GetParent().GetNode<VBoxContainer>("ranking_page/ScrollContainer/VBoxContainer");
 		// Ensure the ranking list is cleared before populating
+		ClearRankingList();
 		HttpRequest httpRequest = GetNode<HttpRequest>("HttpRequest");
 		if (_rankingList != null)
 		{
@@ -67,10 +68,13 @@ public partial class To_ranking_page : TouchScreenButton
 
 
 
+		httpRequest.CancelRequest(); // Cancels the previous one
+
+
 		// JSON payload
 
 		httpRequest.RequestCompleted += OnRequestCompleted;
-		string url = "http://127.0.0.1:8000/get_player_scores/";
+		string url = config.domain+"/get_player_scores/";
 		// POST request
 		httpRequest.Request(url); // Pass the JSON string directly
 		GD.Print("testtt");
@@ -88,51 +92,60 @@ public partial class To_ranking_page : TouchScreenButton
 	public override void _Process(double delta)
 	{
 	}
-	private void OnRequestCompleted(long result, long responseCode, string[] headers, byte[] body)
+	
+	private void ClearRankingList()
 {
-	if (body != null && body.Length > 0)
+	foreach (Node child in _rankingList.GetChildren())
 	{
-		string responseText = System.Text.Encoding.UTF8.GetString(body);
-		GD.Print("Response Body: ", responseText);
-
-		try
-		{
-			var options = new JsonSerializerOptions
-			{
-				PropertyNameCaseInsensitive = true
-			};
-
-			ScoreResponse response = JsonSerializer.Deserialize<ScoreResponse>(responseText, options);
-
-			if (response != null && response.PlayerScores != null)
-			{
-				int rank = 1;
-				foreach (var player in response.PlayerScores)
-				{
-					var row = new HBoxContainer();
-
-					var rankLabel = new Label { Text = $"{rank}." };
-					var nameLabel = new Label { Text = player.Username };
-					var scoreLabel = new Label { Text = $"{player.Scores} pts" };
-
-					rankLabel.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
-					nameLabel.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
-					scoreLabel.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
-
-					row.AddChild(rankLabel);
-					row.AddChild(nameLabel);
-					row.AddChild(scoreLabel);
-
-					_rankingList.AddChild(row);
-					rank++;
-				}
-			}
-		}
-		catch (Exception e)
-		{
-			GD.PrintErr("Failed to parse JSON: ", e.Message);
-		}
+		_rankingList.RemoveChild(child);
+		child.QueueFree(); // Free the child node
 	}
 }
+	private void OnRequestCompleted(long result, long responseCode, string[] headers, byte[] body)
+	{
+		if (body != null && body.Length > 0)
+		{
+			string responseText = System.Text.Encoding.UTF8.GetString(body);
+			GD.Print("Response Body: ", responseText);
+
+			try
+			{
+				var options = new JsonSerializerOptions
+				{
+					PropertyNameCaseInsensitive = true
+				};
+
+				ScoreResponse response = JsonSerializer.Deserialize<ScoreResponse>(responseText, options);
+
+				if (response != null && response.PlayerScores != null)
+				{
+					int rank = 1;
+					foreach (var player in response.PlayerScores)
+					{
+						var row = new HBoxContainer();
+
+						var rankLabel = new Label { Text = $"{rank}." };
+						var nameLabel = new Label { Text = player.Username };
+						var scoreLabel = new Label { Text = $"{player.Scores} pts" };
+
+						rankLabel.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
+						nameLabel.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
+						scoreLabel.SizeFlagsHorizontal = Control.SizeFlags.ExpandFill;
+
+						row.AddChild(rankLabel);
+						row.AddChild(nameLabel);
+						row.AddChild(scoreLabel);
+
+						_rankingList.AddChild(row);
+						rank++;
+					}
+				}
+			}
+			catch (Exception e)
+			{
+				GD.PrintErr("Failed to parse JSON: ", e.Message);
+			}
+		}
+	}
 
 }

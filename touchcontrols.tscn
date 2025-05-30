@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhxg5ffinr5vm"]
+[gd_scene load_steps=17 format=3 uid="uid://bhxg5ffinr5vm"]
 
 [ext_resource type="Script" uid="uid://2knyc0qi3bo8" path="res://Touchcontrols.cs" id="1_7eg2a"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_j1c16"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cfuk1trsmyq8a" path="res://others/win_screen.png" id="10_2orme"]
 [ext_resource type="Texture2D" uid="uid://bnsfqm5som6fi" path="res://others/RETURN.png" id="14_62nos"]
 [ext_resource type="Script" uid="uid://0uy1shnijd8i" path="res://return_to_main_page_win.cs" id="15_al1ug"]
+[ext_resource type="Script" uid="uid://lky3tevuqt13" path="res://return_to_main_page_failed.cs" id="16_h4dtb"]
 
 [node name="Touchcontrols" type="CanvasLayer"]
 script = ExtResource("1_7eg2a")
@@ -80,32 +81,32 @@ wait_time = 120.0
 
 [node name="key_icon" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.831373)
-position = Vector2(1785, 69)
+position = Vector2(1747, 73)
 scale = Vector2(0.117187, 0.119629)
 texture = ExtResource("6_fg4fl")
 
 [node name="sword_icon" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.831373)
-position = Vector2(1631.16, 66.5665)
+position = Vector2(1597, 75)
 scale = Vector2(0.254845, 0.219631)
 texture = ExtResource("6_yomt8")
 
 [node name="freezer_icon" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.76)
-position = Vector2(1631, 66)
+position = Vector2(1595, 74)
 scale = Vector2(0.242257, 0.22071)
 texture = ExtResource("7_62nos")
 
 [node name="Key_amount" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.760784)
-offset_left = 1866.0
-offset_top = -18.0
-offset_right = 1876.0
-offset_bottom = 5.0
-scale = Vector2(7.35, 7.35)
-text = "0"
+offset_left = 1836.0
+offset_top = 15.0
+offset_right = 1869.0
+offset_bottom = 38.0
+scale = Vector2(4.85, 4.85)
+text = "0 / 8"
 script = ExtResource("7_7tspm")
 
 [node name="subtitle" type="Label" parent="."]
@@ -126,6 +127,7 @@ scale = Vector2(2.32324, 1.12109)
 texture = ExtResource("3_0oms2")
 
 [node name="wingame_screen" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1169, 537)
 scale = Vector2(1.1377, 1.19643)
 texture = ExtResource("10_2orme")
@@ -173,7 +175,7 @@ scale = Vector2(3.935, 3.935)
 text = "bossfight:"
 
 [node name="Button" type="TouchScreenButton" parent="."]
-position = Vector2(917, 783)
+position = Vector2(894, 587)
 texture_normal = ExtResource("8_e0v2y")
 script = ExtResource("9_m8wb2")
 
@@ -186,6 +188,7 @@ offset_bottom = 991.0
 icon = ExtResource("8_e0v2y")
 
 [node name="username" type="Label" parent="."]
+visible = false
 offset_left = 25.0
 offset_top = 16.0
 offset_right = 249.0
@@ -194,6 +197,12 @@ scale = Vector2(4.28, 4.28)
 text = "welcome: "
 
 [node name="return_to_main_win" type="TouchScreenButton" parent="."]
-position = Vector2(920, 535)
+position = Vector2(893, 829)
 texture_normal = ExtResource("14_62nos")
 script = ExtResource("15_al1ug")
+
+[node name="return_to_main_failed" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(900, 818)
+texture_normal = ExtResource("14_62nos")
+script = ExtResource("16_h4dtb")
