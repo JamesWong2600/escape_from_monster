@@ -1,0 +1,43 @@
+using Godot;
+using System;
+
+
+public partial class Register : TouchScreenButton
+{
+
+	 private HttpRequest http;
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+
+	}
+	private void OnButtonPressed()
+	{
+		LineEdit inputBox_username = GetParent().GetNode<LineEdit>("username_input");
+		LineEdit inputBox_password = GetParent().GetNode<LineEdit>("password_input");
+		LineEdit inputBox_retype_password = GetParent().GetNode<LineEdit>("password_confirm_input");
+		var http = GetNode<HttpRequest>("HttpRequest");
+
+		string url = "http://127.0.0.1:8000/api/register/";
+
+		// JSON payload
+		string json = "{\"score\": 42}";
+
+		// Headers
+		var headers = new string[] { "Content-Type: application/json" };
+
+		// POST request
+		http.RequestCompleted += OnRequestCompleted;
+		http.Request(url, headers, HttpClient.Method.Post, json); // Pass the JSON string directly
+	}
+
+	private void OnRequestCompleted(long result, long responseCode, string[] headers, byte[] body)
+	{
+		GD.Print("Response code: ", responseCode);
+		GD.Print("Response body: ", System.Text.Encoding.UTF8.GetString(body));
+	}
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}

@@ -13,12 +13,14 @@ public partial class StartButton : TouchScreenButton
 	}
 	private void OnButtonPressed()
 	{
-		Key = GetParent().GetNode<Sprite2D>("main_screen_background");
-		AnimatedSprite2D Monster_1_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-1/AnimatedSprite2D");
-		AnimatedSprite2D Monster_2_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-2/AnimatedSprite2D");
-		AnimatedSprite2D Monster_3_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-3/AnimatedSprite2D");
-		AnimatedSprite2D Monster_4_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-4/AnimatedSprite2D");
-		AnimatedSprite2D Monster_5_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-5/AnimatedSprite2D");
+		Key = GetParent().GetParent().GetNode<Sprite2D>("main_screen_background");
+		Node2D main_screen = GetParent().GetParent().GetNode<Node2D>("main_screen");
+		main_screen.Visible = false; // Hide the main screen
+		AnimatedSprite2D Monster_1_animatedSprite2D = GetParent().GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-1/AnimatedSprite2D");
+		AnimatedSprite2D Monster_2_animatedSprite2D = GetParent().GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-2/AnimatedSprite2D");
+		AnimatedSprite2D Monster_3_animatedSprite2D = GetParent().GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-3/AnimatedSprite2D");
+		AnimatedSprite2D Monster_4_animatedSprite2D = GetParent().GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-4/AnimatedSprite2D");
+		AnimatedSprite2D Monster_5_animatedSprite2D = GetParent().GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-5/AnimatedSprite2D");
 		if (Monster_1_animatedSprite2D == null)
 		{
 			GD.Print("this Monster_1_animatedSprite2D  not found in the parent node.");
