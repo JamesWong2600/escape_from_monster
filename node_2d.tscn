@@ -1,4 +1,4 @@
-[gd_scene load_steps=196 format=3 uid="uid://bt77pgnq3bycj"]
+[gd_scene load_steps=226 format=3 uid="uid://bt77pgnq3bycj"]
 
 [ext_resource type="Texture2D" uid="uid://bn2poxgx0grdk" path="res://map/background/cage.png" id="2_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://cuuu3bel5n7ih" path="res://map/background/background.png" id="2_kdubu"]
@@ -27,15 +27,19 @@
 [ext_resource type="Script" uid="uid://cq727cnyvmh51" path="res://Sword3.cs" id="23_q5dlx"]
 [ext_resource type="Script" uid="uid://duxi6plc27wkm" path="res://Sword4.cs" id="24_c4wnb"]
 [ext_resource type="Script" uid="uid://cxlg5vjo3s4p1" path="res://Sword5.cs" id="25_7plk7"]
-[ext_resource type="Texture2D" uid="uid://d25udbgilst1v" path="res://others/freezer.png" id="26_6ip5v"]
 [ext_resource type="Script" uid="uid://dvuvym2fko83x" path="res://Freezer1.cs" id="26_7plk7"]
+[ext_resource type="Texture2D" uid="uid://mbieredcnx3w" path="res://character/squarrel_idie (32x32).png" id="27_4qosj"]
+[ext_resource type="Texture2D" uid="uid://drlvqvq254phy" path="res://character/squarrel_run (32x32).png" id="27_qilgh"]
 [ext_resource type="Script" uid="uid://d0ia4t5xs038v" path="res://Freezer2.cs" id="28_fbwgr"]
 [ext_resource type="Script" uid="uid://clnuoy0lc6pdn" path="res://Freezer3.cs" id="29_7mj2a"]
 [ext_resource type="Texture2D" uid="uid://nu18s528m6ww" path="res://others/boss.png" id="29_ebxd8"]
 [ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="30_2u7jv"]
 [ext_resource type="Script" uid="uid://cejfuc2u2va7j" path="res://Character.cs" id="30_fshgd"]
 [ext_resource type="Script" uid="uid://c4wsdw3qk3c4r" path="res://Monster_boss.cs" id="30_mryly"]
+[ext_resource type="Texture2D" uid="uid://bxd8xf2ud8r2n" path="res://character/cool.png" id="31_3ngjr"]
+[ext_resource type="Texture2D" uid="uid://d3rwlyr34q7iw" path="res://character/monster (32x32).png" id="31_xfyss"]
 [ext_resource type="Script" uid="uid://3m8clistxjwr" path="res://Monster2.cs" id="36_fbwgr"]
+[ext_resource type="Texture2D" uid="uid://cgtnxxuesn1ip" path="res://character/boss (32x32).png" id="40_qilgh"]
 [ext_resource type="PackedScene" uid="uid://i6rhrxu08yl4" path="res://addons/simple_health_bar/health_bar2.tscn" id="42_fshgd"]
 [ext_resource type="PackedScene" uid="uid://bj7v1qjdbg7y4" path="res://main_screen.tscn" id="42_lbrxf"]
 [ext_resource type="Script" uid="uid://dwttanccn7d4l" path="res://Keyanimationplayer.cs" id="43_0xo8l"]
@@ -44,8 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://cenlnw082wxg5" path="res://map/background/tree.glb" id="44_lbrxf"]
 [ext_resource type="Script" uid="uid://eqc4h8ebb4w6" path="res://Swordanimationplayer.cs" id="45_3ngjr"]
 [ext_resource type="PackedScene" uid="uid://blv3kgufhgl22" path="res://map/background/sword.glb" id="46_b8fb0"]
-[ext_resource type="Texture2D" uid="uid://0j5232jfkf05" path="res://character/Idle (32x32).png" id="53_2v765"]
-[ext_resource type="Texture2D" uid="uid://4apn45muqgin" path="res://character/Run (32x32).png" id="53_ytlpd"]
+[ext_resource type="PackedScene" uid="uid://cw6lasb3viqsp" path="res://map/background/freezer.glb" id="50_4qosj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kdubu"]
 
@@ -65,7 +68,7 @@ size = Vector2(1440, 1231.25)
 viewport_path = NodePath("Control/Stone_SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ta5nu"]
-size = Vector2(1708.75, 2682.5)
+size = Vector2(1639.38, 2682.5)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_5fipt"]
 viewport_path = NodePath("Control/Stone_SubViewport")
@@ -143,7 +146,7 @@ size = Vector2(33250, 2152.5)
 viewport_path = NodePath("Control/Tree_SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d7sh"]
-size = Vector2(1184.73, 1672.5)
+size = Vector2(994.869, 1515)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_ytlpd"]
 viewport_path = NodePath("Control/Tree_SubViewport")
@@ -200,7 +203,7 @@ viewport_path = NodePath("Control/Stone_SubViewport")
 viewport_path = NodePath("Control/Stone_SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ngjr"]
-size = Vector2(2031.88, 1478.75)
+size = Vector2(1745.94, 1329.38)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_m7xe6"]
 viewport_path = NodePath("Control/Stone_SubViewport")
@@ -277,8 +280,8 @@ viewport_path = NodePath("Control/Tree_SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_3ngjr"]
 viewport_path = NodePath("Control/Tree_SubViewport")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjt7e"]
-size = Vector2(1115.01, 1513.12)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqk8q"]
+size = Vector2(955.003, 1313.28)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qilgh"]
 viewport_path = NodePath("Control/Tree_SubViewport")
@@ -320,7 +323,7 @@ size = Vector2(322.494, 669.688)
 viewport_path = NodePath("Control/Key_SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq1c5"]
-size = Vector2(380, 1002.5)
+size = Vector2(380, 836.25)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4himb"]
 viewport_path = NodePath("Control/Key_SubViewport")
@@ -362,7 +365,7 @@ size = Vector2(339.999, 922.5)
 viewport_path = NodePath("Control/Sword_SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqmsq"]
-size = Vector2(339.999, 921.25)
+size = Vector2(339.999, 885.625)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_fm8k7"]
 viewport_path = NodePath("Control/Sword_SubViewport")
@@ -370,110 +373,99 @@ viewport_path = NodePath("Control/Sword_SubViewport")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m7xe6"]
 size = Vector2(339.999, 815)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_c6xte"]
+viewport_path = NodePath("Control/Freezer_SubViewport")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3mf0"]
-size = Vector2(575, 536.25)
+size = Vector2(292.5, 445.001)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_inwkr"]
+viewport_path = NodePath("Control/Freezer_SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_akb8o"]
-size = Vector2(590, 545.625)
+size = Vector2(525.001, 505.002)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0dcxc"]
+viewport_path = NodePath("Control/Freezer_SubViewport")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kejda"]
-size = Vector2(599.998, 519.995)
+size = Vector2(410, 519.995)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_akb8o"]
-atlas = ExtResource("53_2v765")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t3mf0"]
-atlas = ExtResource("53_2v765")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kejda"]
-atlas = ExtResource("53_2v765")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uqk8q"]
-atlas = ExtResource("53_2v765")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6uidu"]
-atlas = ExtResource("53_2v765")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qu7as"]
-atlas = ExtResource("53_2v765")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lyuya"]
-atlas = ExtResource("53_2v765")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5fipt"]
-atlas = ExtResource("53_2v765")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j02gt"]
-atlas = ExtResource("53_2v765")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_thyvg"]
-atlas = ExtResource("53_2v765")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nsnm2"]
-atlas = ExtResource("53_2v765")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2v765"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b8fb0"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ma08v"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s32dh"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_037st"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6orn5"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_whnp6"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_22e24"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m7xe6"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(256, 0, 32, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+size = Vector2(141.803, 355.368)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqmsq"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(288, 0, 32, 32)
+atlas = ExtResource("27_4qosj")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkgk1"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(320, 0, 32, 32)
+atlas = ExtResource("27_4qosj")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qgxp6"]
-atlas = ExtResource("53_ytlpd")
-region = Rect2(352, 0, 32, 32)
+atlas = ExtResource("27_4qosj")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akb8o"]
+atlas = ExtResource("27_4qosj")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3mf0"]
+atlas = ExtResource("27_4qosj")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kejda"]
+atlas = ExtResource("27_4qosj")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v765"]
+atlas = ExtResource("27_qilgh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8fb0"]
+atlas = ExtResource("27_qilgh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ma08v"]
+atlas = ExtResource("27_qilgh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s32dh"]
+atlas = ExtResource("27_qilgh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_037st"]
+atlas = ExtResource("27_qilgh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6orn5"]
+atlas = ExtResource("27_qilgh")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whnp6"]
+atlas = ExtResource("27_qilgh")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22e24"]
+atlas = ExtResource("27_qilgh")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7xe6"]
+atlas = ExtResource("27_qilgh")
+region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kfelt"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqmsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkgk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgxp6")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_akb8o")
 }, {
@@ -482,30 +474,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kejda")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uqk8q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6uidu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qu7as")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lyuya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5fipt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j02gt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_thyvg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nsnm2")
 }],
 "loop": true,
 "name": &"idie",
@@ -538,71 +506,299 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m7xe6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wqmsq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fkgk1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qgxp6")
 }],
 "loop": true,
 "name": &"run",
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_whnp6"]
-size = Vector2(89.1049, 101.378)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ngjr"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Animation" id="Animation_lbrxf"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer:active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_qilgh"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="Animation" id="Animation_fshgd"]
-resource_name = "new_animation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer:active")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qosj"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xjt7e"]
-_data = {
-&"RESET": SubResource("Animation_lbrxf"),
-&"new_animation": SubResource("Animation_fshgd")
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjlbh"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
-size = Vector2(183.747, 380.362)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfelt"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytlpd"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8kvm"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hhlv"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d88dk"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_122lf"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3ryn"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ct8v"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg3tl"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fsb4"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl5tj"]
+atlas = ExtResource("31_xfyss")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xo8l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_3ngjr")
+}],
+"loop": true,
+"name": &"cooldown",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ngjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qilgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qosj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjlbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfelt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytlpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8kvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hhlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d88dk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_122lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3ryn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ct8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg3tl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fsb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl5tj")
+}],
+"loop": true,
+"name": &"run",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_540hr"]
-size = Vector2(216.996, 224.692)
+size = Vector2(248.937, 281.252)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_flf07"]
-size = Vector2(209.54, 209.523)
+size = Vector2(231.932, 273.219)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16pp4"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5od4l"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4himb"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv7tb"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m5r5"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wyoe"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cr6e"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fm8k7"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n63ng"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnn4a"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1aygh"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td2a2"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6xte"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inwkr"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dcxc"]
+atlas = ExtResource("40_qilgh")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ngjr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16pp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5od4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4himb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv7tb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m5r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wyoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cr6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fm8k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n63ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnn4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1aygh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td2a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6xte")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inwkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dcxc")
+}],
+"loop": true,
+"name": &"boss",
+"speed": 12.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ip5v"]
-size = Vector2(285.122, 280.853)
+size = Vector2(210.717, 237.6)
 
 [sub_resource type="Animation" id="Animation_0xo8l"]
 length = 0.001
@@ -648,7 +844,7 @@ _data = {
 &"new_animation": SubResource("Animation_xjt7e")
 }
 
-[sub_resource type="Animation" id="Animation_ma08v"]
+[sub_resource type="Animation" id="Animation_cjlbh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -660,26 +856,47 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-8.74228e-08, -1.93732, 3.14159)]
+"values": [Vector3(0, 0, 3.14159)]
 }
+
+[sub_resource type="Animation" id="Animation_qilgh"]
+resource_name = "new_animation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -6.28319, 3.14159), Vector3(0, -4.71239, 3.14159), Vector3(0, -3.14159, 3.14159), Vector3(0, -1.5708, 3.14159), Vector3(0, 0, 3.14159), Vector3(0, 1.5708, 3.14159), Vector3(0, 3.14159, 3.14159), Vector3(0, 4.71239, 3.14159), Vector3(0, 6.28319, 3.14159)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qosj"]
+_data = {
+&"RESET": SubResource("Animation_cjlbh"),
+&"new_animation": SubResource("Animation_qilgh")
+}
+
+[sub_resource type="Animation" id="Animation_ma08v"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_4qosj"]
+resource_name = "freezer_animation"
 
 [sub_resource type="Animation" id="Animation_b8fb0"]
 resource_name = "new_animation"
 length = 4.0
-tracks/0/type = "rotation_3d"
+tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("sword")
+tracks/0/enabled = true
+tracks/0/path = NodePath("freezer:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sword:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
@@ -689,6 +906,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ma08v"]
 _data = {
 &"RESET": SubResource("Animation_ma08v"),
+&"freezer_animation": SubResource("Animation_4qosj"),
 &"new_animation": SubResource("Animation_b8fb0")
 }
 
@@ -774,7 +992,7 @@ scale = Vector2(5.12991, 8.97138)
 texture = SubResource("ViewportTexture_f8kvm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map1/rock/StaticBody2D-rock-3"]
-position = Vector2(3865.4, 3041.25)
+position = Vector2(3834.77, 2980)
 shape = SubResource("RectangleShape2D_ta5nu")
 
 [node name="StaticBody2D-rock-4" type="StaticBody2D" parent="Control/map1/rock"]
@@ -1052,7 +1270,7 @@ scale = Vector2(2.36328, 3.26172)
 texture = SubResource("ViewportTexture_kfelt")
 
 [node name="CollisionShape2D-3" type="CollisionShape2D" parent="Control/map1/tree/StaticBody2D-tree-1"]
-position = Vector2(8117.05, 2355)
+position = Vector2(8112.7, 2342.5)
 shape = SubResource("RectangleShape2D_4d7sh")
 
 [node name="StaticBody2D-tree-2" type="StaticBody2D" parent="Control/map1/tree"]
@@ -1092,7 +1310,6 @@ texture = SubResource("ViewportTexture_b8fb0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map1/tree/StaticBody2D-tree-7"]
 position = Vector2(25811.5, 8545.62)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_2hxjc")
 
 [node name="StaticBody2D-tree-8" type="StaticBody2D" parent="Control/map1/tree"]
@@ -1173,7 +1390,7 @@ scale = Vector2(1.61448, 1.60804)
 texture = ExtResource("8_1fr6y")
 
 [node name="Wooden2" type="Sprite2D" parent="Control/map2"]
-position = Vector2(1459.94, -189.058)
+position = Vector2(1451.95, -173)
 rotation = -1.56459
 scale = Vector2(0.752668, 0.654061)
 texture = ExtResource("9_4d7sh")
@@ -1207,7 +1424,7 @@ scale = Vector2(5.41015, 4.43689)
 texture = SubResource("ViewportTexture_lbrxf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/rock/StaticBody2D-rock-3"]
-position = Vector2(9118.83, 4229.38)
+position = Vector2(9077.74, 4174.69)
 shape = SubResource("RectangleShape2D_3ngjr")
 
 [node name="StaticBody2D-rock-4" type="StaticBody2D" parent="Control/map2/rock"]
@@ -1429,11 +1646,11 @@ scale = Vector2(4.10638, 4.2013)
 texture = ExtResource("5_rj586")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/wall/StaticBody2D-lava-wall2-horizontal"]
-position = Vector2(-12320.2, 1124.38)
+position = Vector2(-12330.2, 1185)
 shape = SubResource("RectangleShape2D_fbwgr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Control/map2/wall/StaticBody2D-lava-wall2-horizontal"]
-position = Vector2(6056.64, 1130)
+position = Vector2(6059.77, 1135)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_7mj2a")
 
@@ -1449,7 +1666,7 @@ scale = Vector2(3.834, 3.533)
 texture = SubResource("ViewportTexture_22e24")
 
 [node name="CollisionShape2D-3" type="CollisionShape2D" parent="Control/map2/tree/StaticBody2D-tree-1"]
-position = Vector2(8082.83, 2380)
+position = Vector2(8132.76, 2380)
 shape = SubResource("RectangleShape2D_4d7sh")
 
 [node name="StaticBody2D-tree-2" type="StaticBody2D" parent="Control/map2/tree"]
@@ -1502,9 +1719,9 @@ scale = Vector2(3.17383, 2.8711)
 texture = SubResource("ViewportTexture_3ngjr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/tree/StaticBody2D-tree-9"]
-position = Vector2(17722.7, 4475)
+position = Vector2(17752.7, 4453.36)
 scale = Vector2(0.999999, 0.999999)
-shape = SubResource("RectangleShape2D_xjt7e")
+shape = SubResource("RectangleShape2D_uqk8q")
 
 [node name="StaticBody2D-tree-3" type="StaticBody2D" parent="Control/map2/tree"]
 position = Vector2(-0.085, 0)
@@ -1517,7 +1734,6 @@ texture = SubResource("ViewportTexture_qilgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/tree/StaticBody2D-tree-3"]
 position = Vector2(9807.7, 10860)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_fkgk1")
 
 [node name="StaticBody2D-tree-4" type="StaticBody2D" parent="Control/map2/tree"]
@@ -1525,8 +1741,8 @@ position = Vector2(-0.085, 0)
 scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/map2/tree/StaticBody2D-tree-4"]
-position = Vector2(8862.7, 6212.5)
-scale = Vector2(3.50586, 3.70117)
+position = Vector2(8810.2, 6212.5)
+scale = Vector2(3.30078, 3.70117)
 texture = SubResource("ViewportTexture_4qosj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map2/tree/StaticBody2D-tree-4"]
@@ -1631,7 +1847,6 @@ texture = SubResource("ViewportTexture_4himb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/keyset/StaticBody2D-key-5"]
 position = Vector2(887.7, 19075)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6orn5")
 
 [node name="StaticBody2D-key-6" type="StaticBody2D" parent="Control/keyset"]
@@ -1646,7 +1861,6 @@ texture = SubResource("ViewportTexture_td2a2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/keyset/StaticBody2D-key-6"]
 position = Vector2(17745.2, 11982.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_c6xte")
 
 [node name="StaticBody2D-key-7" type="StaticBody2D" parent="Control/keyset"]
@@ -1660,7 +1874,7 @@ scale = Vector2(1.66016, 1.69147)
 texture = SubResource("ViewportTexture_fv7tb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/keyset/StaticBody2D-key-7"]
-position = Vector2(7525.2, 1130)
+position = Vector2(7525.2, 1046.87)
 shape = SubResource("RectangleShape2D_kq1c5")
 
 [node name="StaticBody2D-key-8" type="StaticBody2D" parent="Control/keyset"]
@@ -1691,7 +1905,6 @@ texture = SubResource("ViewportTexture_2wyoe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/swordset/StaticBody2D-sword-1"]
 position = Vector2(23250.2, 24467.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_22e24")
 
 [node name="StaticBody2D-sword-2" type="StaticBody2D" parent="Control/swordset"]
@@ -1705,8 +1918,7 @@ scale = Vector2(2.2453, 2.2279)
 texture = SubResource("ViewportTexture_1aygh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/swordset/StaticBody2D-sword-2"]
-position = Vector2(6965.2, 20355)
-scale = Vector2(1, 1)
+position = Vector2(6970.2, 20465)
 shape = SubResource("RectangleShape2D_qgxp6")
 
 [node name="StaticBody2D-sword-3" type="StaticBody2D" parent="Control/swordset"]
@@ -1721,7 +1933,6 @@ texture = SubResource("ViewportTexture_wnn4a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/swordset/StaticBody2D-sword-3"]
 position = Vector2(6335.2, 32476.2)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1aygh")
 
 [node name="StaticBody2D-sword-4" type="StaticBody2D" parent="Control/swordset"]
@@ -1735,8 +1946,7 @@ scale = Vector2(2.18591, 2.09253)
 texture = SubResource("ViewportTexture_n63ng")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/swordset/StaticBody2D-sword-4"]
-position = Vector2(16890.2, 33710.6)
-scale = Vector2(1, 1)
+position = Vector2(16880.2, 33807.8)
 shape = SubResource("RectangleShape2D_wqmsq")
 
 [node name="StaticBody2D-sword-5" type="StaticBody2D" parent="Control/swordset"]
@@ -1751,7 +1961,6 @@ texture = SubResource("ViewportTexture_fm8k7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/swordset/StaticBody2D-sword-5"]
 position = Vector2(24325.2, 31827.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_m7xe6")
 
 [node name="freezerset" type="Node2D" parent="Control"]
@@ -1762,13 +1971,12 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("26_7plk7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/freezerset/StaticBody2D-freezer-1"]
-position = Vector2(9110.2, 5270)
-scale = Vector2(0.582764, 0.532715)
-texture = ExtResource("26_6ip5v")
+position = Vector2(9120.2, 5325)
+scale = Vector2(1.01404, 1.03784)
+texture = SubResource("ViewportTexture_c6xte")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/freezerset/StaticBody2D-freezer-1"]
-position = Vector2(9127.7, 5278.12)
-scale = Vector2(1, 1)
+position = Vector2(9113.95, 5302.5)
 shape = SubResource("RectangleShape2D_t3mf0")
 
 [node name="StaticBody2D-freezer-2" type="StaticBody2D" parent="Control/freezerset"]
@@ -1777,13 +1985,12 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("28_fbwgr")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/freezerset/StaticBody2D-freezer-2"]
-position = Vector2(6585.2, 7925)
-scale = Vector2(0.582764, 0.532715)
-texture = ExtResource("26_6ip5v")
+position = Vector2(6570.4, 7965)
+scale = Vector2(1.07343, 1.00855)
+texture = SubResource("ViewportTexture_inwkr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/freezerset/StaticBody2D-freezer-2"]
-position = Vector2(6585.2, 7932.81)
-scale = Vector2(1, 1)
+position = Vector2(6562.7, 7957.5)
 shape = SubResource("RectangleShape2D_akb8o")
 
 [node name="StaticBody2D-freezer-3" type="StaticBody2D" parent="Control/freezerset"]
@@ -1792,13 +1999,12 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("29_7mj2a")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/freezerset/StaticBody2D-freezer-3"]
-position = Vector2(9325.2, 30520)
-scale = Vector2(0.582764, 0.532715)
-texture = ExtResource("26_6ip5v")
+position = Vector2(9400.2, 30590)
+scale = Vector2(1.09216, 1.15503)
+texture = SubResource("ViewportTexture_0dcxc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/freezerset/StaticBody2D-freezer-3"]
-position = Vector2(9320.2, 30535)
-scale = Vector2(1, 1)
+position = Vector2(9400.2, 30550)
 shape = SubResource("RectangleShape2D_kejda")
 
 [node name="character" type="CharacterBody2D" parent="Control"]
@@ -1811,23 +2017,18 @@ position = Vector2(3238.84, 813.033)
 scale = Vector2(0.333333, 0.333333)
 script = ExtResource("5_q6r6c")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/character"]
+position = Vector2(3293.33, 786.667)
+scale = Vector2(4.69403, 2.54257)
+shape = SubResource("RectangleShape2D_kdubu")
+one_way_collision_margin = 6.3
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/character"]
-position = Vector2(-1353.33, -193.333)
-scale = Vector2(30.625, 32.0833)
+position = Vector2(3193.33, 780)
+scale = Vector2(18.0729, 16.1719)
 sprite_frames = SubResource("SpriteFrames_kfelt")
 animation = &"idie"
-frame_progress = 0.230017
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Control/character"]
-visible = false
-position = Vector2(-1248.73, -160.13)
-scale = Vector2(7.5282, 9.34053)
-shape = SubResource("RectangleShape2D_whnp6")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/character"]
-libraries = {
-&"": SubResource("AnimationLibrary_xjt7e")
-}
+frame_progress = 0.375771
 
 [node name="handheld_item" type="Sprite2D" parent="Control/character"]
 position = Vector2(-4553.56, -2746.97)
@@ -1837,12 +2038,6 @@ scale = Vector2(6.66667, 6.66667)
 visible = false
 position = Vector2(4019.47, 1099.7)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/character"]
-position = Vector2(-1297.92, -163.118)
-scale = Vector2(4.69403, 2.54257)
-shape = SubResource("RectangleShape2D_kdubu")
-one_way_collision_margin = 6.3
-
 [node name="Touchcontrols" parent="Control" instance=ExtResource("4_0hol4")]
 
 [node name="Monster" type="Node2D" parent="Control"]
@@ -1851,13 +2046,20 @@ one_way_collision_margin = 6.3
 scale = Vector2(1.0488, 1.01431)
 script = ExtResource("10_hqns4")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Monster/monster-1"]
+position = Vector2(251.673, 1693.27)
+scale = Vector2(4.23103, 4.42111)
+sprite_frames = SubResource("SpriteFrames_0xo8l")
+animation = &"run"
+
 [node name="Sprite2D" type="Sprite2D" parent="Control/Monster/monster-1"]
+visible = false
 position = Vector2(296.53, 1720.38)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_ir8iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Monster/monster-1"]
-position = Vector2(297.11, 1719.54)
+position = Vector2(259.301, 1694.26)
 scale = Vector2(0.934561, 0.928922)
 shape = SubResource("RectangleShape2D_540hr")
 
@@ -1865,10 +2067,10 @@ shape = SubResource("RectangleShape2D_540hr")
 
 [node name="cooldown_bar" parent="Control/Monster/monster-1" instance=ExtResource("30_2u7jv")]
 visible = false
-offset_left = 185.884
-offset_top = 1588.27
-offset_right = 402.884
-offset_bottom = 1605.27
+offset_left = 150.605
+offset_top = 1556.72
+offset_right = 367.605
+offset_bottom = 1573.72
 max_value = 15.0
 value = 15.0
 
@@ -1876,23 +2078,30 @@ value = 15.0
 scale = Vector2(1.0488, 1.01431)
 script = ExtResource("36_fbwgr")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Monster/monster-2"]
+position = Vector2(673.107, 1562.64)
+scale = Vector2(4.4098, 4.42111)
+sprite_frames = SubResource("SpriteFrames_0xo8l")
+animation = &"run"
+
 [node name="Sprite2D" type="Sprite2D" parent="Control/Monster/monster-2"]
+visible = false
 position = Vector2(296.53, 1720.38)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_ir8iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Monster/monster-2"]
-position = Vector2(296.53, 1717.42)
+position = Vector2(674.061, 1562.64)
 shape = SubResource("RectangleShape2D_flf07")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-2"]
 
 [node name="cooldown_bar" parent="Control/Monster/monster-2" instance=ExtResource("30_2u7jv")]
 visible = false
-offset_left = 185.884
-offset_top = 1588.27
-offset_right = 402.884
-offset_bottom = 1605.27
+offset_left = 566.319
+offset_top = 1423.63
+offset_right = 783.319
+offset_bottom = 1440.63
 max_value = 15.0
 value = 15.0
 
@@ -1900,23 +2109,30 @@ value = 15.0
 scale = Vector2(1.0488, 1.01431)
 script = ExtResource("15_k73cj")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Monster/monster-3"]
+position = Vector2(837.104, 2485.43)
+scale = Vector2(4.4098, 4.42111)
+sprite_frames = SubResource("SpriteFrames_0xo8l")
+animation = &"run"
+
 [node name="Sprite2D" type="Sprite2D" parent="Control/Monster/monster-3"]
+visible = false
 position = Vector2(296.53, 1720.38)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_ir8iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Monster/monster-3"]
-position = Vector2(296.53, 1717.42)
+position = Vector2(841.514, 2487.41)
 shape = SubResource("RectangleShape2D_flf07")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-3"]
 
 [node name="cooldown_bar" parent="Control/Monster/monster-3" instance=ExtResource("30_2u7jv")]
 visible = false
-offset_left = 185.884
-offset_top = 1588.27
-offset_right = 402.884
-offset_bottom = 1605.27
+offset_left = 736.036
+offset_top = 2324.73
+offset_right = 953.036
+offset_bottom = 2342.73
 max_value = 15.0
 value = 15.0
 
@@ -1924,23 +2140,30 @@ value = 15.0
 scale = Vector2(1.0488, 1.01431)
 script = ExtResource("16_rjqkl")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Monster/monster-4"]
+position = Vector2(218.302, 2378.96)
+scale = Vector2(4.4098, 4.42111)
+sprite_frames = SubResource("SpriteFrames_0xo8l")
+animation = &"run"
+
 [node name="Sprite2D" type="Sprite2D" parent="Control/Monster/monster-4"]
+visible = false
 position = Vector2(296.53, 1720.38)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_ir8iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Monster/monster-4"]
-position = Vector2(296.53, 1717.42)
+position = Vector2(223.308, 2384.87)
 shape = SubResource("RectangleShape2D_flf07")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-4"]
 
 [node name="cooldown_bar" parent="Control/Monster/monster-4" instance=ExtResource("30_2u7jv")]
 visible = false
-offset_left = 185.884
-offset_top = 1588.27
-offset_right = 402.884
-offset_bottom = 1605.27
+offset_left = 120.094
+offset_top = 2239.95
+offset_right = 337.094
+offset_bottom = 2256.95
 max_value = 15.0
 value = 15.0
 
@@ -1948,23 +2171,30 @@ value = 15.0
 scale = Vector2(1.0488, 1.01431)
 script = ExtResource("17_fs4d3")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Monster/monster-5"]
+position = Vector2(762.734, 1858.41)
+scale = Vector2(4.4098, 4.42111)
+sprite_frames = SubResource("SpriteFrames_0xo8l")
+animation = &"run"
+
 [node name="Sprite2D" type="Sprite2D" parent="Control/Monster/monster-5"]
+visible = false
 position = Vector2(296.53, 1720.38)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("10_ir8iy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Monster/monster-5"]
-position = Vector2(297.44, 1716.44)
+position = Vector2(768.931, 1859.95)
 shape = SubResource("RectangleShape2D_flf07")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-5"]
 
 [node name="cooldown_bar" parent="Control/Monster/monster-5" instance=ExtResource("30_2u7jv")]
 visible = false
-offset_left = 185.884
-offset_top = 1588.27
-offset_right = 402.884
-offset_bottom = 1605.27
+offset_left = 665.48
+offset_top = 1727.28
+offset_right = 882.48
+offset_bottom = 1744.28
 max_value = 15.0
 value = 15.0
 
@@ -1972,13 +2202,21 @@ value = 15.0
 scale = Vector2(1.0488, 1.01431)
 script = ExtResource("30_mryly")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Monster/monster-boss"]
+position = Vector2(590.155, 4696.79)
+scale = Vector2(4.97266, 5.00054)
+sprite_frames = SubResource("SpriteFrames_3ngjr")
+animation = &"boss"
+frame_progress = 0.925883
+
 [node name="Sprite2D" type="Sprite2D" parent="Control/Monster/monster-boss"]
+visible = false
 position = Vector2(587.871, 4687.91)
 scale = Vector2(0.274488, 0.27151)
 texture = ExtResource("29_ebxd8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/Monster/monster-boss"]
-position = Vector2(585.848, 4686.5)
+position = Vector2(585.865, 4695.31)
 shape = SubResource("RectangleShape2D_6ip5v")
 
 [node name="Area2D" type="Area2D" parent="Control/Monster/monster-boss"]
@@ -2061,14 +2299,32 @@ script = ExtResource("45_3ngjr")
 transform = Transform3D(1, 0, 0, 0, 0.974847, 0.222876, 0, -0.222876, 0.974847, -14.6892, 4.46231, -9.13491)
 
 [node name="sword" parent="Control/Sword_SubViewport/Node3D" instance=ExtResource("46_b8fb0")]
-transform = Transform3D(0.358372, 8.26923e-07, -0.933578, 2.53518e-06, -1, 8.74228e-08, -0.933578, -2.39812e-06, -0.358372, -14.56, 0.29, -13.673)
+transform = Transform3D(-0.999999, -2.53518e-06, 0, 2.53518e-06, -1, 0, 0, 0, 0.999999, -14.56, 5.42996, -13.673)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Control/Sword_SubViewport/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0878, 0, -9.09284)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Sword_SubViewport/Node3D"]
 libraries = {
-&"": SubResource("AnimationLibrary_ma08v")
+&"": SubResource("AnimationLibrary_4qosj")
 }
 
-[node name="characters" type="CharacterBody2D" parent="Control"]
+[node name="Freezer_SubViewport" type="SubViewport" parent="Control"]
+transparent_bg = true
+
+[node name="Node3D" type="Node3D" parent="Control/Freezer_SubViewport"]
+script = ExtResource("45_3ngjr")
+
+[node name="Camera3D" type="Camera3D" parent="Control/Freezer_SubViewport/Node3D"]
+transform = Transform3D(1.00282, 0, 0, 0, 0.977598, 0.223505, 0, -0.223505, 0.977598, -48.5139, 4.46231, -9.13491)
+
+[node name="freezer" parent="Control/Freezer_SubViewport/Node3D" instance=ExtResource("50_4qosj")]
+transform = Transform3D(0.666711, 0, -0.258304, 0, 0.715, 0, 0.258304, 0, 0.666711, -48.313, 1.722, -13.673)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Control/Freezer_SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.3863, 0, -9.09284)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Freezer_SubViewport/Node3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_ma08v")
+}

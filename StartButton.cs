@@ -14,12 +14,22 @@ public partial class StartButton : TouchScreenButton
 	private void OnButtonPressed()
 	{
 		Key = GetParent().GetNode<Sprite2D>("main_screen_background");
-		if (Key == null)
+		AnimatedSprite2D Monster_1_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-1/AnimatedSprite2D");
+		AnimatedSprite2D Monster_2_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-2/AnimatedSprite2D");
+		AnimatedSprite2D Monster_3_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-3/AnimatedSprite2D");
+		AnimatedSprite2D Monster_4_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-4/AnimatedSprite2D");
+		AnimatedSprite2D Monster_5_animatedSprite2D = GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-5/AnimatedSprite2D");
+		if (Monster_1_animatedSprite2D == null)
 		{
-			GD.Print("this not found in the parent node.");
+			GD.Print("this Monster_1_animatedSprite2D  not found in the parent node.");
 			return;
 		}
 		GD.Print("Button pressed!");
+		Monster_1_animatedSprite2D.Play("run");
+		Monster_2_animatedSprite2D.Play("run");
+		Monster_3_animatedSprite2D.Play("run");
+		Monster_4_animatedSprite2D.Play("run");
+		Monster_5_animatedSprite2D.Play("run");
 		Key.Visible = false;
 		Visible = false;
 		Character.gamestart = true; // Assuming character is a globally accessible object or singleton

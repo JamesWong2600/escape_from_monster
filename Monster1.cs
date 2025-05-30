@@ -21,9 +21,10 @@ public partial class Monster1 : CharacterBody2D
 	private ProgressBar The_Monster_Cooldown_bar;
 	private bool alreadystarted = false;
 	private RandomNumberGenerator rng = new();
+	private AnimatedSprite2D animatedSprite;
 	public override void _Ready()
 	{
-
+		 animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -63,6 +64,13 @@ public partial class Monster1 : CharacterBody2D
 				IsFreeze = false;
 				The_Monster_Cooldown_bar.Visible = false;
 				RestoreMonsterCharacterTexture();
+				AnimatedSprite2D Monster_animatedSprite2D = GetParent().GetNode<AnimatedSprite2D>("../Monster/monster-1/AnimatedSprite2D");
+				if (Monster_animatedSprite2D == null)
+				{
+					GD.PrintErr("Monster AnimatedSprite2D node not found!");
+					return;
+				}
+				Monster_animatedSprite2D.Play("run");
 				GD.Print("Monster cooldown finished. Character is no longer frozen.");
 				return;
 			}
@@ -72,6 +80,17 @@ public partial class Monster1 : CharacterBody2D
 				//PickNewDirection(); // Change direction on collision
 				Monster_currentCooldown = 0;
 				Vector2 velocity = direction * Speed;
+				//GD.Print("v1: "+velocity);
+				if (velocity.X > 0)
+				{
+					animatedSprite.FlipH = true;
+				}
+				else if (velocity.X < 0)
+				{
+					animatedSprite.FlipH = false;
+				}
+				//GD.Print("Flip1: ");
+				MoveAndSlide();
 				KinematicCollision2D collision = MoveAndCollide(velocity * (float)delta);
 				if (collision != null)
 				{
@@ -93,6 +112,8 @@ public partial class Monster1 : CharacterBody2D
 									RestoreCharacterTexture();
 									Monster_currentCooldown = Monster_cooldownTime;
 									Sprite2D Freezer_icon = GetParent().GetNode<Sprite2D>("../Touchcontrols/freezer_icon");
+									AnimatedSprite2D Monster_animatedSprite2D = GetParent().GetNode<AnimatedSprite2D>("../Monster/monster-1/AnimatedSprite2D");
+									Monster_animatedSprite2D.Play("cooldown");
 									Freezer_icon.Visible = false;
 									The_Monster_Cooldown_bar.Visible = true;
 									The_Monster_Cooldown_bar.Value = Monster_cooldownTime;

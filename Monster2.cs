@@ -19,9 +19,11 @@ public partial class Monster2 : CharacterBody2D
 	private Sprite2D Monster_texture;
 	private bool alreadystarted = false;
 	private ProgressBar The_Monster_Cooldown_bar;
+	private AnimatedSprite2D animatedSprite;
 	private RandomNumberGenerator rng = new();
 	public override void _Ready()
 	{
+		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		Position = startPosition;
 		rng.Randomize();
 		PickNewDirection();
@@ -47,6 +49,12 @@ public partial class Monster2 : CharacterBody2D
 	}
 	public override void _PhysicsProcess(double delta)
 	{
+		if (Velocity.X != 0)
+		{
+			animatedSprite.FlipH = Velocity.X < 0;
+		}
+
+		Velocity = Vector2.Zero;
 		if (Character.gamestart == false)
 		{
 			return;
@@ -55,7 +63,6 @@ public partial class Monster2 : CharacterBody2D
 		{
 			if (Monster_currentCooldown > 0f)
 			{
-				Velocity = Vector2.Zero;
 				Monster_currentCooldown -= (float)delta;
 				The_Monster_Cooldown_bar.Value = Math.Round(Monster_currentCooldown, 2);
 				//GD.Print("Monster is on cooldown. Remaining time: " + Monster_currentCooldown);
@@ -66,6 +73,13 @@ public partial class Monster2 : CharacterBody2D
 				IsFreeze = false;
 				The_Monster_Cooldown_bar.Visible = false;
 				RestoreMonsterCharacterTexture();
+				AnimatedSprite2D Monster_animatedSprite2D = GetParent().GetNode<AnimatedSprite2D>("../Monster/monster-2/AnimatedSprite2D");
+				if (Monster_animatedSprite2D == null)
+				{
+					GD.PrintErr("Monster AnimatedSprite2D node not found!");
+					return;
+				}
+				Monster_animatedSprite2D.Play("run");
 				GD.Print("Monster cooldown finished. Character is no longer frozen.");
 				return;
 			}
@@ -75,6 +89,17 @@ public partial class Monster2 : CharacterBody2D
 				//PickNewDirection(); // Change direction on collision
 				Monster_currentCooldown = 0;
 				Vector2 velocity = direction * Speed;
+				//GD.Print("v2: "+velocity);
+				if (velocity.X > 0)
+				{
+					animatedSprite.FlipH = true;
+				}
+				else if (velocity.X < 0)
+				{
+					animatedSprite.FlipH = false;
+				}
+				//GD.Print("Flip2: ");
+				MoveAndSlide();
 				KinematicCollision2D collision = MoveAndCollide(velocity * (float)delta);
 				if (collision != null)
 				{
@@ -97,6 +122,8 @@ public partial class Monster2 : CharacterBody2D
 									The_Monster_Cooldown_bar.Visible = true;
 									Sprite2D Freezer_icon = GetParent().GetNode<Sprite2D>("../Touchcontrols/freezer_icon");
 									Freezer_icon.Visible = false;
+									AnimatedSprite2D Monster_animatedSprite2D = GetParent().GetNode<AnimatedSprite2D>("../Monster/monster-2/AnimatedSprite2D");
+									Monster_animatedSprite2D.Play("cooldown");
 									The_Monster_Cooldown_bar.Value = Monster_cooldownTime;
 									GD.Print("Monster is freezing the character. " + Monster_currentCooldown);
 									return;

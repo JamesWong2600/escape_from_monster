@@ -3,7 +3,7 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
-	public static Vector2 startPosition = new Vector2(-5, 210);
+	public static Vector2 startPosition = new Vector2(800, 210);
 	private Vector2 targetPosition = new Vector2(1000, 0);
 	private Vector2 Boss_fight_recover_Position = new Vector2(5000f, 5000f);
 	private Vector2 Level2Position = new Vector2(4500, 3892);
@@ -51,6 +51,7 @@ public partial class Character : CharacterBody2D
 	private Label Key_amount_label; // Label to display key amount
 	public static int Health = 3; // Example health variable
 	private AnimatedSprite2D animatedSprite2D;
+	//private AnimatedSprite2D Monster_animatedSprite2D;
 	public override void _Ready()
 	{
 		GD.Print("Hello, Godot!");
@@ -67,6 +68,7 @@ public partial class Character : CharacterBody2D
 		heart3 = GetNode<Sprite2D>("../Touchcontrols/heart3");
 		gameover = GetNode<Sprite2D>("../Touchcontrols/gameover");
 		animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
 
 
 		//var abcScene = GD.Load<PackedScene>("res://touchcontrols.tscn");
@@ -141,16 +143,16 @@ public partial class Character : CharacterBody2D
 			if (Velocity.Length() > 0f)
 			{
 			animatedSprite2D.Play("run");
-			GD.Print("Character is moving");
+			//GD.Print("Character is moving");
 			}
 			else
 			{
 			animatedSprite2D.Play("idie");
-			GD.Print("Character is idle");
+			//GD.Print("Character is idle");
 			}
 			if (Velocity.X != 0)
 			{
-				animatedSprite2D.FlipH = Velocity.X < 0;
+				animatedSprite2D.FlipH = Velocity.X > 0;
 			}
 			MoveAndSlide();  // Moves and checks collisions internally
 		}
@@ -163,9 +165,10 @@ public partial class Character : CharacterBody2D
 
 			if (collider is Monster1) // Replace 'Monster' with the actual class name of your monster
 			{
-				GD.Print("Collided with a monster!");
-				GD.Print("Current freezer status: ", holdingFreezer);
+				//GD.Print("Collided with a monster!");
+				//GD.Print("Current freezer status: ", holdingFreezer);
 				A_MONSTER = GetParent().GetNode<Sprite2D>("Monster/monster-1/Sprite2D");
+
 				//Sprite2D characterSprite = GetNodeOrNull<Sprite2D>("Sprite2D");
 				//GD.Print("Monster texture: ", A_MONSTER.Texture.ResourcePath);
 				//Monster1 monster = collider as Monster1; // Cast to your monster class
@@ -174,7 +177,9 @@ public partial class Character : CharacterBody2D
 					if (holdingFreezer == true)
 					{
 						//Monster1.IsFreeze = true;
-						GD.Print("You froze the monster!");
+						GD.Print("You froze the monster 1!");
+						//AnimatedSprite2D Monster_animatedSprite2D = GetParent().GetNode<AnimatedSprite2D>("Monster/monster-1/AnimatedSprite2D");
+						//Monster_animatedSprite2D.Play("cooldown");
 						//RestoreCharacterTexture();
 						currentCooldown = cooldownTime;
 						return;
@@ -199,6 +204,7 @@ public partial class Character : CharacterBody2D
 				//GD.Print("Collided with a monster!");
 				//GD.Print("Current freezer status: ", holdingFreezer);
 				A_MONSTER = GetParent().GetNode<Sprite2D>("Monster/monster-2/Sprite2D");
+
 				///Sprite2D characterSprite = GetNodeOrNull<Sprite2D>("Sprite2D");
 				//GD.Print("Monster texture: ", A_MONSTER.Texture.ResourcePath);
 				//Monster1 monster = collider as Monster1; // Cast to your monster class
@@ -207,9 +213,11 @@ public partial class Character : CharacterBody2D
 					if (holdingFreezer == true)
 					{
 						//Monster2.IsFreeze = true;
-						GD.Print("You froze the monster!");
+						GD.Print("You froze the monster 2!");
 						//RestoreCharacterTexture();
 						//holdingFreezer = false;
+						//AnimatedSprite2D Monster_animatedSprite2D = GetParent().GetNode<AnimatedSprite2D>("Monster/monster-2/AnimatedSprite2D");
+						//Monster_animatedSprite2D.Play("cooldown");
 						currentCooldown = cooldownTime;
 						return;
 					}
@@ -233,6 +241,7 @@ public partial class Character : CharacterBody2D
 				//GD.Print("Collided with a monster!");
 				//GD.Print("Current freezer status: ", holdingFreezer);
 				A_MONSTER = GetParent().GetNode<Sprite2D>("Monster/monster-3/Sprite2D");
+				
 				//Sprite2D characterSprite = GetNodeOrNull<Sprite2D>("Sprite2D");
 				//GD.Print("Monster texture: ", A_MONSTER.Texture.ResourcePath);
 				//Monster1 monster = collider as Monster1; // Cast to your monster class
@@ -241,8 +250,10 @@ public partial class Character : CharacterBody2D
 					if (holdingFreezer == true)
 					{
 						//Monster3.IsFreeze = true;
-						GD.Print("You froze the monster!");
+						GD.Print("You froze the monster 3!");
 						//RestoreCharacterTexture();
+						//AnimatedSprite2D Monster_animatedSprite2D = GetParent().GetNode<AnimatedSprite2D>("Monster/monster-3/AnimatedSprite2D");
+						//Monster_animatedSprite2D.Play("cooldown");
 						//holdingFreezer = false;
 						currentCooldown = cooldownTime;
 						return;
@@ -267,15 +278,19 @@ public partial class Character : CharacterBody2D
 				//GD.Print("Collided with a monster!");
 				//GD.Print("Current freezer status: ", holdingFreezer);
 				A_MONSTER = GetParent().GetNode<Sprite2D>("Monster/monster-4/Sprite2D");
+
 				//Sprite2D characterSprite = GetNodeOrNull<Sprite2D>("Sprite2D");
 				//GD.Print("Monster texture: ", A_MONSTER.Texture.ResourcePath);
 				//Monster1 monster = collider as Monster1; // Cast to your monster class
 				if (currentCooldown <= 0f)
 				{
+					GD.Print("You touch the monster 4!");
 					if (holdingFreezer == true)
 					{
 						//Monster3.IsFreeze = true;
-						GD.Print("You froze the monster!");
+						GD.Print("You froze the monster 4!");
+						//AnimatedSprite2D Monster_animatedSprite2D = GetParent().GetNode<AnimatedSprite2D>("Monster/monster-4/AnimatedSprite2D");
+						//Monster_animatedSprite2D.Play("cooldown");
 						//RestoreCharacterTexture();
 						//holdingFreezer = false;
 						currentCooldown = cooldownTime;
@@ -298,9 +313,12 @@ public partial class Character : CharacterBody2D
 			}
 			if (collider is Monster5) // Replace 'Monster' with the actual class name of your monster
 			{
+				GD.Print("You touch the monster 5!");
 				//GD.Print("Collided with a monster!");
 				//GD.Print("Current freezer status: ", holdingFreezer);
 				A_MONSTER = GetParent().GetNode<Sprite2D>("Monster/monster-5/Sprite2D");
+
+				
 				//Sprite2D characterSprite = GetNodeOrNull<Sprite2D>("Sprite2D");
 				//GD.Print("Monster texture: ", A_MONSTER.Texture.ResourcePath);
 				//Monster1 monster = collider as Monster1; // Cast to your monster class
@@ -309,8 +327,10 @@ public partial class Character : CharacterBody2D
 					if (holdingFreezer == true)
 					{
 						//Monster3.IsFreeze = true;
-						GD.Print("You froze the monster!");
+						GD.Print("You froze the monster 5!");
 						//RestoreCharacterTexture();
+						//AnimatedSprite2D Monster_animatedSprite2D = GetParent().GetNode<AnimatedSprite2D>("Monster/monster-5/AnimatedSprite2D");
+						//Monster_animatedSprite2D.Play("cooldown");
 						//holdingFreezer = false;
 						currentCooldown = cooldownTime;
 						return;
