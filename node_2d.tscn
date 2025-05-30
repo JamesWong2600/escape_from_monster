@@ -34,7 +34,7 @@
 [ext_resource type="Script" uid="uid://clnuoy0lc6pdn" path="res://Freezer3.cs" id="29_7mj2a"]
 [ext_resource type="Texture2D" uid="uid://nu18s528m6ww" path="res://others/boss.png" id="29_ebxd8"]
 [ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="30_2u7jv"]
-[ext_resource type="Script" uid="uid://cejfuc2u2va7j" path="res://Character.cs" id="30_fshgd"]
+[ext_resource type="Script" uid="uid://coyl32bd3bjit" path="res://Character.cs" id="30_fshgd"]
 [ext_resource type="Script" uid="uid://c4wsdw3qk3c4r" path="res://Monster_boss.cs" id="30_mryly"]
 [ext_resource type="Texture2D" uid="uid://bxd8xf2ud8r2n" path="res://character/cool.png" id="31_3ngjr"]
 [ext_resource type="Texture2D" uid="uid://d3rwlyr34q7iw" path="res://character/monster (32x32).png" id="31_xfyss"]
@@ -2037,6 +2037,8 @@ scale = Vector2(6.66667, 6.66667)
 [node name="Sprite2D" type="Sprite2D" parent="Control/character"]
 visible = false
 position = Vector2(4019.47, 1099.7)
+
+[node name="httpRequest" type="HTTPRequest" parent="Control/character"]
 
 [node name="Touchcontrols" parent="Control" instance=ExtResource("4_0hol4")]
 

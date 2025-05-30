@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 
-public partial class return_to_main_page_win : TouchScreenButton
+public partial class return_to_main_page_failed : TouchScreenButton
 {
 
 
@@ -26,7 +26,7 @@ public partial class return_to_main_page_win : TouchScreenButton
 			return;
 		}
 		//GD.Print("Button pressed! Returning to main page. 1");
-		Sprite2D wingame_screen = GetParent().GetNode<Sprite2D>("wingame_screen");
+		Sprite2D wingame_screen = GetParent().GetNode<Sprite2D>("gameover");
 		if(wingame_screen == null)
 		{
 			GD.PrintErr("wingame_screen node not found at path!");
@@ -42,7 +42,7 @@ public partial class return_to_main_page_win : TouchScreenButton
 			return;
 		}
 		GD.Print("return_to_main_page node found, proceeding to hide it. 3");
-		TouchScreenButton return_to_main_win = GetParent().GetNode<TouchScreenButton>("return_to_main_win");
+		TouchScreenButton return_to_main_win = GetParent().GetNode<TouchScreenButton>("return_to_main_failed");
 		if(return_to_main_win == null)
 		{
 			GD.PrintErr("return_to_main_win node not found at path!");
