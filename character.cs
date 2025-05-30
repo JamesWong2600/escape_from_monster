@@ -3,6 +3,8 @@ using System;
 
 public partial class Character : CharacterBody2D
 {
+
+	public static bool IsLogin = false;
 	public static Vector2 startPosition = new Vector2(800, 210);
 	private Vector2 targetPosition = new Vector2(1000, 0);
 	private Vector2 Boss_fight_recover_Position = new Vector2(5000f, 5000f);
@@ -591,12 +593,17 @@ public partial class Character : CharacterBody2D
 					{
 						bossfight_label.Text = "Boss Fight: No"; // Display boss fight status
 					}
+
 					scoreValue = scoreValue + Timer.countdownTime * 10;
 					String scoreText = "Score: " + scoreValue.ToString("F1");
 					score.Text = scoreText;// Display the score based on key amount
 					GD.Print("test 59");
 					wingamescreen.Visible = true; // Show the win game screen
 					TouchScreenButton Button = GetNode<TouchScreenButton>("../Touchcontrols/Button");
+					Label username = GetNode<Label>("../Touchcontrols/username");
+					TouchScreenButton ReturnButton = GetParent().GetNode<TouchScreenButton>("Touchcontrols/return_to_main_win");
+					ReturnButton.Visible = true; // Show the retry button
+			        username.Visible = false; // Hide the username label
 					Button.Visible = true; // Show the retry button
 					//Button.Disabled = false; // Enable the retry button
 					if (currentCooldown <= 0f)
@@ -998,6 +1005,10 @@ public partial class Character : CharacterBody2D
 			gameover.Visible = true; // Show the game over sprite
 			RetryButton = GetParent().GetNode<TouchScreenButton>("Touchcontrols/Button");
 			RetryButton.Visible = true; // Show the retry button
+			TouchScreenButton ReturnButton = GetParent().GetNode<TouchScreenButton>("Touchcontrols/return_to_main_win");
+			ReturnButton.Visible = true; // Show the retry button
+			Label username = GetNode<Label>("../Touchcontrols/username");
+			username.Visible = false; // Hide the username label
 			GD.Print("Game Over! You have no hearts left.");
 			return;
 
