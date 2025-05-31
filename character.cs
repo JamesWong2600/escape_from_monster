@@ -554,7 +554,7 @@ public partial class Character : CharacterBody2D
 				{
 					GD.Print("Collided with a Gate");
 					TheGate = GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-Gate"); // Disable the collision shape of the gate
-					if (KeyAmount < 0)
+					if (KeyAmount < 8)
 					{
 						GD.Print("You need 8 keys to open the gate!");
 						return; // Exit if not enough keys
@@ -594,7 +594,7 @@ public partial class Character : CharacterBody2D
 					}
 
 					scoreValue = scoreValue + Timer.countdownTime * 10;
-					String scoreText = "Score: " + scoreValue.ToString("F0");
+					String scoreText = "Score: " + Mathf.RoundToInt(scoreValue).ToString("F0");
 					score.Text = scoreText;// Display the score based on key amount
 					GD.Print("test 59");
 					wingamescreen.Visible = true; // Show the win game screen
@@ -608,11 +608,11 @@ public partial class Character : CharacterBody2D
 					{
 						HttpRequest httpRequest = GetNode<HttpRequest>("httpRequest");
 						GD.Print("User sent: ", username.Text.Replace("Welcome ", ""));
-						GD.Print("User sent: ", scoreValue.ToString("F0"));
+						GD.Print("User sent: ", Mathf.RoundToInt(scoreValue).ToString("F0"));
 
 						string url = config.domain + "/update_player_scores/";
 						// JSON payload
-						string json = $"{{\"username\": \"{username.Text.Replace("Welcome ", "")}\", \"scores\": \"{scoreValue.ToString("F1")}\"}}";
+						string json = $"{{\"username\": \"{username.Text.Replace("Welcome ", "")}\", \"scores\": \"{Mathf.RoundToInt(scoreValue).ToString("F0")}\"}}";
 
 						// Headers
 						var headers = new string[] { "Content-Type: application/json" };
@@ -924,7 +924,7 @@ public partial class Character : CharacterBody2D
 			if (Boss_health == 0f)
 			{
 				bossfight = true;
-				scoreValue += 500;
+				scoreValue += 4000;
 				GD.Print("You defeated the boss!");
 				The_Boss = GetParent().GetNode<CharacterBody2D>("Monster/monster-boss");
 				CollisionShape2D The_Boss_Collision = GetParent().GetNode<CollisionShape2D>("Monster/monster-boss/CollisionShape2D");
