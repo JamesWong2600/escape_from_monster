@@ -48,6 +48,7 @@ public partial class RetryButton : TouchScreenButton
 		Character.gamestart = true; // Assuming character is a globally accessible object or singleton
 		Timer.Wingame = false; 
 		Timer.countdownTime = 300f;
+		Character.bossfight = false; // Reset boss fight state
 		Background = GetParent().GetNode<Sprite2D>("gameover");
 		Label username = GetParent().GetNode<Label>("username");
 		username.Visible = true; // Hide the username label

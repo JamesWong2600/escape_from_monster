@@ -15,6 +15,7 @@ public partial class Demo : TouchScreenButton
 	{
 		Character.gamestart = true;
 		Character.Health = 3; // Reset character health to 3
+		Character.bossfight = false;
 		Key = GetParent().GetParent().GetNode<Sprite2D>("main_screen_background");
 		Node2D main_screen = GetParent().GetParent().GetNode<Node2D>("main_screen");
 		Timer.Wingame = false; // Reset the game state
