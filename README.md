@@ -46,3 +46,14 @@ collect 8 keys and open the gate in 5 minutes
 
 # installation
 see the release
+
+# how to build the project (e.g. .apk, .exe)
+1. clone the repository
+```bash
+   git clone https://github.com/JamesWong2600/escape_from_monster.git
+```
+2. import the folder "escape_from_monster" as the project in godot
+3. click "Project" at the top-left corner
+4. click "export"
+5. select the type you want to export e.g. apk, exe）
+6. then the exported product will be in your "escape_from_monster" directory
