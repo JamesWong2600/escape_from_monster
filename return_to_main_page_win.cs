@@ -6,7 +6,7 @@ public partial class return_to_main_page_win : TouchScreenButton
 {
 
 
-    // Called when the node enters the scene tree for the first time
+	// Called when the node enters the scene tree for the first time
 	public override void _Ready()
 	{
 		// Connect the Pressed signal to the OnButtonPressed method
@@ -24,7 +24,7 @@ public partial class return_to_main_page_win : TouchScreenButton
 			return;
 		}
 
-        // Get reference to the main screen background sprite
+		// Get reference to the main screen background sprite
 		Sprite2D main_screen_background = GetParent().GetParent().GetNode<Sprite2D>("main_screen/main_screen_background");
 		if (main_screen_background == null)
 		{
@@ -33,7 +33,7 @@ public partial class return_to_main_page_win : TouchScreenButton
 		}
 
 
-        // Get reference to the win game screen sprite
+		// Get reference to the win game screen sprite
 		Sprite2D wingame_screen = GetParent().GetNode<Sprite2D>("wingame_screen");
 		if (wingame_screen == null)
 		{
@@ -43,7 +43,7 @@ public partial class return_to_main_page_win : TouchScreenButton
 		GD.Print("wingame_screen node found, proceeding to hide it. 2");
 
 
-        // Get reference to the button node
+		// Get reference to the button node
 		TouchScreenButton Button = GetParent().GetNode<TouchScreenButton>("Button");
 		if (Button == null)
 		{
@@ -53,7 +53,7 @@ public partial class return_to_main_page_win : TouchScreenButton
 		GD.Print("return_to_main_page node found, proceeding to hide it. 3");
 
 
-        // Get reference to the "Return to Main Win" button
+		// Get reference to the "Return to Main Win" button
 		TouchScreenButton return_to_main_win = GetParent().GetNode<TouchScreenButton>("return_to_main_win");
 		if (return_to_main_win == null)
 		{
