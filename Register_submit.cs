@@ -307,7 +307,7 @@ public partial class Register_submit : TouchScreenButton
 
 	public void RestoreCharacterTexture()
 	{
-		Sprite2D characterSprite = GetParent().GetParent().GetNodeOrNull<Sprite2D>("character/Sprite2D"); // Adjust the path to your character's Sprite2D node
+		Sprite2D characterSprite = GetParent().GetParent().GetParent().GetNodeOrNull<Sprite2D>("character/Sprite2D"); // Adjust the path to your character's Sprite2D node
 		if (characterSprite == null)
 		{
 			GD.PrintErr("Character from replay Sprite2D node not found!");

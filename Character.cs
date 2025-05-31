@@ -604,7 +604,7 @@ public partial class Character : CharacterBody2D
 					Label username = GetNode<Label>("../Touchcontrols/username");
 
 
-					if (IsLogin)
+					/*if (IsLogin)
 					{
 						HttpRequest httpRequest = GetNode<HttpRequest>("httpRequest");
 						GD.Print("User sent: ", username.Text.Replace("Welcome ", ""));
@@ -621,7 +621,7 @@ public partial class Character : CharacterBody2D
 						// POST request
 						httpRequest.Request(url, headers, HttpClient.Method.Post, json); // Pass the JSON string directly
 						IsLogin = false;
-				  }
+				  }*/
 
 
 					//TouchScreenButton ReturnButton = GetParent().GetNode<TouchScreenButton>("Touchcontrols/return_to_main_win");

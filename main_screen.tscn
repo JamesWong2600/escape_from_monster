@@ -3,10 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bvubhdj1qtdp3" path="res://others/START.png" id="1_tjn2e"]
 [ext_resource type="Texture2D" uid="uid://hs64hdy7qu1d" path="res://others/the_main_screen.png" id="1_w0p2i"]
 [ext_resource type="Texture2D" uid="uid://ra5irgxomqc8" path="res://others/register.png" id="4_kwhh3"]
+[ext_resource type="Texture2D" uid="uid://fsts42ybips7" path="res://others/PLAY.png" id="5_3qsiq"]
 [ext_resource type="Texture2D" uid="uid://criourlvmyvuu" path="res://others/LOGIN.png" id="5_4sclt"]
 [ext_resource type="Script" uid="uid://b10k3uceyb54k" path="res://To_Login_page.cs" id="5_62wn8"]
 [ext_resource type="Script" uid="uid://cg6wo54inx07q" path="res://To_Register_page.cs" id="6_sjiej"]
-[ext_resource type="Texture2D" uid="uid://bbwmhaw1bnld1" path="res://others/DEMO.png" id="6_ywh4s"]
 [ext_resource type="Texture2D" uid="uid://b017ilawbsu1m" path="res://others/grey.png" id="7_ue4rx"]
 [ext_resource type="Script" uid="uid://1nfsi4c53tfs" path="res://Demo.cs" id="8_cxp7d"]
 [ext_resource type="Script" uid="uid://6lwp3r1x5iku" path="res://Register_submit.cs" id="9_4sv2p"]
@@ -41,30 +41,41 @@ icon = ExtResource("1_tjn2e")
 [node name="main_screen" type="Node2D" parent="."]
 
 [node name="to_login_page" type="TouchScreenButton" parent="main_screen"]
-position = Vector2(1004, 364)
+modulate = Color(1, 0, 0, 1)
+position = Vector2(535, 822)
 scale = Vector2(0.856, 0.87)
 texture_normal = ExtResource("5_4sclt")
 script = ExtResource("5_62wn8")
 
 [node name="demo" type="TouchScreenButton" parent="main_screen"]
-position = Vector2(1006, 181)
+position = Vector2(1045, 425)
 scale = Vector2(0.848, 0.83)
-texture_normal = ExtResource("6_ywh4s")
+texture_normal = ExtResource("5_3qsiq")
 script = ExtResource("8_cxp7d")
 
 [node name="to_register_page" type="TouchScreenButton" parent="main_screen"]
-position = Vector2(1000, 561)
+modulate = Color(0.970703, 0, 0, 1)
+position = Vector2(1039, 813)
 scale = Vector2(0.846, 0.925)
 texture_normal = ExtResource("4_kwhh3")
 script = ExtResource("6_sjiej")
 
 [node name="to_ranking" type="TouchScreenButton" parent="main_screen"]
-position = Vector2(990, 770)
+modulate = Color(1, 0, 0, 1)
+position = Vector2(1530, 813)
 scale = Vector2(0.896, 0.915)
 texture_normal = ExtResource("9_sj757")
 script = ExtResource("10_7sxnj")
 
 [node name="HttpRequest" type="HTTPRequest" parent="main_screen/to_ranking"]
+
+[node name="Label" type="Label" parent="main_screen"]
+offset_left = 984.0
+offset_top = 690.0
+offset_right = 1361.96
+offset_bottom = 764.0
+scale = Vector2(4.49, 4.49)
+text = "still developing:"
 
 [node name="register_page" type="Node2D" parent="."]
 visible = false

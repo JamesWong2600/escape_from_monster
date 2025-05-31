@@ -13,6 +13,7 @@ public partial class Demo : TouchScreenButton
 	}
 	private void OnButtonPressed()
 	{
+		Character.gamestart = true;
 		Character.Health = 3; // Reset character health to 3
 		Key = GetParent().GetParent().GetNode<Sprite2D>("main_screen_background");
 		Node2D main_screen = GetParent().GetParent().GetNode<Node2D>("main_screen");
@@ -34,10 +35,8 @@ public partial class Demo : TouchScreenButton
 		Monster_3_animatedSprite2D.Play("run");
 		Monster_4_animatedSprite2D.Play("run");
 		Monster_5_animatedSprite2D.Play("run");
-		Character.gamestart = true;
 		Timer.countdownTime = 300f;
-		Key.Visible = false;
-		Character.gamestart = true; // Assuming character is a globally accessible object or singleton
+		Key.Visible = false; // Assuming character is a globally accessible object or singleton
 		CharacterBody2D thecharacter = GetParent().GetParent().GetParent().GetNode<CharacterBody2D>("character");
 		thecharacter.Position = Character.startPosition;
 		Label username = GetParent().GetParent().GetParent().GetNode<Label>("Touchcontrols/username");
@@ -240,7 +239,7 @@ public partial class Demo : TouchScreenButton
 	}
 	public void RestoreCharacterTexture()
 	{
-		Sprite2D characterSprite = GetParent().GetParent().GetNodeOrNull<Sprite2D>("character/Sprite2D"); // Adjust the path to your character's Sprite2D node
+		Sprite2D characterSprite = GetParent().GetParent().GetParent().GetNodeOrNull<Sprite2D>("character/Sprite2D"); // Adjust the path to your character's Sprite2D node
 		if (characterSprite == null)
 		{
 			GD.PrintErr("Character from replay Sprite2D node not found!");

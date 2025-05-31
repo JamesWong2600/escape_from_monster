@@ -1,9 +1,8 @@
-[gd_scene load_steps=226 format=3 uid="uid://bt77pgnq3bycj"]
+[gd_scene load_steps=225 format=3 uid="uid://bt77pgnq3bycj"]
 
 [ext_resource type="Texture2D" uid="uid://bn2poxgx0grdk" path="res://map/background/cage.png" id="2_0h7mo"]
 [ext_resource type="Texture2D" uid="uid://cuuu3bel5n7ih" path="res://map/background/background.png" id="2_kdubu"]
 [ext_resource type="PackedScene" uid="uid://bhxg5ffinr5vm" path="res://touchcontrols.tscn" id="4_0hol4"]
-[ext_resource type="Script" uid="uid://bb3eqx355awob" path="res://Camera2d.cs" id="5_q6r6c"]
 [ext_resource type="Texture2D" uid="uid://dk6no6i74j8tr" path="res://map/obstacle/lava.png" id="5_rj586"]
 [ext_resource type="Texture2D" uid="uid://cqrymfnac5bim" path="res://map/background/background_sand.png" id="8_1fr6y"]
 [ext_resource type="Texture2D" uid="uid://df6f2ifdm18m" path="res://map/background/wooden.png" id="9_4d7sh"]
@@ -34,7 +33,7 @@
 [ext_resource type="Script" uid="uid://clnuoy0lc6pdn" path="res://Freezer3.cs" id="29_7mj2a"]
 [ext_resource type="Texture2D" uid="uid://nu18s528m6ww" path="res://others/boss.png" id="29_ebxd8"]
 [ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="30_2u7jv"]
-[ext_resource type="Script" uid="uid://coyl32bd3bjit" path="res://Character.cs" id="30_fshgd"]
+[ext_resource type="Script" uid="uid://b4l4ws8mscapa" path="res://Character.cs" id="30_fshgd"]
 [ext_resource type="Script" uid="uid://c4wsdw3qk3c4r" path="res://Monster_boss.cs" id="30_mryly"]
 [ext_resource type="Texture2D" uid="uid://bxd8xf2ud8r2n" path="res://character/cool.png" id="31_3ngjr"]
 [ext_resource type="Texture2D" uid="uid://d3rwlyr34q7iw" path="res://character/monster (32x32).png" id="31_xfyss"]
@@ -945,9 +944,9 @@ scale = Vector2(1.09375, 0.65625)
 texture = ExtResource("9_4d7sh")
 
 [node name="Camera2D" type="Camera2D" parent="Control/map1"]
+visible = false
 position = Vector2(1168.86, 534)
 scale = Vector2(0.05, 0.05)
-script = ExtResource("5_q6r6c")
 
 [node name="rock" type="Node2D" parent="Control/map1"]
 
@@ -2015,7 +2014,6 @@ script = ExtResource("30_fshgd")
 [node name="Camera2D" type="Camera2D" parent="Control/character"]
 position = Vector2(3238.84, 813.033)
 scale = Vector2(0.333333, 0.333333)
-script = ExtResource("5_q6r6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Control/character"]
 position = Vector2(3293.33, 786.667)
