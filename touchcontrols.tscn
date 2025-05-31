@@ -175,6 +175,7 @@ scale = Vector2(3.935, 3.935)
 text = "bossfight:"
 
 [node name="Button" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2(894, 587)
 texture_normal = ExtResource("8_e0v2y")
 script = ExtResource("9_m8wb2")
@@ -197,6 +198,7 @@ scale = Vector2(4.28, 4.28)
 text = "welcome: "
 
 [node name="return_to_main_win" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2(893, 829)
 texture_normal = ExtResource("14_62nos")
 script = ExtResource("15_al1ug")

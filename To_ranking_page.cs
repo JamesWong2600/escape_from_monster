@@ -76,6 +76,7 @@ public partial class To_ranking_page : TouchScreenButton
 		httpRequest.RequestCompleted += OnRequestCompleted;
 		string url = config.domain+"/get_player_scores/";
 		// POST request
+		
 		httpRequest.Request(url); // Pass the JSON string directly
 		GD.Print("testtt");
 		// Example ranking data

@@ -13,8 +13,10 @@ public partial class Demo : TouchScreenButton
 	}
 	private void OnButtonPressed()
 	{
+		Character.Health = 3; // Reset character health to 3
 		Key = GetParent().GetParent().GetNode<Sprite2D>("main_screen_background");
 		Node2D main_screen = GetParent().GetParent().GetNode<Node2D>("main_screen");
+		Timer.Wingame = false; // Reset the game state
 		main_screen.Visible = false; // Hide the main screen
 		AnimatedSprite2D Monster_1_animatedSprite2D = GetParent().GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-1/AnimatedSprite2D");
 		AnimatedSprite2D Monster_2_animatedSprite2D = GetParent().GetParent().GetParent().GetNode<AnimatedSprite2D>("Monster/monster-2/AnimatedSprite2D");
@@ -41,6 +43,11 @@ public partial class Demo : TouchScreenButton
 		Label username = GetParent().GetParent().GetParent().GetNode<Label>("Touchcontrols/username");
 		username.Text = "Welcome " + "Visitor"; // Set the username to "Visitor" for demo purposes
 		username.Visible = true; // Hide the username label
+
+		TouchScreenButton return_to_main_failed = GetParent().GetParent().GetParent().GetNode<TouchScreenButton>("Touchcontrols/return_to_main_failed");
+		return_to_main_failed.Visible = false; // Hide the return to main failed button
+		TouchScreenButton return_to_main_win = GetParent().GetParent().GetParent().GetNode<TouchScreenButton>("Touchcontrols/return_to_main_win");
+		return_to_main_win.Visible = false; 
 
 		CharacterBody2D monster1 = GetParent().GetParent().GetParent().GetNode<CharacterBody2D>("Monster/monster-1");
 		CharacterBody2D monster2 = GetParent().GetParent().GetParent().GetNode<CharacterBody2D>("Monster/monster-2");
@@ -83,20 +90,22 @@ public partial class Demo : TouchScreenButton
 		RestoreCharacterTexture();
 		Sprite2D key1 = GetParent().GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-1/Sprite2D");
 		CollisionShape2D key1_collisionShape = GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-1/CollisionShape2D");
-		/*key2 = GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-2/Sprite2D");
-		key2_collisionShape = GetParent().GetParent().GetNode<CollisionShapekeyset/StaticBody2D-key-2/CollisionShape2D");
-		key3 = GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-3/Sprite2D");
-		key3_collisionShape = GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-3/CollisionShape2D");
-		key4 = GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-4/Sprite2D");
-		key4_collisionShape = GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-4/CollisionShape2D");
-		key5 = GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-5/Sprite2D");
-		key5_collisionShape = GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-5/CollisionShape2D");
-		key6 = GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-6/Sprite2D");
-		key6_collisionShape = GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-6/CollisionShape2D");
-		key7 = GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-7/Sprite2D");
-		key7_collisionShape = GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-7/CollisionShape2D");
-		key8 = GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-8/Sprite2D");
-		key8_collisionShape = GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-8/CollisionShape2D");*/
+		Sprite2D key2 =  GetParent().GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-2/Sprite2D");
+		CollisionShape2D key2_collisionShape =  GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-2/CollisionShape2D");
+		Sprite2D key3 = GetParent(). GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-3/Sprite2D");
+		CollisionShape2D key3_collisionShape =  GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-3/CollisionShape2D");
+		Sprite2D key4 =  GetParent().GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-4/Sprite2D");
+		CollisionShape2D key4_collisionShape =  GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-4/CollisionShape2D");
+		Sprite2D key5 =  GetParent().GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-5/Sprite2D");
+		CollisionShape2D key5_collisionShape =  GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-5/CollisionShape2D");
+		Sprite2D key6 =  GetParent().GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-6/Sprite2D");
+		CollisionShape2D key6_collisionShape =  GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-6/CollisionShape2D");
+		Sprite2D key7 =  GetParent().GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-7/Sprite2D");
+		CollisionShape2D key7_collisionShape =  GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-7/CollisionShape2D");
+		Sprite2D key8 =  GetParent().GetParent().GetParent().GetNode<Sprite2D>("keyset/StaticBody2D-key-8/Sprite2D");
+		CollisionShape2D key8_collisionShape = GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-key-8/CollisionShape2D");
+		StaticBody2D gate = GetParent().GetParent().GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-Gate");
+		CollisionShape2D gate_collisionShape = GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-Gate/CollisionShape2D");
 		if (key1 == null)
 		{
 			GD.Print("One or more keys are not found in the parent node.");
@@ -105,6 +114,22 @@ public partial class Demo : TouchScreenButton
 		GD.Print("Keys found and reset.");
 		key1.Visible = true;
 		key1_collisionShape.Disabled = false;
+		gate.Visible = true;
+		gate_collisionShape.Disabled = false;
+		key2.Visible = false;
+		key2_collisionShape.Disabled = true;
+		key3.Visible = false;
+		key3_collisionShape.Disabled = true;
+		key4.Visible = false;
+		key4_collisionShape.Disabled = true;
+		key5.Visible = false;
+		key5_collisionShape.Disabled = true;
+		key6.Visible = false;
+		key6_collisionShape.Disabled = true;
+		key7.Visible = false;
+		key7_collisionShape.Disabled = true;
+		key8.Visible = false;
+		key8_collisionShape.Disabled = true;
 		StaticBody2D freezer1 = GetParent().GetParent().GetParent().GetNode<StaticBody2D>("freezerset/StaticBody2D-freezer-1");
 		CollisionShape2D freezer1_collisionShape = GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("freezerset/StaticBody2D-freezer-1/CollisionShape2D");
 		StaticBody2D freezer2 = GetParent().GetParent().GetParent().GetNode<StaticBody2D>("freezerset/StaticBody2D-freezer-2");
@@ -118,13 +143,12 @@ public partial class Demo : TouchScreenButton
 		Sprite2D heart3 = GetParent().GetParent().GetParent().GetNode<Sprite2D>("Touchcontrols/heart3");
 		Sprite2D freezer_icon = GetParent().GetParent().GetParent().GetNode<Sprite2D>("Touchcontrols/freezer_icon");
 		Sprite2D sword_icon = GetParent().GetParent().GetParent().GetNode<Sprite2D>("Touchcontrols/sword_icon");
-		StaticBody2D gate = GetParent().GetParent().GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-Gate");
-		CollisionShape2D gate_collisionShape = GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-Gate/CollisionShape2D");
-		gate.Visible = true; // Show the gate
-		gate_collisionShape.Disabled = false; // Enable the gate collision shape
+		//StaticBody2D gate = GetParent().GetParent().GetParent().GetNode<StaticBody2D>("keyset/StaticBody2D-Gate");
+		//CollisionShape2D gate_collisionShape = GetParent().GetParent().GetParent().GetNode<CollisionShape2D>("keyset/StaticBody2D-Gate/CollisionShape2D");
+		//gate.Visible = true; // Show the gate
+		//gate_collisionShape.Disabled = false; // Enable the gate collision shape
 		freezer_icon.Visible = false; // Show the freezer icon
 		sword_icon.Visible = false; // Show the sword icon
-		Character.Health = 3; // Reset character health to 3
 		Monster1.Monster_currentCooldown = 0f; // Reset monster cooldown
 		Monster2.Monster_currentCooldown = 0f; // Reset monster cooldown
 		Monster3.Monster_currentCooldown = 0f; // Reset monster cooldown
@@ -156,7 +180,8 @@ public partial class Demo : TouchScreenButton
 		freezer2_collisionShape.Disabled = false;
 		freezer3.Visible = true;
 		freezer3_collisionShape.Disabled = false;
-		Timer.Wingame = false; // Reset the game state
+		
+		//return_to_main_failed
 		Sprite2D win_screen = GetParent().GetParent().GetParent().GetNode<Sprite2D>("Touchcontrols/wingame_screen");
 		Character.KeyAmount = 0; // Reset the key count
 		if (win_screen != null)
