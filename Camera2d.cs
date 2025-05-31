@@ -17,19 +17,4 @@ public partial class Camera2d : Camera2D
 			camera.MakeCurrent();
 }
 	}
-	/*private Node2D player;
-	// Called when the node enters the scene tree for the first time.
-
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		
-		if (player != null)
-		{
-			GlobalPosition = player.GlobalPosition;
-		}
-	
-	}
-	*/
 }
