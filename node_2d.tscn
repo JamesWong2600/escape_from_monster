@@ -33,7 +33,7 @@
 [ext_resource type="Script" uid="uid://clnuoy0lc6pdn" path="res://Freezer3.cs" id="29_7mj2a"]
 [ext_resource type="Texture2D" uid="uid://nu18s528m6ww" path="res://others/boss.png" id="29_ebxd8"]
 [ext_resource type="PackedScene" uid="uid://drvgkns1v81b2" path="res://addons/simple_health_bar/health_bar.tscn" id="30_2u7jv"]
-[ext_resource type="Script" uid="uid://b4l4ws8mscapa" path="res://Character.cs" id="30_fshgd"]
+[ext_resource type="Script" uid="uid://d3qfoycypa5v1" path="res://Character.cs" id="30_fshgd"]
 [ext_resource type="Script" uid="uid://c4wsdw3qk3c4r" path="res://Monster_boss.cs" id="30_mryly"]
 [ext_resource type="Texture2D" uid="uid://bxd8xf2ud8r2n" path="res://character/cool.png" id="31_3ngjr"]
 [ext_resource type="Texture2D" uid="uid://d3rwlyr34q7iw" path="res://character/monster (32x32).png" id="31_xfyss"]

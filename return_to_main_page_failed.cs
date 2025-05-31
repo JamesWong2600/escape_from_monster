@@ -25,7 +25,7 @@ public partial class return_to_main_page_failed : TouchScreenButton
 			GD.PrintErr("main_screen_background node not found at path!");
 			return;
 		}
-		//GD.Print("Button pressed! Returning to main page. 1");
+
 		Sprite2D wingame_screen = GetParent().GetNode<Sprite2D>("gameover");
 		if(wingame_screen == null)
 		{
@@ -33,7 +33,6 @@ public partial class return_to_main_page_failed : TouchScreenButton
 			return;
 		}
 		GD.Print("wingame_screen node found, proceeding to hide it. 2");
-		//GD.Print("Button pressed! Returning to main page. 2");
 
 		TouchScreenButton Button = GetParent().GetNode<TouchScreenButton>("Button");
 		if(Button == null)
@@ -49,11 +48,11 @@ public partial class return_to_main_page_failed : TouchScreenButton
 			return;
 		}
 		GD.Print("return_to_main_win node found, proceeding to hide it. 4");
-		return_to_main_win.Visible = false; // Hide the return to main win button
-		main_screen.Visible = true; // Show the main screen
+		return_to_main_win.Visible = false; 
+		main_screen.Visible = true; 
 		wingame_screen.Visible = false;
-		Button.Visible = false; // Hide the button
-		main_screen_background.Visible = true; // Show the main screen background
+		Button.Visible = false; 
+		main_screen_background.Visible = true; 
 		GD.Print("Button pressed! Returning to main page. 5");
 
 

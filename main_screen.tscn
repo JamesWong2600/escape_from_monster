@@ -1,18 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bj7v1qjdbg7y4"]
+[gd_scene load_steps=15 format=3 uid="uid://bj7v1qjdbg7y4"]
 
 [ext_resource type="Texture2D" uid="uid://bvubhdj1qtdp3" path="res://others/START.png" id="1_tjn2e"]
 [ext_resource type="Texture2D" uid="uid://hs64hdy7qu1d" path="res://others/the_main_screen.png" id="1_w0p2i"]
 [ext_resource type="Texture2D" uid="uid://ra5irgxomqc8" path="res://others/register.png" id="4_kwhh3"]
 [ext_resource type="Texture2D" uid="uid://fsts42ybips7" path="res://others/PLAY.png" id="5_3qsiq"]
 [ext_resource type="Texture2D" uid="uid://criourlvmyvuu" path="res://others/LOGIN.png" id="5_4sclt"]
-[ext_resource type="Script" uid="uid://b10k3uceyb54k" path="res://To_Login_page.cs" id="5_62wn8"]
-[ext_resource type="Script" uid="uid://cg6wo54inx07q" path="res://To_Register_page.cs" id="6_sjiej"]
 [ext_resource type="Texture2D" uid="uid://b017ilawbsu1m" path="res://others/grey.png" id="7_ue4rx"]
 [ext_resource type="Script" uid="uid://1nfsi4c53tfs" path="res://Demo.cs" id="8_cxp7d"]
 [ext_resource type="Script" uid="uid://6lwp3r1x5iku" path="res://Register_submit.cs" id="9_4sv2p"]
 [ext_resource type="Texture2D" uid="uid://bhu3sxgfrdhd5" path="res://others/RANKING.png" id="9_sj757"]
 [ext_resource type="Script" uid="uid://78ulxhc2werp" path="res://Login_submit.cs" id="10_0osx7"]
-[ext_resource type="Script" uid="uid://d2cisasprul0m" path="res://To_ranking_page.cs" id="10_7sxnj"]
 [ext_resource type="Script" uid="uid://b8tbgxx4tnek4" path="res://return_to_main_page_from_register.cs" id="13_p3r6q"]
 [ext_resource type="Script" uid="uid://cip2h4phrvbkq" path="res://return_to_main_page.cs" id="13_ups6l"]
 [ext_resource type="Texture2D" uid="uid://bnsfqm5som6fi" path="res://others/RETURN.png" id="14_cxp7d"]
@@ -45,7 +42,6 @@ modulate = Color(1, 0, 0, 1)
 position = Vector2(535, 822)
 scale = Vector2(0.856, 0.87)
 texture_normal = ExtResource("5_4sclt")
-script = ExtResource("5_62wn8")
 
 [node name="demo" type="TouchScreenButton" parent="main_screen"]
 position = Vector2(1045, 425)
@@ -58,14 +54,12 @@ modulate = Color(0.970703, 0, 0, 1)
 position = Vector2(1039, 813)
 scale = Vector2(0.846, 0.925)
 texture_normal = ExtResource("4_kwhh3")
-script = ExtResource("6_sjiej")
 
 [node name="to_ranking" type="TouchScreenButton" parent="main_screen"]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(1530, 813)
 scale = Vector2(0.896, 0.915)
 texture_normal = ExtResource("9_sj757")
-script = ExtResource("10_7sxnj")
 
 [node name="HttpRequest" type="HTTPRequest" parent="main_screen/to_ranking"]
 

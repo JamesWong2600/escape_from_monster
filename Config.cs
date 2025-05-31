@@ -7,4 +7,3 @@ public class Config
 	public static string domain = File.ReadAllText("domain.txt");
   
 }
-	//public static string domain = "http://127.0.0.1:8001";
