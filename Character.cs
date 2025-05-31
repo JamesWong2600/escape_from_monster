@@ -610,7 +610,7 @@ public partial class Character : CharacterBody2D
 						GD.Print("User sent: ", username.Text.Replace("Welcome ", ""));
 						GD.Print("User sent: ", Mathf.RoundToInt(scoreValue).ToString("F0"));
 
-						string url = config.domain + "/update_player_scores/";
+						string url = Config.domain + "/update_player_scores/";
 						// JSON payload
 						string json = $"{{\"username\": \"{username.Text.Replace("Welcome ", "")}\", \"scores\": \"{Mathf.RoundToInt(scoreValue).ToString("F0")}\"}}";
 

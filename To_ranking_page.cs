@@ -74,7 +74,7 @@ public partial class To_ranking_page : TouchScreenButton
 		// JSON payload
 
 		httpRequest.RequestCompleted += OnRequestCompleted;
-		string url = config.domain+"/get_player_scores/";
+		string url = Config.domain+"/get_player_scores/";
 		// POST request
 		
 		httpRequest.Request(url); // Pass the JSON string directly

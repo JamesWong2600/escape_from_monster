@@ -34,7 +34,7 @@ public partial class Login_submit : TouchScreenButton
 		HttpRequest httpRequest = GetNode<HttpRequest>("httpRequest");
 		GD.Print("User sent: ", inputBox_username.Text);
 		GD.Print("User sent: ", inputBox_password.Text);
-		string url = config.domain+"/login/";
+		string url = Config.domain+"/login/";
 		username_value = inputBox_username.Text;
 		
 

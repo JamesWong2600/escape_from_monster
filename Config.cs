@@ -1,6 +1,11 @@
 using System;
-public class config
+using System.IO;
+public class Config
 {
-	public static string domain = "http://ec2-3-89-75-5.compute-1.amazonaws.com:8002";
-	//public static string domain = "http://127.0.0.1:8001";
+	// input your domain in the domain.txt file
+	// format: http://your-domain.com:port
+	public static string domain = File.ReadAllText("domain.txt");
+  
 }
+	//public static string domain = "http://127.0.0.1:8001";
+

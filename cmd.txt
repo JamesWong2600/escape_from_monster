@@ -1,2 +1,3 @@
 source env/bin/activate  
 venv\Scripts\activate   
+"http://ec2-3-89-75-5.compute-1.amazonaws.com:8002";

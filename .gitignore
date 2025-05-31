@@ -2,3 +2,5 @@
 .godot/
 /android/
 venv
+cmd.txt
+domain.txt

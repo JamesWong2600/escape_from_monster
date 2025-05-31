@@ -21,20 +21,20 @@ freezer and swords
 
 # monster
 1. **Walker (total 5)** 
-    walker will be freezed as a ice cube for 15 seconds if you are 
-    holding a freezer and touch him. Otherwise, you will lose a heart 
+	walker will be freezed as a ice cube for 15 seconds if you are 
+	holding a freezer and touch him. Otherwise, you will lose a heart 
 
 2. **Runner (1 only)**  
-    runner will be 20% damaged if you are holding a sword and touch him.
-    Otherwise, you will lose a heart 
+	runner will be 20% damaged if you are holding a sword and touch him.
+	Otherwise, you will lose a heart 
 
 # tools_usage
 1. **Freezer**  
-    there are total 3 freezer in the map, they can freeze walker
-    (dont perform it to runner, otherwise you will lose a heart)
+	there are total 3 freezer in the map, they can freeze walker
+	(dont perform it to runner, otherwise you will lose a heart)
 2. **Sword**  
-    there are total 5 sword in the map, they can damage runner
-    (dont perform it to walker, otherwise you will lose a heart)
+	there are total 5 sword in the map, they can damage runner
+	(dont perform it to walker, otherwise you will lose a heart)
 
 
 # win_game_requirement
@@ -53,7 +53,12 @@ see the release
    git clone https://github.com/JamesWong2600/escape_from_monster.git
 ```
 2. import the folder "escape_from_monster" as the project in godot
-3. click "Project" at the top-left corner
-4. click "export"
-5. select the type you want to export e.g. apk, exe）
-6. then the exported product will be in your "escape_from_monster" directory
+3. open the project in code editor (e.g.vscode)
+4. add a file must named "domain.txt" at the root path and paste your domain in the txt file
+```bash
+   git clone http://ip:port
+```
+5. click "Project" at the top-left corner
+6. click "export"
+7. select the type you want to export (e.g. apk, exe)
+8. then the exported product will be in your "escape_from_monster" directory

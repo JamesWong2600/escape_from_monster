@@ -44,7 +44,7 @@ public partial class Register_submit : TouchScreenButton
 		GD.Print("User sent: ", inputBox_username.Text);
 		GD.Print("User sent: ", inputBox_password.Text);
 		GD.Print("User sent: ", inputBox_retype_password.Text);
-		string url = config.domain+"/register/";
+		string url = Config.domain+"/register/";
 		username_value = inputBox_username.Text;
 		// JSON payload
 		string json = $"{{\"username\": \"{inputBox_username.Text}\", \"password\": \"{inputBox_password.Text}\", \"re_type_password\": \"{inputBox_retype_password.Text}\"}}";
