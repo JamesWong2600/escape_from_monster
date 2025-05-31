@@ -3,6 +3,7 @@ using System;
 
 public partial class Camera2d : Camera2D
 {
+	//initialize the camera node
 	public override void _Ready()
 	{
 
@@ -15,6 +16,6 @@ public partial class Camera2d : Camera2D
 		else
 		{
 			camera.MakeCurrent();
-}
+		}
 	}
 }

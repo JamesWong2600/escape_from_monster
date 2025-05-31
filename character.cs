@@ -129,6 +129,7 @@ public partial class Character : CharacterBody2D
 		}
 		else if (gamestart == true)
 		{
+			//the keyboard / joystick input handle
 			if (Input.IsActionPressed("right"))
 				direction.X += 1;
 			if (Input.IsActionPressed("left"))
@@ -144,7 +145,6 @@ public partial class Character : CharacterBody2D
 			if (Velocity.Length() > 0f)
 			{
 				animatedSprite2D.Play("run");
-				//GD.Print("Character is moving");
 			}
 			else
 			{
