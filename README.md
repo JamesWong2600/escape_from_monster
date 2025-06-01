@@ -1,6 +1,6 @@
 # escape_from_monster
 This is a game to control a squirrel to escape from a area,
-the squarrel must collect all 8 keys in the map to open the
+the squirrel must collect all 8 keys in the map to open the
 gate to escape. You can also defeat the boss to get 3000
 bonus scores if you want. Also, there are 2 type of tools
 to overcome the enemies(walker, runner), they are 
@@ -10,7 +10,7 @@ freezer and swords
 
 | Name               | Screenshot                                  | Description                      |
 |--------------------|---------------------------------------------|----------------------------------|
-| squirrel           | ![Timer UI](readme_img/squarrel.png)        | the main character               |
+| squirrel           | ![Timer UI](readme_img/squirrel.png)        | the main character               |
 | walker             | ![Settings Panel](readme_img/walker.png)    | 5 monsters                       |
 | runner             | ![Statistics View](readme_img/runner.png)   | 1 monster                        |  
 | key                | ![Statistics View](readme_img/key.png)      | the key to open the gate         | 
