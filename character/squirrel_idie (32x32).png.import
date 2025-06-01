@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://borp07a0tt2gh"
-path="res://.godot/imported/squarrel.png-b6c4b1d7a0661d8fc4877668d00e4914.ctex"
+uid="uid://mbieredcnx3w"
+path="res://.godot/imported/squirrel_idie (32x32).png-89634990bcaaf7d8fecf74b73af1901b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://character/squarrel.png"
-dest_files=["res://.godot/imported/squarrel.png-b6c4b1d7a0661d8fc4877668d00e4914.ctex"]
+source_file="res://character/squirrel_idie (32x32).png"
+dest_files=["res://.godot/imported/squirrel_idie (32x32).png-89634990bcaaf7d8fecf74b73af1901b.ctex"]
 
 [params]
 

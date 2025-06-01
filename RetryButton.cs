@@ -248,7 +248,7 @@ public partial class RetryButton : TouchScreenButton
 
 
 		// Reset key amount label
-		key_amount.Text = "0"; 
+		key_amount.Text = "0 / 8"; 
 
 		// Reset boss health and score
 		Character.Boss_health = 5f;

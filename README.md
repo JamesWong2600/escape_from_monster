@@ -1,5 +1,5 @@
 # escape_from_monster
-This is a game to control a squarrel to escape from a area,
+This is a game to control a squirrel to escape from a area,
 the squarrel must collect all 8 keys in the map to open the
 gate to escape. You can also defeat the boss to get 3000
 bonus scores if you want. Also, there are 2 type of tools
@@ -10,7 +10,7 @@ freezer and swords
 
 | Name               | Screenshot                                  | Description                      |
 |--------------------|---------------------------------------------|----------------------------------|
-| squarrel           | ![Timer UI](readme_img/squarrel.png)        | main character.                  |
+| squirrel           | ![Timer UI](readme_img/squarrel.png)        | the main character               |
 | walker             | ![Settings Panel](readme_img/walker.png)    | 5 monsters                       |
 | runner             | ![Statistics View](readme_img/runner.png)   | 1 monster                        |  
 | key                | ![Statistics View](readme_img/key.png)      | the key to open the gate         | 
@@ -56,7 +56,7 @@ see the release
 3. open the project in code editor (e.g.vscode)
 4. add a file must named "domain.txt" at the root path and paste your domain in the txt file
 ```bash
-   git clone http://ip:port
+   http://ip:port
 ```
 5. click "Project" at the top-left corner
 6. click "export"
